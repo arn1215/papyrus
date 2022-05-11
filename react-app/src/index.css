@@ -4,16 +4,16 @@
 }
 
 .popup-content {
-  background: #181818ef;
+  background: #838383ef;
   color: rgb(255, 255, 255);
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  font-family:  Helvetica, sans-serif;
   margin: auto;
   border-radius: 10px;
-  width: 50%;
-  padding: 2px 20px;
+  width: fit-content;
+  padding: 20px 20px;
+  font-size: 8px;
   
-  -webkit-animation: anvil 0.1s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+  -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
 
 .popup-overlay {

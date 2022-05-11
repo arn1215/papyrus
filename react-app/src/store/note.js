@@ -1,6 +1,6 @@
 const CREATE_NOTE = '/notes/post'
 const UPDATE_NOTE = '/notes/edit'
-const NOTE_DELETE = '/notes/delete'
+const DELETE_NOTE = '/notes/delete'
 const READ_NOTES = '/notes/read'
 
 const get_notes = payload => {
@@ -13,6 +13,13 @@ const get_notes = payload => {
 const post_note = payload => {
   return {
     type: CREATE_NOTE,
+    payload
+  }
+}
+
+const delete_note = payload => {
+  return {
+    type: DELETE_NOTE,
     payload
   }
 }
@@ -39,6 +46,16 @@ export const createNote = (note) => async dispatch => {
 
 }
 
+export const deleteNote = (id) => async dispatch => {
+  const res = await fetch(`api/notes/${id}`, {
+    method: 'DELETE',
+    body: JSON.stringify(id),
+    headers: {'Content-Type': 'application/json'}
+  })
+  const data = await res.json();
+  dispatch(delete_note(id))
+  return data
+} 
 
 const initialState = {}
 

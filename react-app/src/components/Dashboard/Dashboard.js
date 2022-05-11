@@ -31,9 +31,11 @@ const DashBoard = () => {
       >
       <CreateNoteForm />
     </Popup>
+    <div className='note-list'>
     {noteState?.map(note => 
       <Note note={note} />
       )}
+    </div>
     </>
   )
 }
