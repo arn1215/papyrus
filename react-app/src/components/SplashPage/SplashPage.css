@@ -1,0 +1,27 @@
+.popup-content {
+  background: #ff0000ef;
+  color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin: auto;
+  border-radius: 10px;
+  width: 50%;
+  padding: 2px 20px;
+  
+  -webkit-animation: anvil 0.1s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+}
+
+.popup-overlay {
+  background: #181818;
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
+}
+
+.popup-arrow {
+  color:  #181818;
+}
+[role='tooltip'].popup-content {
+  width: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}

@@ -6,7 +6,7 @@ class Note(db.Model):
     __tablename__ = 'notes'
 
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.String(40), nullable=False)
+    userId = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(255), nullable=False)
     content = db.Column(db.String(255), nullable=False)
     notebookId = db.Column(db.Integer,db.ForeignKey('notebooks.id'), nullable=True)
