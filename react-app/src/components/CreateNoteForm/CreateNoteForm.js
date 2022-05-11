@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { createNote } from "../../store/note";
+import { createNote, getNotes } from "../../store/note";
 
 const CreateNoteForm = () => {
   const history = useHistory();
@@ -21,6 +21,7 @@ const CreateNoteForm = () => {
       content
     };
     const newNote = await dispatch(createNote(note));
+    dispatch(getNotes())
 
     if (newNote.errors) return setErrors(newNote.errors.name);
     // history.push(`/channels/${location.server_id}/${newChannel.id}`);
