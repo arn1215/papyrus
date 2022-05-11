@@ -29,7 +29,7 @@ def upgrade():
     )
     op.create_table('notes',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('userId', sa.String(length=40), nullable=False),
+    sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=255), nullable=False),
     sa.Column('content', sa.String(length=255), nullable=False),
     sa.Column('notebookId', sa.Integer(), nullable=True),
@@ -40,7 +40,7 @@ def upgrade():
     )
     op.create_table('Tags',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('userId', sa.String(length=40), nullable=False),
+    sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
     sa.Column('noteId', sa.Integer(), nullable=False),
     sa.Column('createdAt', sa.DateTime(), nullable=False),

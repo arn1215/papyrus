@@ -9,6 +9,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage';
+import CreateNoteForm from './components/CreateNoteForm/CreateNoteForm';
+import DashBoard from './components/Dashboard/Dashboard';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,7 +46,11 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
+          <DashBoard />
         </ProtectedRoute>
+        <Route path='/notes' exact={true}>
+          <CreateNoteForm />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
