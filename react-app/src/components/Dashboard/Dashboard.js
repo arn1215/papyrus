@@ -26,7 +26,7 @@ const DashBoard = () => {
       )}
       position=" center"
       className="server_icon"
-      closeOnEscape
+      closeOnDocumentClick
       on={'click'}
       >
       <CreateNoteForm />
