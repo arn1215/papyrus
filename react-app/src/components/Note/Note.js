@@ -1,11 +1,12 @@
 import './note.css'
-import { FaCircle } from 'react-icons/fa'
+import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 import Popup from 'reactjs-popup'
 import { useDispatch } from 'react-redux'
 import { deleteNote, getNotes } from '../../store/note'
 import { useHistory } from 'react-router-dom'
 import { useRef } from 'react'
 import Draggable from 'react-draggable'
+import EditNoteForm from '../EditNoteForm/EditNoteForm'
 
 
 const Note = ({ note }) => {
@@ -18,8 +19,6 @@ const Note = ({ note }) => {
   const onDelete = async (id) => {
     await dispatch(deleteNote(note.id))
     await dispatch(getNotes())
-
-
   }
 
 
@@ -33,15 +32,29 @@ const Note = ({ note }) => {
             <div className='note-header'>
               <div className='note-icons'>
                 <Popup
-                  trigger={open => (
-                    <div>
-                      <FaCircle className="x-icon" />
-                    </div>
-                  )}
-                  position=" center"
-                  className="server_icon"
-                  closeOnEscape
-                  on={'click'}
+                    trigger={open => (
+                      <div>
+                        <FaEdit className="x-icon" />
+                      </div>
+                    )}
+                    position="center"
+                    className="note_icon"
+                    closeOnEscape
+                    on={'click'}
+                  >
+                    <EditNoteForm />
+                  </Popup>
+                  
+                  <Popup
+                    trigger={open => (
+                      <div>
+                        <FaTrashAlt className="x-icon" />
+                      </div>
+                    )}
+                    position=" center"
+                    className="note_icon"
+                    closeOnEscape
+                    on={'click'}
                 >
                   <h1>Are you sure you want to delete this note?</h1>
                   <button onClick={onDelete}>Yes</button>

@@ -17,6 +17,13 @@ const post_note = payload => {
   }
 }
 
+const edit_note = payload => {
+  return {
+    type: UPDATE_NOTE,
+    payload
+  }
+}
+
 const delete_note = payload => {
   return {
     type: DELETE_NOTE,
@@ -42,6 +49,20 @@ export const createNote = (note) => async dispatch => {
   const data = await res.json()
 
   dispatch(post_note(note))
+  return data;
+
+}
+
+export const editNote = (note) => async dispatch => {
+  const {title, content} = note;
+  const res = await fetch(`/api/notes/${note.id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({title, content}),
+    headers: {'Content-Type': 'application/json'}
+  })
+
+  const data = await res.json()
+  dispatch(edit_note(data))
   return data;
 
 }

@@ -36,6 +36,19 @@ def create_note():
   else:
     return {"errors": form.errors}
 
+@note_routes.route('/<int:id>', methods=['PATCH'])
+@login_required
+def edit_note(id):
+  data = request.get_json()
+
+  note = Note.query.get(id)
+  note.title = data['title']
+  note.content = data['content']
+
+  db.session.commit()
+
+  return note.to_dict()
+
 # delete notes
 @note_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
