@@ -27,6 +27,11 @@
   width: 310px;
   height: 310px;
   font-size: 18px;
+  
+}
+
+.note:hover .note-header {
+  background-color: #c885ff;
 }
 
 .note-header {
@@ -37,6 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: right;
+  transition: all 0.9s cubic-bezier(.25, .8, .25, 1);
 }
 
 .x-icon {
@@ -47,7 +53,7 @@
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1); 
 }
 .x-icon:hover {
-  color: #c885ff;
+  color: #57d6a1;
 }
 
 .note-content {

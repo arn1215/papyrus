@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { getNotes } from '../../store/note';
 import { useSelector } from 'react-redux';
 import Note from '../Note/Note';
+import './Dashboard.css'
+import { FaPlusCircle } from 'react-icons/fa';
 
 const DashBoard = () => {
   const dispatch = useDispatch()
@@ -18,10 +20,12 @@ const DashBoard = () => {
   
   return (
     <>
+
+    <div className='note-list'>
     <Popup
       trigger={open => (
-        <div>
-          <h4>create a note</h4>
+        <div className='note-create'>
+          <FaPlusCircle />
         </div>
       )}
       position=" center"
@@ -31,7 +35,6 @@ const DashBoard = () => {
       >
       <CreateNoteForm />
     </Popup>
-    <div className='note-list'>
     {noteState?.map(note => 
       <Note note={note} />
       )}

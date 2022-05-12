@@ -11,6 +11,7 @@ const EditNoteForm = ({ note }) => {
   const [title, setTitle] = useState(`${note.title}`);
   const [content, setContent] = useState(`${note.content}`);
   const [errors, setErrors] = useState([]);
+  const [contentErr, setContentErr] = useState([])
 
   const updateTitle = (e) => setTitle(e.target.value);
   const updateContent = (e) => setContent(e.target.value)
@@ -26,9 +27,15 @@ const EditNoteForm = ({ note }) => {
     
     dispatch(getNotes())
 
-    console.log(updateNote.errors)
-    if (updateNote.errors) return setErrors(updateNote.errors.title);
-    console.log(errors)
+    
+    if (updateNote.errors?.title) {
+      setErrors(updateNote.errors?.title)
+      
+    }
+    if (updateNote.errors?.content) {
+      return setContentErr(updateNote.errors?.content) 
+    }
+    
     // history.push(`/channels/${location.server_id}/${newChannel.id}`);
   }
   const backButton = () => {
@@ -36,7 +43,7 @@ const EditNoteForm = ({ note }) => {
   }
 
   return (
-    <div className='whole-page-div'>
+    <div className='who'>
       <div className="signup-form-container">
         <div className="login-form-text-container">
           <h1>Edit note.{note.id}</h1>
@@ -55,8 +62,8 @@ const EditNoteForm = ({ note }) => {
                 value={title}
                 onChange={updateTitle}
               />
-              {errors?.map(error => {
-                return (<p className="signup-error" key={error}>{error}</p>)
+              {errors?.map(message => {
+                return (<p className='server-form-error' key={message.title}>{message}</p>)
               })}
             </div>
             <div className='login-form-group'>
@@ -68,8 +75,8 @@ const EditNoteForm = ({ note }) => {
                 value={content}
                 onChange={updateContent}
               />
-              {errors?.map(error => {
-                return (<p className="signup-error" key={error}>{error}</p>)
+              {contentErr?.map(msg => {
+                return (<p className='server-form-error' key={msg.content}>{msg}</p>)
               })}
             </div>
           </form>

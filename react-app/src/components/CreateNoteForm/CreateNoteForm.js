@@ -11,6 +11,7 @@ const CreateNoteForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [errors, setErrors] = useState([]);
+  const [contentErr, setContentErr] = useState([])
 
   const updateTitle = (e) => setTitle(e.target.value);
   const updateContent = (e) => setContent(e.target.value)
@@ -23,7 +24,13 @@ const CreateNoteForm = () => {
     const newNote = await dispatch(createNote(note));
     dispatch(getNotes())
 
-    if (newNote.errors) return setErrors(newNote.errors.name);
+    if (newNote.errors?.title) {
+      setErrors(newNote.errors?.title)
+      
+    }
+    if (newNote.errors?.content) {
+      return setContentErr(newNote.errors?.content) 
+    }
     // history.push(`/channels/${location.server_id}/${newChannel.id}`);
   }
   const backButton = () => {
@@ -50,8 +57,8 @@ const CreateNoteForm = () => {
                 value={title}
                 onChange={updateTitle}
               />
-              {errors?.map(error => {
-                return (<p className="signup-error" key={error}>{error}</p>)
+              {errors?.map(message => {
+                return (<p className='server-form-error' key={message.title}>{message}</p>)
               })}
             </div>
             <div className='login-form-group'>
@@ -63,8 +70,8 @@ const CreateNoteForm = () => {
                 value={content}
                 onChange={updateContent}
               />
-              {errors?.map(error => {
-                return (<p className="signup-error" key={error}>{error}</p>)
+              {contentErr?.map(msg => {
+                return (<p className='server-form-error' key={msg.content}>{msg}</p>)
               })}
             </div>
           </form>
