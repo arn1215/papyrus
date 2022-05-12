@@ -26,7 +26,7 @@ const Note = ({ note }) => {
 
   return (
     <>
-      <Draggable>
+      
         <div className='note-container'>
           <div className="note">
             <div className='note-header'>
@@ -42,7 +42,7 @@ const Note = ({ note }) => {
                     closeOnEscape
                     on={'click'}
                   >
-                    <EditNoteForm />
+                    <EditNoteForm note={note} />
                   </Popup>
                   
                   <Popup
@@ -68,7 +68,7 @@ const Note = ({ note }) => {
           </div>
           <h4>{note.title}</h4>
         </div>
-      </Draggable>
+      
     </>
   )
 }

@@ -2,28 +2,33 @@ import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { createNote, getNotes } from "../../store/note";
+import { createNote, editNote, getNotes } from "../../store/note";
 
-const EditNoteForm = (note) => {
+const EditNoteForm = ({ note }) => {
   const history = useHistory();
   const location = useLocation();
   const dispatch = useDispatch();
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState(`${note.title}`);
+  const [content, setContent] = useState(`${note.content}`);
   const [errors, setErrors] = useState([]);
 
   const updateTitle = (e) => setTitle(e.target.value);
   const updateContent = (e) => setContent(e.target.value)
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    const note = {
+    const newNote = {
       title,
-      content
+      content,
+      id: note.id
     };
-    const newNote = await dispatch(createNote(note));
+    const updateNote = await dispatch(editNote(newNote));
+    
     dispatch(getNotes())
 
-    if (newNote.errors) return setErrors(newNote.errors.name);
+    console.log(updateNote.errors)
+    if (updateNote.errors) return setErrors(updateNote.errors.title);
+    console.log(errors)
     // history.push(`/channels/${location.server_id}/${newChannel.id}`);
   }
   const backButton = () => {
@@ -34,7 +39,7 @@ const EditNoteForm = (note) => {
     <div className='whole-page-div'>
       <div className="signup-form-container">
         <div className="login-form-text-container">
-          <h1>Create a note.</h1>
+          <h1>Edit note.{note.id}</h1>
         </div>
         <div className="login-form-input">
           <form
@@ -47,7 +52,7 @@ const EditNoteForm = (note) => {
                 type="text"
                 className="input"
                 name='title'
-                value={note.title}
+                value={title}
                 onChange={updateTitle}
               />
               {errors?.map(error => {
@@ -60,7 +65,7 @@ const EditNoteForm = (note) => {
                 type="text"
                 className="input"
                 name='content'
-                value={note.content}
+                value={content}
                 onChange={updateContent}
               />
               {errors?.map(error => {

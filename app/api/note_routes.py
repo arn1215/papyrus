@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.forms.create_note_form import NoteForm
+from app.forms.edit_form import EditForm
 from app.models import User, Note, NoteBook, Tag, db
 
 note_routes = Blueprint('notes', __name__)
@@ -39,15 +40,19 @@ def create_note():
 @note_routes.route('/<int:id>', methods=['PATCH'])
 @login_required
 def edit_note(id):
+  form = EditForm()
   data = request.get_json()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+    note = Note.query.get(id)
+    note.title = data['title']
+    note.content = data['content']
 
-  note = Note.query.get(id)
-  note.title = data['title']
-  note.content = data['content']
+    db.session.commit()
 
-  db.session.commit()
-
-  return note.to_dict()
+    return note.to_dict()
+  else:
+    return {"errors": form.errors}
 
 # delete notes
 @note_routes.route('/<int:id>', methods=['DELETE'])
