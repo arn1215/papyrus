@@ -10,12 +10,12 @@ const NotebookBar = () => {
   
   return (
     <div className='notebook-bar'>
-    <h3>New Notebook</h3>
-    <CreateNotebook />
-    {notebookState?.map(notebook =>
-      <Link className='link' to={`notebooks/${notebook.id}`}>{notebook.title}< /Link>
-      )}
-      
+      <h3>New Notebook</h3>
+      <CreateNotebook />
+      {notebookState?.map(notebook =>
+        <Link className='link' to={`/notebooks/${notebook.id}`} >{notebook.title}</Link>
+        )}
+        
     </div>
   )
 }

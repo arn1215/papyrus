@@ -51,8 +51,11 @@ function App() {
             <DashBoard />
           </div>
         </ProtectedRoute>
-        <Route path='/notes' exact={true}>
-          <CreateNoteForm />
+        <Route path='/notebooks/:notebook_id(\d{0,4})' exact={true}>
+          <div className='notebook-notes-container'>
+            <NotebookBar  />
+            <DashBoard />
+          </div>
         </Route>
       </Switch>
     </BrowserRouter>
