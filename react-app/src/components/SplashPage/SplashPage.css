@@ -12,7 +12,7 @@
 }
 
 .popup-overlay {
-  background: #181818;
+  background: #18181818;
 }
 [data-popup='tooltip'].popup-overlay {
   background: transparent;

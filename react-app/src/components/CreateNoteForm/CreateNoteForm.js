@@ -22,14 +22,14 @@ const CreateNoteForm = () => {
       content
     };
     const newNote = await dispatch(createNote(note));
-    dispatch(getNotes())
+    await dispatch(getNotes())
 
     if (newNote.errors?.title) {
       setErrors(newNote.errors?.title)
-      
+
     }
     if (newNote.errors?.content) {
-      return setContentErr(newNote.errors?.content) 
+      return setContentErr(newNote.errors?.content)
     }
     // history.push(`/channels/${location.server_id}/${newChannel.id}`);
   }

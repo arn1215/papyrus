@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
@@ -12,7 +12,7 @@ const EditNoteForm = ({ note }) => {
   const [content, setContent] = useState(`${note.content}`);
   const [errors, setErrors] = useState([]);
   const [contentErr, setContentErr] = useState([])
-
+  
   const updateTitle = (e) => setTitle(e.target.value);
   const updateContent = (e) => setContent(e.target.value)
 
@@ -28,13 +28,14 @@ const EditNoteForm = ({ note }) => {
     dispatch(getNotes())
 
     
-    if (updateNote.errors?.title) {
+    if (updateNote.errors?.title || updateNote.errors?.content) {
       setErrors(updateNote.errors?.title)
+      setContentErr(updateNote.errors?.content) 
       
     }
-    if (updateNote.errors?.content) {
-      return setContentErr(updateNote.errors?.content) 
-    }
+    // if (updateNote.errors?.content) {
+    //   return setContentErr(updateNote.errors?.content) 
+    // }
     
     // history.push(`/channels/${location.server_id}/${newChannel.id}`);
   }

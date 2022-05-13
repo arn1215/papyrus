@@ -13,16 +13,12 @@ const Note = ({ note }) => {
 
   const dispatch = useDispatch()
   const history = useHistory()
-  const ref = useRef()
 
 
   const onDelete = async (id) => {
     await dispatch(deleteNote(note.id))
     await dispatch(getNotes())
   }
-
-
-
 
   return (
     <>
@@ -55,6 +51,7 @@ const Note = ({ note }) => {
                     className="note_icon"
                     closeOnEscape
                     on={'click'}
+                    
                 >
                   <h1>Are you sure you want to delete this note?</h1>
                   <button onClick={onDelete}>Yes</button>
