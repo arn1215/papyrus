@@ -4,10 +4,20 @@
   color: aquamarine;
   font-size: 40px;
   margin-right: 100px;
+  width: fit-content;
   
+}
+
+.create {
+  width: 50px;
 }
 
 .note-create:hover {
   color:#c885ff;
   font-size: 48px;
+}
+
+.notebook-notes-container {
+  display: flex;
+  flex-direction: row;
 }

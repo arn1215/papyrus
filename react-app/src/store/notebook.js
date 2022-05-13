@@ -32,12 +32,14 @@ const delete_notebook = payload => {
 }
 
 
-export const getnotebooks = () => async dispatch => {
+export const getNotebooks = () => async dispatch => {
   const res = await fetch(`/api/notebooks/`);
   const notebookArr = await res.json();
 
   dispatch(get_notebooks(notebookArr));
 }
+
+// make a thunk for getting one specific notebook (maybe)
 
 export const createNotebook = (notebook) => async dispatch => {
   const { title, content } = notebook;
@@ -74,7 +76,7 @@ export const editNote = (notebook) => async dispatch => {
 
 }
 
-export const deleteNote = (id) => async dispatch => {
+export const deleteNotebook = (id) => async dispatch => {
   const res = await fetch(`api/notebooks/${id}`, {
     method: 'DELETE',
     body: JSON.stringify(id),
@@ -98,7 +100,7 @@ const NotebookReducer = (state = initialState, action) => {
       return newState;
     
      //refactor  
-      case READ:
+      case READ_NOTEBOOKS:
       let payload = action.payload['notebooks']
       newState = { ...state, notebooks: payload }
       payload?.forEach(notebook => {

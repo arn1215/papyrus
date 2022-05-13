@@ -14,6 +14,7 @@ class Note(db.Model):
     createdAt = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updatedAt = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
+    notebook = db.relationship('Notebook', back_populates='notes')
 
 
     def to_dict(self):

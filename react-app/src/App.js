@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage';
 import CreateNoteForm from './components/CreateNoteForm/CreateNoteForm';
 import DashBoard from './components/Dashboard/Dashboard';
+import NotebookBar from './components/NotebookBar/NotebookBar';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -45,8 +46,10 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-          <DashBoard />
+          <div className='notebook-notes-container'>
+            <NotebookBar  />
+            <DashBoard />
+          </div>
         </ProtectedRoute>
         <Route path='/notes' exact={true}>
           <CreateNoteForm />
