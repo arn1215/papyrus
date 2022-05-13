@@ -12,6 +12,7 @@ import SplashPage from './components/SplashPage/SplashPage';
 import DashBoard from './components/Dashboard/Dashboard';
 import NotebookBar from './components/NotebookBar/NotebookBar';
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
