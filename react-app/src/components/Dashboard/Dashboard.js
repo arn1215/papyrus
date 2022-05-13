@@ -8,7 +8,8 @@ import Note from '../Note/Note';
 import './Dashboard.css'
 import { FaEdit, FaPlusCircle } from 'react-icons/fa';
 import CreateNotebook from '../CreateNotebook/CreateNotebook';
-import { getNotebooks } from '../../store/notebook';
+import { getNotebook, getNotebooks } from '../../store/notebook';
+import { useParams } from 'react-router-dom';
 
 const DashBoard = () => {
   const dispatch = useDispatch()
@@ -20,6 +21,9 @@ const DashBoard = () => {
   const [contentErr, setContentErr] = useState([])
   const [open, setOpen] = useState(false)
   const notebookState = useSelector(state => state.notebooks?.notebooks)
+  const singleNotebook = useSelector(state => state.notebooks?.notebook)
+  console.log(singleNotebook)
+  const params = useParams()
   
   const updateTitle = (e) => setTitle(e.target.value);
   const updateContent = (e) => setContent(e.target.value)
@@ -29,8 +33,10 @@ const DashBoard = () => {
     e.preventDefault();
     const note = {
       title,
-      content
+      content,
+      notebook_id: params.notebook_id
     };
+    console.log(note)
     const newNote = await dispatch(createNote(note));
     
 
@@ -53,14 +59,19 @@ const DashBoard = () => {
 
 
   useEffect(() => {
-    dispatch(getNotes())
+    dispatch(getNotes(params.notebook_id))
     dispatch(getNotebooks())
-  }, [dispatch])
+    // dispatch(getNotebook(params.notebook_id))
+  }, [dispatch, params])
 
 
   return (
     <>
+    
       <div className='note-list'>
+        <div className='notebook-title'>
+          <h3 style={{color: 'white'}}>{singleNotebook?.title}</h3>
+        </div>
         <Popup
           trigger={open => (
             <div className='note-create' onClick={toggleModal}>

@@ -16,6 +16,14 @@ def notebooks():
 
     return {'notebooks': [notebook.to_dict() for notebook in notebooks]}
 
+#get single notebook
+@notebook_routes.route('/<int:id>')
+# @login_required
+def notebook(id): 
+    notebook = NoteBook.query.get(id)
+    
+    return notebook.to_dict() 
+
 # post notebooks
 @notebook_routes.route('/', methods=['POST'])
 @login_required
@@ -53,13 +61,13 @@ def create_note():
 #   else:
 #     return {"errors": form.errors}
 
-# # delete notebooks
-# @notebook_routes.route('/<int:id>', methods=['DELETE'])
+# delete notebooks
+@notebook_routes.route('/<int:id>', methods=['DELETE'])
 # @login_required
-# def delNote(id):
-#   # note_id = request.get_json()
-#   notebook = Note.query.get(id)
-#   db.session.delete(notebook)
-#   db.session.commit()
+def delNote(id):
+  # note_id = request.get_json()
+  notebook = NoteBook.query.get(id)
+  db.session.delete(notebook)
+  db.session.commit()
 
-#   return notebook.to_dict()
+  return notebook.to_dict()

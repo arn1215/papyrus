@@ -7,10 +7,11 @@ from app.models import User, Note, NoteBook, Tag, db
 note_routes = Blueprint('notes', __name__)
 
 # get notes
-@note_routes.route('/')
+# (notebook id V)
+@note_routes.route('/<int:nbid>')
 # @login_required
-def notes(): 
-    notes = Note.query.filter_by(userId= current_user.id).all()
+def notes(nbid): 
+    notes = Note.query.filter_by(notebookId = nbid).all()
     
     print("current \n\n\n\n\n", current_user)
     return {'notes': [note.to_dict() for note in notes]}
@@ -21,13 +22,14 @@ def notes():
 def create_note():
   form = NoteForm()
   data = request.get_json()
+  print("\n\n\n",data)
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
     note = Note(
       userId = current_user.id,
       title = data['title'],
-      content = data['content']
-      # notebookId = data['notebookId']
+      content = data['content'],
+      notebookId = data['notebook_id']
     )
 
     db.session.add(note)
@@ -50,7 +52,7 @@ def edit_note(id):
 
     db.session.commit()
 
-    return note.to_dict()
+    return note.to_dict
   else:
     return {"errors": form.errors}
 

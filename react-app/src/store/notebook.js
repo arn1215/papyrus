@@ -2,10 +2,18 @@ const CREATE_NOTEBOOK = '/notebooks/post'
 const UPDATE_NOTEBOOK = '/notebooks/edit'
 const DELETE_NOTEBOOK = '/notebooks/delete'
 const READ_NOTEBOOKS = '/notebooks/read'
+const READ_NOTEBOOK = '/notebook/read'
 
 const get_notebooks = payload => {
   return {
     type: READ_NOTEBOOKS,
+    payload
+  }
+}
+
+const get_notebook = payload => {
+  return {
+    type: READ_NOTEBOOK,
     payload
   }
 }
@@ -39,7 +47,13 @@ export const getNotebooks = () => async dispatch => {
   dispatch(get_notebooks(notebookArr));
 }
 
-// make a thunk for getting one specific notebook (maybe)
+export const getNotebook = (id) => async dispatch => {
+  const res = await fetch(`/api/notebooks/${id}`);
+  const notebookObj = await res.json();
+
+  dispatch(get_notebook(notebookObj));
+}
+
 
 export const createNotebook = (notebook) => async dispatch => {
   const { title, content } = notebook;
@@ -106,7 +120,13 @@ const NotebookReducer = (state = initialState, action) => {
       payload?.forEach(notebook => {
         newState[notebook.id] = notebook
       })
-      return newState
+      return newState;
+
+      case READ_NOTEBOOK:
+        let payload2 = action.payload
+        newState = { ...state };
+        newState.notebook = payload2
+        return newState;
     default:
       return state;
   }

@@ -32,19 +32,19 @@ const delete_note = payload => {
 }
 
 
-export const getNotes = () => async dispatch => {
-  const res = await fetch(`/api/notes/`);
+export const getNotes = (notebookId) => async dispatch => {
+  const res = await fetch(`/api/notes/${notebookId}`);
   const noteArray = await res.json();
 
   dispatch(get_notes(noteArray));
 }
 
 export const createNote = (note) => async dispatch => {
-  const { title, content } = note;
+  const { title, content, notebook_id } = note;
 
   const res = await fetch('/api/notes/', {
     method: 'POST',
-    body: JSON.stringify({title, content}),
+    body: JSON.stringify({title, content, notebook_id}),
     headers: {'Content-Type': 'application/json'}
   })
   const data = await res.json()
@@ -75,7 +75,7 @@ export const editNote = (note) => async dispatch => {
 }
 
 export const deleteNote = (id) => async dispatch => {
-  const res = await fetch(`api/notes/${id}`, {
+  const res = await fetch(`/api/notes/${id}`, {
     method: 'DELETE',
     body: JSON.stringify(id),
     headers: {'Content-Type': 'application/json'}

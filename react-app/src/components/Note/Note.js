@@ -3,7 +3,7 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 import Popup from 'reactjs-popup'
 import { useDispatch } from 'react-redux'
 import { deleteNote, getNotes } from '../../store/note'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { useRef } from 'react'
 import Draggable from 'react-draggable'
 import EditNoteForm from '../EditNoteForm/EditNoteForm'
@@ -13,11 +13,11 @@ const Note = ({ note }) => {
 
   const dispatch = useDispatch()
   const history = useHistory()
-
+  const params = useParams()
 
   const onDelete = async (id) => {
     await dispatch(deleteNote(note.id))
-    await dispatch(getNotes())
+    await dispatch(getNotes(params.notebook_id))
   }
 
   return (
