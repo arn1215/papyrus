@@ -2,6 +2,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.forms.create_note_form import NoteForm
+from app.forms.create_notebook_form import NotebookForm
 from app.forms.edit_form import EditForm
 from app.models import User, Note, NoteBook, Tag, db
 
@@ -11,21 +12,21 @@ notebook_routes = Blueprint('notebooks', __name__)
 @notebook_routes.route('/')
 # @login_required
 def notebooks(): 
-    notebooks = NoteBook.query.filter_by(userId= current_user.id).all()
+    notebooks = NoteBook.query.filter_by(userId= 2).all()
     
 
     return {'notebooks': [notebook.to_dict() for notebook in notebooks]}
 
 # post notebooks
 @notebook_routes.route('/', methods=['POST'])
-@login_required
+# @login_required
 def create_note():
-  form = NoteForm()
+  form = NotebookForm()
   data = request.get_json()
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
     notebook = NoteBook(
-      userId = current_user.id,
+      userId = 2,
       title = data['title'],     
     )
 

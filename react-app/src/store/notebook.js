@@ -1,48 +1,48 @@
-const CREATE_NOTE = '/notes/post'
-const UPDATE_NOTE = '/notes/edit'
-const DELETE_NOTE = '/notes/delete'
-const READ_NOTES = '/notes/read'
+const CREATE_NOTEBOOK = '/notebooks/post'
+const UPDATE_NOTEBOOK = '/notebooks/edit'
+const DELETE_NOTEBOOK = '/notebooks/delete'
+const READ_NOTEBOOKS = '/notebooks/read'
 
-const get_notes = payload => {
+const get_notebooks = payload => {
   return {
-    type: READ_NOTES,
+    type: READ_NOTEBOOKS,
     payload
   }
 }
 
-const post_note = payload => {
+const post_notebook = payload => {
   return {
-    type: CREATE_NOTE,
+    type: CREATE_NOTEBOOK,
     payload
   }
 }
 
-const edit_note = payload => {
+const edit_notebook = payload => {
   return {
-    type: UPDATE_NOTE,
+    type: UPDATE_NOTEBOOK,
     payload
   }
 }
 
-const delete_note = payload => {
+const delete_notebook = payload => {
   return {
-    type: DELETE_NOTE,
+    type: DELETE_NOTEBOOK,
     payload
   }
 }
 
 
-export const getNotes = () => async dispatch => {
-  const res = await fetch(`/api/notes/`);
-  const noteArray = await res.json();
+export const getnotebooks = () => async dispatch => {
+  const res = await fetch(`/api/notebooks/`);
+  const notebookArr = await res.json();
 
-  dispatch(get_notes(noteArray));
+  dispatch(get_notebooks(notebookArr));
 }
 
-export const createNote = (note) => async dispatch => {
-  const { title, content } = note;
+export const createNotebook = (notebook) => async dispatch => {
+  const { title, content } = notebook;
 
-  const res = await fetch('/api/notes/', {
+  const res = await fetch('/api/notebooks/', {
     method: 'POST',
     body: JSON.stringify({title, content}),
     headers: {'Content-Type': 'application/json'}
@@ -53,56 +53,56 @@ export const createNote = (note) => async dispatch => {
     return data
   } else {
 
-    dispatch(post_note(data))
+    dispatch(post_notebook(data))
     return data;
   }
   
 
 }
 
-export const editNote = (note) => async dispatch => {
-  const {title, content} = note;
-  const res = await fetch(`/api/notes/${note.id}`, {
+export const editNote = (notebook) => async dispatch => {
+  const {title, content} = notebook;
+  const res = await fetch(`/api/notebooks/${notebook.id}`, {
     method: 'PATCH',
     body: JSON.stringify({title, content}),
     headers: {'Content-Type': 'application/json'}
   })
 
   const data = await res.json()
-  dispatch(edit_note(data))
+  dispatch(edit_notebook(data))
   return data;
 
 }
 
 export const deleteNote = (id) => async dispatch => {
-  const res = await fetch(`api/notes/${id}`, {
+  const res = await fetch(`api/notebooks/${id}`, {
     method: 'DELETE',
     body: JSON.stringify(id),
     headers: {'Content-Type': 'application/json'}
   })
   const data = await res.json();
-  dispatch(delete_note(id))
+  dispatch(delete_notebook(id))
   return data
 } 
 
 const initialState = {}
 
-const NoteReducer = (state = initialState, action) => {
+const NotebookReducer = (state = initialState, action) => {
   let newState;
 
   switch (action.type) {
-    case CREATE_NOTE:
+    case CREATE_NOTEBOOK:
       newState = { ...state };
-      newState.notes?.push(action.payload);
+      newState.notebooks?.push(action.payload);
       newState[action.payload.id] = action.payload;
       return newState;
     
      //refactor  
-     case READ_NOTES:
-      let payload = action.payload['notes']
-      newState = { ...state, notes: payload }
-      payload?.forEach(note => {
-        newState[note.id] = note
+      case READ:
+      let payload = action.payload['notebooks']
+      newState = { ...state, notebooks: payload }
+      payload?.forEach(notebook => {
+        newState[notebook.id] = notebook
       })
       return newState
     default:
@@ -110,4 +110,4 @@ const NoteReducer = (state = initialState, action) => {
   }
 }
 
-export default NoteReducer
+export default NotebookReducer
