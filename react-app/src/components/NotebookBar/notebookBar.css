@@ -1,10 +1,32 @@
 .notebook-notes-container {
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .notebook-bar {
   display: flex;
   flex-direction: column;
   color: aliceblue;
+  align-items: center;
+  background-color: #2e2e2e;
+  border-radius: 18px;
+  margin-right: -400px;
+  padding: 30px;
+}
+
+.notebook-bar a {
+  padding: 18px;
+  transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  font-size: 18px;
+  
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+  height: max-content;
+}
+
+.notebook-bar a:hover {
+  background-color: rgb(95, 95, 95);
+  font-size: 25px;
 }
