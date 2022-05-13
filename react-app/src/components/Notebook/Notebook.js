@@ -4,8 +4,6 @@ import Popup from 'reactjs-popup'
 import { useDispatch } from 'react-redux'
 
 import { deleteNotebook, getNotebooks } from '../../store/notebook'
-import { useHistory } from 'react-router-dom'
-import EditNoteForm from '../EditNoteForm/EditNoteForm'
 
 
 const Notebook = ({ notebook }) => {

@@ -33,5 +33,26 @@
 
 .notebook-bar a:hover {
   background-color: rgb(95, 95, 95);
-  font-size: 20px;
+
+}
+
+.notebook-icons {
+  display: flex;
+  width: 100px;
+  justify-content: space-around;
+  margin: 10px;
+  color: rgba(240, 248, 255, 0.527);
+  font-size: large;
+
+}
+
+.notebook-icons .icon {
+  transition: all .4s;
+  font-size: large;
+}
+
+.notebook-icons .icon:hover {
+  color: aliceblue;
+  cursor: pointer;
+ 
 }

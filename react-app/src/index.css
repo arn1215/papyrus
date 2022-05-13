@@ -7,7 +7,7 @@ body {
   padding: 0%;
   box-sizing: border-box;
   margin: 0;
-  background-color: #d8bb5b;
+  background-color: #e67878;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -52,6 +52,11 @@ body {
   font-size: 20px;
 }
 
+.iconbutton {
+  background-color: #83838300;
+  color: rgba(240, 248, 255, 0.452);
+  border: none;
+}
 
 a {
   text-decoration: none;

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { useHistory } from 'react-router-dom';
 import { createNote, getNotes } from "../../store/note";
 
 const CreateNoteForm = () => {
   const history = useHistory();
-  const location = useLocation();
+ 
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");

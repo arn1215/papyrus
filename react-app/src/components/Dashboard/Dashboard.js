@@ -6,9 +6,8 @@ import { createNote, getNotes } from '../../store/note';
 import { useSelector } from 'react-redux';
 import Note from '../Note/Note';
 import './Dashboard.css'
-import { FaEdit, FaPlusCircle } from 'react-icons/fa';
-import CreateNotebook from '../CreateNotebook/CreateNotebook';
-import { getNotebook, getNotebooks } from '../../store/notebook';
+import { FaPlusCircle } from 'react-icons/fa';
+import { getNotebooks } from '../../store/notebook';
 import { useParams } from 'react-router-dom';
 
 const DashBoard = () => {
@@ -20,7 +19,6 @@ const DashBoard = () => {
   const [errors, setErrors] = useState([]);
   const [contentErr, setContentErr] = useState([])
   const [open, setOpen] = useState(false)
-  const notebookState = useSelector(state => state.notebooks?.notebooks)
   const singleNotebook = useSelector(state => state.notebooks?.notebook)
   console.log(singleNotebook)
   const params = useParams()

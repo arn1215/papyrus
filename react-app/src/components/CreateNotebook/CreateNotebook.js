@@ -1,19 +1,14 @@
 import Popup from 'reactjs-popup'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createNote, getNotes } from '../../store/note';
 import  {createNotebook, getNotebooks} from '../../store/notebook'
-import { useSelector } from 'react-redux';
-import Notebook from '../Notebook/Notebook';
-
-import { FaEdit, FaPlusCircle } from 'react-icons/fa';
+import { FaPlusCircle } from 'react-icons/fa';
 
 const CreateNotebook = () => {
 
   const dispatch = useDispatch()
-  const notebookState = useSelector(state => state.notebooks?.notebooks)
+
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
   const [errors, setErrors] = useState([]);
   const [open, setOpen] = useState(false)
 

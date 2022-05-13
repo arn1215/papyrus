@@ -91,7 +91,7 @@ export const editNote = (notebook) => async dispatch => {
 }
 
 export const deleteNotebook = (id) => async dispatch => {
-  const res = await fetch(`api/notebooks/${id}`, {
+  const res = await fetch(`/api/notebooks/${id}`, {
     method: 'DELETE',
     body: JSON.stringify(id),
     headers: {'Content-Type': 'application/json'}
