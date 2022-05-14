@@ -35,7 +35,7 @@ const CreateNotebook = () => {
       setErrors([])
       await dispatch(getNotebooks())
       await dispatch(getNotebook(newNotebook.id))
-      toggleModal()
+
 
       history.push(`/notebooks/${newNotebook.id}`);
     }
@@ -55,17 +55,16 @@ const CreateNotebook = () => {
         
     <>
       <div className='create'>
-        <Popup
-          trigger={open => (
             <div className='note-create' onClick={toggleModal}>
               <FaPlusCircle />
             </div>
-          )}
-          open={open}
+        <Popup
+          arrow={true}
           position=" center"
           className="note_icon"
           closeOnEscape
           on={'click'}
+          open={open}
           >
           <>
             <form
@@ -87,7 +86,6 @@ const CreateNotebook = () => {
               </div>
 
               <div className='create-channel-buttons-container'>
-                <button className='channel-form-button' onClick={backButton}>Back</button>
                 <button className='channel-form-button' onClick={onSubmit} type='submit'>Create</button>
               </div>
             </form>

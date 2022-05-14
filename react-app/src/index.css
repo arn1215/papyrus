@@ -16,7 +16,7 @@ body {
   padding: 0%;
   box-sizing: border-box;
   margin: 0;
-  background-color: #e67878;
+  background-color: #f59c27;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -46,7 +46,7 @@ body {
 
 
 .popup-overlay {
-  background: #ffffff;
+  background: #08080846;
 }
 [data-popup='tooltip'].popup-overlay {
   background: transparent;

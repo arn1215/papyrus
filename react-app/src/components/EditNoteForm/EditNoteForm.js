@@ -81,7 +81,6 @@ const EditNoteForm = ({ note }) => {
           </form>
         </div>
         <div className='create-channel-buttons-container'>
-          <button className='channel-form-button' onClick={backButton}>Back</button>
           <button className='channel-form-button' onClick={onSubmit} type='submit'>Create</button>
         </div>
       </div>
