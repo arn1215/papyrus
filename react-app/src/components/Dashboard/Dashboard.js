@@ -34,7 +34,7 @@ const DashBoard = () => {
       content,
       notebook_id: params.notebook_id
     };
-    console.log(note)
+  
     const newNote = await dispatch(createNote(note));
     
 
@@ -65,11 +65,17 @@ const DashBoard = () => {
 
   return (
     <>
-    
+      
       <div className='note-list'>
         <div className='notebook-title'>
-          <h3 style={{color: 'white'}}>{singleNotebook?.title}</h3>
         </div>
+        {!params.notebook_id && 
+          <h2 style={{color: 'white'}}>Get started by clicking on one of your notebooks!</h2>
+        }
+       
+        {params.notebook_id && 
+         <>
+         <h2>{singleNotebook?.title}</h2>
         <Popup
           trigger={open => (
             <div className='note-create' onClick={toggleModal}>
@@ -81,12 +87,12 @@ const DashBoard = () => {
           className="note_icon"
           closeOnEscape
           on={'click'}
-        >
+          >
           <>
             <form
               className="login-form"
               onSubmit={onSubmit}
-            >
+              >
               <div className='login-form-group'>
                 <label>Title</label>
                 <input
@@ -95,7 +101,7 @@ const DashBoard = () => {
                   name='title'
                   value={title}
                   onChange={updateTitle}
-                />
+                  />
                 {errors?.map(message => {
                   return (<p className='server-form-error' key={message.title}>{message}</p>)
                 })}
@@ -108,7 +114,7 @@ const DashBoard = () => {
                   name='content'
                   value={content}
                   onChange={updateContent}
-                />
+                  />
                 {contentErr?.map(msg => {
                   return (<p className='server-form-error' key={msg.content}>{msg}</p>)
                 })}
@@ -121,12 +127,13 @@ const DashBoard = () => {
             </form>
           </>
         </Popup>
+        </>}
         {noteState?.map(note =>
           <Note note={note} />
-        )}
+          )}
       </div>
 
-    </>
+</>
   )
 }
 
