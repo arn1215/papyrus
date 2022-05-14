@@ -1,7 +1,7 @@
 import Popup from 'reactjs-popup'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import  {createNotebook, getNotebooks} from '../../store/notebook'
+import  {createNotebook, getNotebook, getNotebooks} from '../../store/notebook'
 import { FaPlusCircle } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 
@@ -34,6 +34,7 @@ const CreateNotebook = () => {
       
       setErrors([])
       await dispatch(getNotebooks())
+      await dispatch(getNotebook(newNotebook.id))
       toggleModal()
 
       history.push(`/notebooks/${newNotebook.id}`);
