@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
-
+nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #493f3f73;
+  justify-content: space-between;
+}
+nav  li {
+  list-style: none;
+}
 body {
   margin: auto;
   padding: 0%;
