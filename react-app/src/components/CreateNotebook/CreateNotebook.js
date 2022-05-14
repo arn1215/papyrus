@@ -3,10 +3,14 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import  {createNotebook, getNotebooks} from '../../store/notebook'
 import { FaPlusCircle } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 
 const CreateNotebook = () => {
 
   const dispatch = useDispatch()
+  const history = useHistory(
+    
+  )
 
   const [title, setTitle] = useState("");
   const [errors, setErrors] = useState([]);
@@ -32,8 +36,8 @@ const CreateNotebook = () => {
       await dispatch(getNotebooks())
       toggleModal()
 
+      history.push(`/notebooks/${newNotebook.id}`);
     }
-    // history.push(`/channels/${location.server_id}/${newChannel.id}`);
   }
   const backButton = () => {
     // history.goBack();
