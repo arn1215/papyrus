@@ -2,6 +2,7 @@ const CREATE_NOTE = '/notes/post'
 const UPDATE_NOTE = '/notes/edit'
 const DELETE_NOTE = '/notes/delete'
 const READ_NOTES = '/notes/read'
+const CLEAR_NOTES = '/notes/clear'
 
 const get_notes = payload => {
   return {
@@ -27,6 +28,13 @@ const edit_note = payload => {
 const delete_note = payload => {
   return {
     type: DELETE_NOTE,
+    payload
+  }
+}
+
+export const clear_notes = payload => {
+  return {
+    type: CLEAR_NOTES,
     payload
   }
 }
@@ -96,6 +104,9 @@ const NoteReducer = (state = initialState, action) => {
       newState.notes?.push(action.payload);
       newState[action.payload.id] = action.payload;
       return newState;
+      
+      case CLEAR_NOTES:
+        return {}
     
      //refactor  
      case READ_NOTES:

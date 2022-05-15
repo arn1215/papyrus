@@ -80,3 +80,12 @@
 .note-icons {
   display: flex;
 }
+
+.form-title {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  margin: 10px;
+}

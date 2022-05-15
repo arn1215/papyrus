@@ -32,6 +32,7 @@ const Note = ({ note }) => {
                       </div>
                     )}
                     position="center"
+                    modal
                     className="note_icon"
                     closeOnEscape
                     on={'click'}

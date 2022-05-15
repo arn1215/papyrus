@@ -20,7 +20,7 @@ const DashBoard = () => {
   const [contentErr, setContentErr] = useState([])
   const [open, setOpen] = useState(false)
   const singleNotebook = useSelector(state => state.notebooks?.notebook)
-  console.log(singleNotebook)
+
   const params = useParams()
   
   const updateTitle = (e) => setTitle(e.target.value);
@@ -71,11 +71,10 @@ const DashBoard = () => {
         </div>
         {!params.notebook_id && 
           <h2 style={{color: 'white'}}>Get started by clicking on one of your notebooks!</h2>
-        }
-       
+        }   
         {params.notebook_id && 
-         <>
-         <h2>{singleNotebook?.title}</h2>
+        <>
+        <h2 style={{color: 'aliceblue'}}>{singleNotebook?.title}</h2>
         <Popup
           trigger={open => (
             <div className='note-create' onClick={toggleModal}>

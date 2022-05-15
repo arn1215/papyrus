@@ -52,7 +52,7 @@ def edit_note(id):
 
     db.session.commit()
 
-    return note.to_dict
+    return note.to_dict()
   else:
     return {"errors": form.errors}
 
