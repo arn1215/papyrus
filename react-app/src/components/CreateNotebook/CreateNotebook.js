@@ -1,7 +1,7 @@
 import Popup from 'reactjs-popup'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import  {createNotebook, getNotebooks} from '../../store/notebook'
+import  {createNotebook, getNotebook, getNotebooks} from '../../store/notebook'
 import { FaPlusCircle } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 
@@ -34,7 +34,8 @@ const CreateNotebook = () => {
       
       setErrors([])
       await dispatch(getNotebooks())
-      toggleModal()
+      await dispatch(getNotebook(newNotebook.id))
+
 
       history.push(`/notebooks/${newNotebook.id}`);
     }
@@ -54,17 +55,16 @@ const CreateNotebook = () => {
         
     <>
       <div className='create'>
-        <Popup
-          trigger={open => (
             <div className='note-create' onClick={toggleModal}>
               <FaPlusCircle />
             </div>
-          )}
-          open={open}
+        <Popup
+          arrow={true}
           position=" center"
           className="note_icon"
           closeOnEscape
           on={'click'}
+          open={open}
           >
           <>
             <form
@@ -86,7 +86,6 @@ const CreateNotebook = () => {
               </div>
 
               <div className='create-channel-buttons-container'>
-                <button className='channel-form-button' onClick={backButton}>Back</button>
                 <button className='channel-form-button' onClick={onSubmit} type='submit'>Create</button>
               </div>
             </form>

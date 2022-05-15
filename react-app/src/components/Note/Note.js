@@ -32,6 +32,7 @@ const Note = ({ note }) => {
                       </div>
                     )}
                     position="center"
+                    modal
                     className="note_icon"
                     closeOnEscape
                     on={'click'}
@@ -62,6 +63,7 @@ const Note = ({ note }) => {
             </div>
           </div>
           <h4>{note.title}</h4>
+          <p>{note.createdAt}</p>
         </div>
       
     </>

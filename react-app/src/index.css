@@ -14,22 +14,15 @@ nav  li {
 body {
   margin: auto;
   padding: 0%;
-  box-sizing: border-box;
   margin: 0;
-  background-color: #e67878;
-  height: 100%;
-  display: flex;
-  justify-content: center;
+  background-color: #d9ebfa;
   font-family: 'Roboto', sans-serif;
   
 }
-
+/* 
 #root {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+} */
 
 .popup-content {
   background: #83838373;
@@ -40,13 +33,14 @@ body {
   width: fit-content;
   padding: 20px 20px;
   font-size: 8px;
+
   
   -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
 
 
 .popup-overlay {
-  background: #ffffff;
+  background: #08080856;
 }
 [data-popup='tooltip'].popup-overlay {
   background: transparent;
@@ -132,3 +126,23 @@ input {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #a8bbbf;
 }
+.form button {
+  margin-left: 40%;
+  border: none;
+  border-radius: 20px;
+  padding: 7px;
+  cursor: pointer;
+  margin-top: 20px;
+  color: black;
+  background-color: #57d6a1;
+  font-weight: bold;
+  transition: all 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+.form button:hover {
+  color: white;
+  background-color: #c885ff
+}
+

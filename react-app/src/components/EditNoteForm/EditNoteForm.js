@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { editNote, getNotes } from "../../store/note";
 
 const EditNoteForm = ({ note }) => {
@@ -10,7 +10,7 @@ const EditNoteForm = ({ note }) => {
   const [content, setContent] = useState(`${note.content}`);
   const [errors, setErrors] = useState([]);
   const [contentErr, setContentErr] = useState([])
-  
+  const params = useParams()
   const updateTitle = (e) => setTitle(e.target.value);
   const updateContent = (e) => setContent(e.target.value)
 
@@ -19,11 +19,11 @@ const EditNoteForm = ({ note }) => {
     const newNote = {
       title,
       content,
-      id: note.id
+      id: note.id,
     };
     const updateNote = await dispatch(editNote(newNote));
     
-    dispatch(getNotes())
+    dispatch(getNotes(params.notebook_id))
 
     
     if (updateNote.errors?.title || updateNote.errors?.content) {
@@ -42,17 +42,16 @@ const EditNoteForm = ({ note }) => {
   }
 
   return (
-    <div className='who'>
-      <div className="signup-form-container">
-        <div className="login-form-text-container">
-          <h1>Edit note.{note.id}</h1>
+    <div className='form'>
+        <div className="form-title" >
+          <h1>Edit note</h1>
         </div>
-        <div className="login-form-input">
+        <div className="note-form-input">
           <form
-            className="login-form"
+            className="note-form"
             onSubmit={onSubmit}
           >
-            <div className='login-form-group'>
+            <div className='note-form-group'>
               <label>Title</label>
               <input
                 type="text"
@@ -62,10 +61,10 @@ const EditNoteForm = ({ note }) => {
                 onChange={updateTitle}
               />
               {errors?.map(message => {
-                return (<p className='server-form-error' key={message.title}>{message}</p>)
+                return (<p className='note-form-error' key={message.title}>{message}</p>)
               })}
             </div>
-            <div className='login-form-group'>
+            <div className='note-form-group'>
               <label>Content</label>
               <input
                 type="text"
@@ -75,16 +74,14 @@ const EditNoteForm = ({ note }) => {
                 onChange={updateContent}
               />
               {contentErr?.map(msg => {
-                return (<p className='server-form-error' key={msg.content}>{msg}</p>)
+                return (<p className='note-form-error' key={msg.content}>{msg}</p>)
               })}
             </div>
           </form>
         </div>
-        <div className='create-channel-buttons-container'>
-          <button className='channel-form-button' onClick={backButton}>Back</button>
-          <button className='channel-form-button' onClick={onSubmit} type='submit'>Create</button>
+        <div className='buttons-container'>
+          <button className='form-button' onClick={onSubmit} type='submit'>Save</button>
         </div>
-      </div>
     </div>
   )
 }
