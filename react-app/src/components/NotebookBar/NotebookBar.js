@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { getNotebook } from '../../store/notebook';
 import CreateNotebook from '../CreateNotebook/CreateNotebook';
 import DeleteNotebook from '../DeleteNotebook/DeleteNotebook';
+import EditNotebookForm from '../EditNotebookForm/EditNotebookForm';
 import './notebookBar.css'
 
 
@@ -21,17 +22,19 @@ const NotebookBar = () => {
       <h3>New Notebook</h3>
       <CreateNotebook />
       {notebookState?.map(notebook =>
-        <Link className='animation nb-container' onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`}>
-        <div className='animation nb-container' key={notebook.id}>
-          <Link key={notebook.id} onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`} >{notebook.title}</Link>
-          <div className='notebook-icons'>
-          <div className='icon iconbutton'>
-            <DeleteNotebook id={notebook.id}  notebook={notebook} />
+        <div key={notebook.id}>
+          <Link className='animation nb-container' onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`}>
+          <div className='animation nb-container' >
+            <Link  onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`} >{notebook.title}</Link>
+            <div className='notebook-icons'>
+            <div className='icon iconbutton'>
+              <DeleteNotebook id={notebook.id}  notebook={notebook} />
+            </div>
+              <EditNotebookForm id={notebook.id} notebook={notebook} />
+            </div>
           </div>
-            <i class="fa-solid fa-edit" id={notebook.id} ></i>
-          </div>
+          </Link>
         </div>
-        </Link>
         )}
         
     </div>

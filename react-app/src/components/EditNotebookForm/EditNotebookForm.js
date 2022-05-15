@@ -5,7 +5,7 @@ import  {editNotebook, getNotebook, getNotebooks} from '../../store/notebook'
 import { FaPlusCircle } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 
-const EditNotebookForm = ({id}) => {
+const EditNotebookForm = ({id, notebook}) => {
 
   const dispatch = useDispatch()
   const history = useHistory(
@@ -23,6 +23,7 @@ const EditNotebookForm = ({id}) => {
     e.preventDefault();
     const notebook = {
       title,
+      id
     };
     const newNotebook = await dispatch(editNotebook(notebook));
     
@@ -55,7 +56,7 @@ const EditNotebookForm = ({id}) => {
         
     <>
       <div className='create'>
-            <div className='note-create' onClick={toggleModal}>
+            <div className='icon' onClick={toggleModal}>
               <i class="fa-solid fa-edit" id={notebook.id} ></i>
             </div>
         <Popup
@@ -72,7 +73,7 @@ const EditNotebookForm = ({id}) => {
               onSubmit={onSubmit}
               >
               <div className='login-form-group'>
-                <label>Title</label>
+                <label>Title{id}</label>
                 <input
                   type="text"
                   className="input"
