@@ -2,7 +2,7 @@ import Popup from 'reactjs-popup'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import  {editNotebook, getNotebook, getNotebooks} from '../../store/notebook'
-import { FaPlusCircle } from 'react-icons/fa';
+
 import { useHistory } from 'react-router-dom';
 
 const EditNotebookForm = ({id, notebook}) => {

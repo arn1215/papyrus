@@ -133,7 +133,7 @@ input {
   cursor: pointer;
   margin-top: 20px;
   color: black;
-  background-color: #57d6a1;
+  background-color: aquamarine;
   font-weight: bold;
   transition: all 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
