@@ -14,22 +14,15 @@ nav  li {
 body {
   margin: auto;
   padding: 0%;
-  box-sizing: border-box;
   margin: 0;
-  background-color: #f59c27;
-  height: 100%;
-  display: flex;
-  justify-content: center;
+  background-color: #d9ebfa;
   font-family: 'Roboto', sans-serif;
   
 }
-
+/* 
 #root {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+} */
 
 .popup-content {
   background: #83838373;

@@ -72,9 +72,15 @@ const DashBoard = () => {
         {!params.notebook_id && 
           <h2 style={{color: 'white'}}>Get started by clicking on one of your notebooks!</h2>
         }   
-        {params.notebook_id && 
+        {noteState?.map(note =>
+          <Note note={note} />
+          )}
+      </div>
+      {params.notebook_id && 
         <>
+        <div className='nb-title'>
         <h2 style={{color: 'aliceblue'}}>{singleNotebook?.title}</h2>
+        
         <Popup
           trigger={open => (
             <div className='note-create' onClick={toggleModal}>
@@ -126,14 +132,10 @@ const DashBoard = () => {
             </form>
           </>
         </Popup>
+        </div>
         </>}
-        {noteState?.map(note =>
-          <Note note={note} />
-          )}
-      </div>
-
 </>
-  )
+)
 }
 
 export default DashBoard;
