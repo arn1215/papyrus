@@ -10,6 +10,7 @@
   height: 800px;
   margin-top: 60px;
   -webkit-animation: anvil .2s cubic-bezier(.38,.1,.36,.9) forwards;
+  
 }
 
 .notebook-bar {
@@ -23,23 +24,19 @@
   padding: 30px;
   overflow-y: scroll;
   overflow-x: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+ 
 }
 
-.notebook-bar a {
-  padding: 18px;
-  font-size: 18px;
-  width: 100%;
-  margin-top: 10px;
-  border-radius: 8px;
-  height: max-content;
+.nb-container {
   display: flex;
   justify-content: center;
-}
-
-.notebook-bar a:hover {
-  background-color: rgb(95, 95, 95);
-
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(75, 70, 70);
+  margin: 13px;
+  border-radius: 10px;
+  width: 80%;
+  overflow-x: hidden;
 }
 
 .notebook-icons {

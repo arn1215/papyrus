@@ -46,6 +46,8 @@ const DashBoard = () => {
       
       setErrors([])
       setContentErr([])
+      setContent("")
+      setTitle("")
       toggleModal()
 
     }
@@ -70,7 +72,7 @@ const DashBoard = () => {
         <div className='notebook-title'>
         </div>
         {!params.notebook_id && 
-          <h2 style={{color: 'white'}}>Get started by clicking on one of your notebooks!</h2>
+          <h2 style={{color: 'white', alignSelf: 'center', display: 'flex'}}>Click on one of your notebooks!</h2>
         }   
         {noteState?.map(note =>
           <Note note={note} />
@@ -89,6 +91,7 @@ const DashBoard = () => {
             open={open}
             position=" center"
             className="note_icon"
+            modal
             closeOnEscape
             on={'click'}
             >
@@ -124,8 +127,7 @@ const DashBoard = () => {
                   })}
 
                 </div>
-                <div className='create-channel-buttons-container'>
-                  <button className='form-button' onClick={backButton}>Back</button>
+                <div className='buttons-container'>
                   <button className='form-button' onClick={onSubmit} type='submit'>Create</button>
                 </div>
               </form>

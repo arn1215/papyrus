@@ -36,6 +36,9 @@ body {
   -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
 
+h2 {
+  -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+}
 
 .popup-overlay {
   background: #08080856;
@@ -66,8 +69,10 @@ a {
 }
 
 a:hover { 
-  color: aliceblue; 
+  color: #7fffd4
 }
+
+
 
 input {
   border: none;
@@ -99,46 +104,29 @@ input {
 
 ::-webkit-scrollbar {
   width: 18px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
   background-color: transparent;
+  display: hidden;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #d6dee1;
-}
 
 ::-webkit-scrollbar-thumb {
-  background-color: #d6dee1;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #d6dee1;
+  background-color: #747474;
   border-radius: 10px;
   border: 6px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #a8bbbf;
-}
-.form button {
-  margin-left: 40%;
-  border: none;
-  border-radius: 20px;
-  padding: 7px;
-  cursor: pointer;
-  margin-top: 20px;
-  color: black;
-  background-color: #57d6a1;
-  font-weight: bold;
-  transition: all 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
-  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background-color: #858585;
 }
 
+
 .form-button {
+  margin-left: 40%;
   border: none;
   border-radius: 20px;
   padding: 7px;

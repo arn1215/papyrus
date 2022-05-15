@@ -76,11 +76,11 @@ export const createNotebook = (notebook) => async dispatch => {
 
 }
 
-export const editNote = (notebook) => async dispatch => {
-  const {title, content} = notebook;
+export const editNotebook = (notebook) => async dispatch => {
+  const {title} = notebook;
   const res = await fetch(`/api/notebooks/${notebook.id}`, {
     method: 'PATCH',
-    body: JSON.stringify({title, content}),
+    body: JSON.stringify({title}),
     headers: {'Content-Type': 'application/json'}
   })
 

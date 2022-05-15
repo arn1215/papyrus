@@ -1,40 +1,37 @@
 // import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
-import { clear_notes } from '../../store/note';
-import { deleteNotebook, getNotebook, getNotebooks } from '../../store/notebook';
+import { Link } from 'react-router-dom';
+import { getNotebook } from '../../store/notebook';
 import CreateNotebook from '../CreateNotebook/CreateNotebook';
+import DeleteNotebook from '../DeleteNotebook/DeleteNotebook';
 import './notebookBar.css'
 
 
 const NotebookBar = () => {
-
-  const history = useHistory()
   const notebookState = useSelector(state => state.notebooks?.notebooks)
   const dispatch = useDispatch()
-  const onClick = async (e) => {
-    e.stopPropagation()
-    let id = e.target.id
-    console.log('clicked', 'id:', id)
-    await dispatch(deleteNotebook(id)).then(() => dispatch(getNotebooks())).then(() => dispatch(clear_notes()))
-    history.push('/notebooks/')
 
-  }
+  // const onRedirect = async(id) => {
+  //   await dispatch(getNotebook(id))
+  //   history.push(`/notebooks/${id}`)
+  // }
 
   return (
     <div className='notebook-bar'>
       <h3>New Notebook</h3>
       <CreateNotebook />
       {notebookState?.map(notebook =>
-        <div className='animation' key={notebook.id}>
+        <Link className='animation nb-container' onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`}>
+        <div className='animation nb-container' key={notebook.id}>
           <Link key={notebook.id} onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`} >{notebook.title}</Link>
           <div className='notebook-icons'>
-          <div className='icon iconbutton' id={notebook.id} onClick={onClick}>
-            X
+          <div className='icon iconbutton'>
+            <DeleteNotebook id={notebook.id}  notebook={notebook} />
           </div>
-          Edit
+            <i class="fa-solid fa-edit" id={notebook.id} ></i>
           </div>
         </div>
+        </Link>
         )}
         
     </div>
