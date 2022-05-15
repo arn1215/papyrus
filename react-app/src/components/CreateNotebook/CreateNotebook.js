@@ -86,7 +86,7 @@ const CreateNotebook = () => {
               </div>
 
               <div className='create-channel-buttons-container'>
-                <button className='channel-form-button' onClick={onSubmit} type='submit'>Create</button>
+                <button className='form-button' onClick={onSubmit} type='submit'>Create</button>
               </div>
             </form>
           </>

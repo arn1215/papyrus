@@ -78,60 +78,59 @@ const DashBoard = () => {
       </div>
       {params.notebook_id && 
         <>
-        <div className='nb-title'>
-        <h2 style={{color: 'aliceblue'}}>{singleNotebook?.title}</h2>
-        
-        <Popup
-          trigger={open => (
-            <div className='note-create' onClick={toggleModal}>
-            <FaPlusCircle />
-          </div>
-          )}
-          open={open}
-          position=" center"
-          className="note_icon"
-          closeOnEscape
-          on={'click'}
-          >
-          <>
-            <form
-              className="login-form"
-              onSubmit={onSubmit}
-              >
-              <div className='login-form-group'>
-                <label>Title</label>
-                <input
-                  type="text"
-                  className="input"
-                  name='title'
-                  value={title}
-                  onChange={updateTitle}
-                  />
-                {errors?.map(message => {
-                  return (<p className='server-form-error' key={message.title}>{message}</p>)
-                })}
-              </div>
-              <div className='login-form-group'>
-                <label>Content</label>
-                <input
-                  type="text"
-                  className="input"
-                  name='content'
-                  value={content}
-                  onChange={updateContent}
-                  />
-                {contentErr?.map(msg => {
-                  return (<p className='server-form-error' key={msg.content}>{msg}</p>)
-                })}
+        <div className='nb-title animation'>
+          <h2 style={{color: 'aliceblue'}}>{singleNotebook?.title}</h2>
+          <Popup
+            trigger={open => (
+              <div className='note-create' onClick={toggleModal}>
+              <FaPlusCircle />
+            </div>
+            )}
+            open={open}
+            position=" center"
+            className="note_icon"
+            closeOnEscape
+            on={'click'}
+            >
+            <>
+              <form
+                className="login-form"
+                onSubmit={onSubmit}
+                >
+                <div className='login-form-group'>
+                  <label>Title</label>
+                  <input
+                    type="text"
+                    className="input"
+                    name='title'
+                    value={title}
+                    onChange={updateTitle}
+                    />
+                  {errors?.map(message => {
+                    return (<p className='server-form-error' key={message.title}>{message}</p>)
+                  })}
+                </div>
+                <div className='login-form-group'>
+                  <label>Content</label>
+                  <input
+                    type="text"
+                    className="input"
+                    name='content'
+                    value={content}
+                    onChange={updateContent}
+                    />
+                  {contentErr?.map(msg => {
+                    return (<p className='server-form-error' key={msg.content}>{msg}</p>)
+                  })}
 
-              </div>
-              <div className='create-channel-buttons-container'>
-                <button className='channel-form-button' onClick={backButton}>Back</button>
-                <button className='channel-form-button' onClick={onSubmit} type='submit'>Create</button>
-              </div>
-            </form>
-          </>
-        </Popup>
+                </div>
+                <div className='create-channel-buttons-container'>
+                  <button className='form-button' onClick={backButton}>Back</button>
+                  <button className='form-button' onClick={onSubmit} type='submit'>Create</button>
+                </div>
+              </form>
+            </>
+          </Popup>
         </div>
         </>}
 </>
