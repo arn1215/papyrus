@@ -19,8 +19,7 @@
   align-items: center;
   background-color: #2e2e2e;
   border-radius: 18px;
-  margin-right: 100px;
-  margin-left: 50px;
+  width: 250px;
   padding: 30px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -62,4 +61,8 @@
   color: aliceblue;
   cursor: pointer;
  
+}
+
+.animation {
+  -webkit-animation: anvil .2s cubic-bezier(.38,.1,.36,.9) forwards;
 }
