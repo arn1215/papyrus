@@ -9,6 +9,7 @@ import './Dashboard.css'
 import { FaPlusCircle } from 'react-icons/fa';
 import { getNotebooks } from '../../store/notebook';
 import { useParams } from 'react-router-dom';
+import NavBar from '../NavBar'
 
 const DashBoard = () => {
   const dispatch = useDispatch()
@@ -67,7 +68,6 @@ const DashBoard = () => {
 
   return (
     <>
-      
       <div className='note-list'>
         <div className='notebook-title'>
         </div>

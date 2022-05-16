@@ -4,11 +4,28 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 
 const NavBar = () => {
+
+  const location = window.location.href.includes('notebooks')
   return (
-    <nav>
+
+    <>
+      {location &&
+        <nav>
+          <div className='nav-links'>
+            <NavLink to='/' exact={true} activeClassName='active'>
+              Home
+            </NavLink>
+            <LogoutButton />
+          </div>
+        </nav>
+      }
+      {
+        !location && 
+        <nav>
+        <div className='nav-links'>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
-          </NavLink>  
+          </NavLink>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
@@ -16,10 +33,13 @@ const NavBar = () => {
             Sign Up
           </NavLink>
           <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
+            Users {location}
           </NavLink>
           <LogoutButton />
-    </nav>
+        </div>
+      </nav>
+      }
+    </>
   );
 }
 

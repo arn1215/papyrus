@@ -13,6 +13,7 @@ import DashBoard from './components/Dashboard/Dashboard';
 import NotebookBar from './components/NotebookBar/NotebookBar';
 
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -30,7 +31,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
           <SplashPage />
@@ -47,14 +47,18 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <div className='notebook-notes-container'>
+
             <NotebookBar  />
             <DashBoard />
           </div>
         </ProtectedRoute>
         <Route path='/notebooks/:notebook_id(\d{0,4})' exact={true}>
-          <div className='notebook-notes-container'>
+          <div className='main'>
+          <NavBar />
+          <div className='notebook-notes-container'>       
             <NotebookBar  />
             <DashBoard />
+          </div>
           </div>
         </Route>
       </Switch>
