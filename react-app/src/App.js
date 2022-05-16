@@ -63,11 +63,8 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <div className='notebook-notes-container'>
-
-            <NotebookBar />
-            <DashBoard />
-          </div>
+          <NavBar />
+          <SplashPage />
         </ProtectedRoute>
         <Route path='/notebooks/:notebook_id(\d{0,4})' exact={true}>
           <div className='main'>

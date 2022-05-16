@@ -19,7 +19,7 @@ const NotebookBar = () => {
 
   return (
     <div className='notebook-bar'>
-      <h3>Notebook</h3>
+      <h3>Notebooks</h3>
       <CreateNotebook />
       {notebookState?.map(notebook =>
         <div key={notebook.id}>
