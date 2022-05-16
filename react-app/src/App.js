@@ -11,15 +11,32 @@ import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage';
 import DashBoard from './components/Dashboard/Dashboard';
 import NotebookBar from './components/NotebookBar/NotebookBar';
+import { createEditor } from 'slate';
+
+import { Slate, Editable, withReact } from 'slate-react'
 
 
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const [editor] = useState(() => withReact(createEditor()))
+
+
+
+  // Add the initial value.
+  const initialValue = [
+    {
+      type: 'paragraph',
+      children: [{ text: 'A line of text in a paragraph.' }],
+    },
+  ]
+
+
+
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -40,7 +57,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
@@ -48,17 +65,20 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <div className='notebook-notes-container'>
 
-            <NotebookBar  />
+            <NotebookBar />
             <DashBoard />
           </div>
         </ProtectedRoute>
         <Route path='/notebooks/:notebook_id(\d{0,4})' exact={true}>
           <div className='main'>
-          <NavBar />
-          <div className='notebook-notes-container'>       
-            <NotebookBar  />
-            <DashBoard />
-          </div>
+            <NavBar />
+            <div className='notebook-notes-container'>
+              <NotebookBar />
+              <DashBoard />
+              <Slate editor={editor} value={initialValue}>
+                <Editable />
+              </Slate>
+            </div>
           </div>
         </Route>
       </Switch>

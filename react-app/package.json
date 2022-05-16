@@ -19,7 +19,9 @@
     "reactjs-popup": "^2.0.5",
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "slate": "^0.78.0",
+    "slate-react": "^0.79.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -5,7 +5,7 @@
 
 .notebook-notes-container {
   display: flex;
-  margin-left: 90px;
+  margin-left: 5%;
   width: 100%;
   height: 800px;
   margin-top: 60px;
@@ -19,11 +19,13 @@
   color: aliceblue;
   align-items: center;
   background-color: #2e2e2e;
-  border-radius: 18px;
+  border-radius: 10px;
   width: 250px;
   padding: 30px;
   overflow-y: scroll;
   overflow-x: hidden;
+  margin-right: 5%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
  
 }
 
@@ -32,11 +34,16 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: rgb(75, 70, 70);
+  background-color: rgba(75, 70, 70, 0.459);
   margin: 13px;
   border-radius: 10px;
   width: 80%;
   overflow-x: hidden;
+  transition: all 0.3s;
+}
+
+.nb-container:hover {
+  background-color: rgb(75, 70, 70);;
 }
 
 .notebook-icons {
