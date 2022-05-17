@@ -2,7 +2,7 @@
 import Popup from 'reactjs-popup'
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createNote, getNotes } from '../../store/note';
+import { clear_notes, createNote, getNotes } from '../../store/note';
 import { useSelector } from 'react-redux';
 import Note from '../Note/Note';
 import './Dashboard.css'
@@ -39,8 +39,6 @@ const DashBoard = () => {
     };
   
     const newNote = await dispatch(createNote(note));
-    
-
 
     if (newNote.errors?.content || newNote.errors?.title) {
       setContentErr(newNote.errors?.content)
@@ -68,6 +66,9 @@ const DashBoard = () => {
   useEffect(() => {
     dispatch(getNotes(params.notebook_id))
     dispatch(getNotebooks())
+    if (window.location.href.includes('/notebooks/')) {
+      dispatch(clear_notes())
+    }
     // dispatch(getNotebook(params.notebook_id))
   }, [dispatch, params])
 
