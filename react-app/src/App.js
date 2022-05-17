@@ -15,7 +15,6 @@ import RichText from './components/RichText';
 import MyEditor from './components/RichText';
 
 
-
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
