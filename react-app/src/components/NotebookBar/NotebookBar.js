@@ -19,13 +19,13 @@ const NotebookBar = () => {
 
   return (
     <div className='notebook-bar'>
-      <h3>Notebook</h3>
+      <h3>Notebooks</h3>
       <CreateNotebook />
       {notebookState?.map(notebook =>
         <div key={notebook.id}>
           <Link className='animation nb-container' onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`}>
           <div className='animation nb-container' >
-            <Link  onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`} >{notebook.title}</Link>
+            <p  onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`} >{notebook.title}</p>
             <div className='notebook-icons'>
             <div className='icon iconbutton'>
               <DeleteNotebook id={notebook.id}  notebook={notebook} />

@@ -10,6 +10,7 @@ import { FaPlusCircle } from 'react-icons/fa';
 import { getNotebooks } from '../../store/notebook';
 import { useParams } from 'react-router-dom';
 import NavBar from '../NavBar'
+import RichText from '../RichText';
 
 const DashBoard = () => {
   const dispatch = useDispatch()
@@ -68,6 +69,9 @@ const DashBoard = () => {
 
   return (
     <>
+      {/* <div style={{width: '1000px'}}>
+      <RichText /> 
+      </div> */}
       <div className='note-list'>
         <div className='notebook-title'>
         </div>

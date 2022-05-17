@@ -8,11 +8,9 @@ import { useHistory } from 'react-router-dom';
 const EditNotebookForm = ({id, notebook}) => {
 
   const dispatch = useDispatch()
-  const history = useHistory(
-    
-  )
+  const history = useHistory()
 
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(`${notebook.title}`);
   const [errors, setErrors] = useState([]);
   const [open, setOpen] = useState(false)
 
