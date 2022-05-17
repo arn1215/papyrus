@@ -12,9 +12,20 @@ note_routes = Blueprint('notes', __name__)
 # @login_required
 def notes(nbid): 
     notes = Note.query.filter_by(notebookId = nbid).all()
-    
-    print("current \n\n\n\n\n", current_user)
+
     return {'notes': [note.to_dict() for note in notes]}
+
+# get a single note
+@note_routes.route('/single/<int:noteId>')
+# @login_required
+def note(notesId):
+    # data = request.get_json()
+    # if data.userId 
+    notes = Note.query.filter_by(id = id).one()
+
+    return {'notes': [note.to_dict() for note in notes]}
+
+
 
 # post notes
 @note_routes.route('/', methods=['POST'])

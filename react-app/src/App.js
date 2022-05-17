@@ -11,27 +11,14 @@ import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage';
 import DashBoard from './components/Dashboard/Dashboard';
 import NotebookBar from './components/NotebookBar/NotebookBar';
-import { createEditor } from 'slate';
-
-import { Slate, Editable, withReact } from 'slate-react'
+import RichText from './components/RichText';
+import MyEditor from './components/RichText';
 
 
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const [editor] = useState(() => withReact(createEditor()))
-
-
-
-  // Add the initial value.
-  const initialValue = [
-    {
-      type: 'paragraph',
-      children: [{ text: 'A line of text in a paragraph.' }],
-    },
-  ]
-
 
 
 
@@ -72,11 +59,11 @@ function App() {
             <div className='notebook-notes-container'>
               <NotebookBar />
               <DashBoard />
-              <Slate editor={editor} value={initialValue}>
-                <Editable />
-              </Slate>
             </div>
           </div>
+        </Route>
+        <Route path='/notes' exact={true}>
+          <RichText />
         </Route>
       </Switch>
     </BrowserRouter>
