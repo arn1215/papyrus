@@ -3,13 +3,16 @@
 
 nav {
   display: flex;
-  flex-direction: column;
-  width: 6%;
+  flex-direction: row;
+  width: 100%;
   background-color: #493f3f73;
-  height: 100vh;
+  height: 5vh;
+  justify-content: center;
+ 
 }
-nav  li {
+nav  li button {
   list-style: none;
+
 }
 body {
   margin: auto;
@@ -26,20 +29,12 @@ html {
 
 .nav-links {
   display: flex;
-  flex-direction: column;
-  height: 20%;
-  
-  justify-content: space-around;
+  flex-direction: row;
   align-items: center;
+  
 }
 .nav-links  a {
-  display: flex;
-  flex-direction: column;
-  height: 20%;
-  
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
+  margin-left: 40px;
 }
 
 /* 
@@ -49,6 +44,7 @@ html {
 
 .main {
   display: flex;
+  flex-direction: column;
 }
 
 .popup-content {
@@ -177,11 +173,10 @@ input {
 }
 
 #container {
-  border: solid 1px red;
   display: flex;
   justify-content: center;
   margin-top: 1%;
- 
+  -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
 
 
