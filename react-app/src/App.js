@@ -15,7 +15,6 @@ import RichText from './components/RichText';
 import MyEditor from './components/RichText';
 
 
-
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -62,8 +61,11 @@ function App() {
             </div>
           </div>
         </Route>
-        <Route path='/notes' exact={true}>
-          <RichText />
+        <Route path='/notes/:id(\d{0,4})' exact={true}>
+          <div className='main'>
+            <NavBar />
+            <RichText />
+          </div>  
         </Route>
       </Switch>
     </BrowserRouter>

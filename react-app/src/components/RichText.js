@@ -1,118 +1,50 @@
-import React from 'react';
-import { EditorState, convertToRaw } from 'draft-js';
-import { Editor } from 'react-draft-wysiwyg';
-import styled from 'styled-components';
-import draftToHtml from 'draftjs-to-html';
-import './rich.css'
-// import BlockType from './controls/BlockType';
 
-const Wrapper = styled.div`
-  border: 1px solid #ccc;
-  margin-right: 20px;
-`;
+import ReactQuill from "react-quill"
+import '../../node_modules/react-quill/dist/quill.snow.css';
+import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import { editNote } from "../store/note";
+import { useParams } from "react-router-dom";
 
-const Section = styled.div`
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-`;
 
-class RichText extends React.Component {
-  state = {
-    editorState: EditorState.createEmpty()
-  };
 
-  onChange = editorState => this.setState({ editorState });
 
-  onEditorStateChange = editorState => {
-    this.setState({
-      editorState
-    });
-  };
+const RichText = () => {
+  
+  const dispatch = useDispatch()
+  const params = useParams()
+  const note = useSelector(state => state.notes[params.id])
+  const [content, setContent] = useState(note?.content)
 
-  uploadImageCallBack = file => {
-    const imageObject = {
-      file: file,
-      localSrc: URL.createObjectURL(file)
-    };
-    return new Promise((resolve, reject) => {
-      resolve({ data: { link: imageObject.localSrc } });
-    });
-  };
-
-  render() {
-    const { editorState } = this.state;
-    return (
-      <Wrapper>
-        <h2>Without initial</h2>
-        <Editor
-          editorState={editorState}
-          onEditorStateChange={this.onEditorStateChange}
-          toolbar={{
-            options: [
-              'inline',
-              'blockType',
-              'list',
-              'textAlign',
-              'link',
-              'embedded',
-              'emoji',
-              'image',
-              'remove',
-              'history'
-            ],
-            blockType: {
-              inDropdown: true
-              // options: ['Normal', 'Blockquote', 'Code']
-              // component: BlockType
-            },
-            inline: {
-              inDropdown: false,
-              options: ['bold', 'italic']
-            },
-            list: {
-              inDropdown: false,
-              options: ['unordered', 'ordered']
-            },
-            textAlign: { inDropdown: true },
-            link: { inDropdown: true },
-            image: {
-              urlEnabled: true,
-              uploadEnabled: true,
-              alignmentEnabled: true,
-              uploadCallback: this.uploadImageCallBack,
-              previewImage: true,
-              inputAccept: 'image/gif,image/jpeg,image/jpg,image/png,image/svg',
-              alt: { present: false, mandatory: false },
-              defaultSize: {
-                height: 'auto',
-                width: 'auto'
-              }
-            }
-          }}
-        />
-
-        <Section>
-          <h2>html:</h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: draftToHtml(convertToRaw(editorState.getCurrentContent()))
-            }}
-          />
-        </Section>
-        <Section>
-          <h2>json:</h2>
-          <pre>
-            {JSON.stringify(
-              convertToRaw(editorState.getCurrentContent()),
-              null,
-              2
-            )}
-          </pre>
-        </Section>
-      </Wrapper>
-    );
+  const onClick = async () => { 
+    
+    const updatedNote = {
+      title: note?.title,
+      content,
+      id: params.id
+    }
+    console.log(updatedNote)
+    await dispatch(editNote(updatedNote))
   }
+
+  const handleContent = e => {
+    console.log(e)
+    setContent(e)
+  }
+
+  return (
+    <div id='container' >
+      <h1>{note?.title}</h1>
+      <ReactQuill
+      style={{width: '65%', height: '100%'}}
+      placeholder="Write a new note." 
+      value={content}
+      onChange={handleContent}
+      />
+      <button style={{height: '100px'}} onClick={onClick}>save</button>
+    </div>
+  )
 }
 
-export default RichText;
+
+export default RichText

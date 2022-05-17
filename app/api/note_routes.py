@@ -55,17 +55,20 @@ def create_note():
 def edit_note(id):
   form = EditForm()
   data = request.get_json()
-  form['csrf_token'].data = request.cookies['csrf_token']
-  if form.validate_on_submit():
-    note = Note.query.get(id)
-    note.title = data['title']
-    note.content = data['content']
+  # form['csrf_token'].data = request.cookies['csrf_token']
+  # if form.validate_on_submit():
+  note = Note.query.get(id)
+  note.title = data['title']
+  print(note.content, "\n")
+  note.content = data['content']
+  
 
-    db.session.commit()
+  db.session.commit()
 
-    return note.to_dict()
-  else:
-    return {"errors": form.errors}
+  return note.to_dict()
+  # else:
+  #   print( "failute \n")
+  #   return {"errors": form.errors}
 
 # delete notes
 @note_routes.route('/<int:id>', methods=['DELETE'])

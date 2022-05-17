@@ -8,12 +8,13 @@ import Note from '../Note/Note';
 import './Dashboard.css'
 import { FaPlusCircle } from 'react-icons/fa';
 import { getNotebooks } from '../../store/notebook';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import NavBar from '../NavBar'
 import RichText from '../RichText';
 
 const DashBoard = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const noteState = useSelector(state => state.notes.notes)
 
   const [title, setTitle] = useState("");
@@ -60,6 +61,10 @@ const DashBoard = () => {
   }
 
 
+  const onClick = (id) => {
+    
+  }
+
   useEffect(() => {
     dispatch(getNotes(params.notebook_id))
     dispatch(getNotebooks())
@@ -79,7 +84,9 @@ const DashBoard = () => {
           <h2 style={{color: 'white', alignSelf: 'center', display: 'flex'}}>Click on one of your notebooks!</h2>
         }   
         {noteState?.map(note =>
-          <Note note={note} />
+          <div  onClick={() => history.push(`/notes/${note.id}`)}>
+            <Note note={note} />
+          </div>
           )}
       </div>
       {params.notebook_id && 
