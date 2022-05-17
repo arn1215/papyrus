@@ -45,7 +45,7 @@
 
 .RichEditor-controls {
   font-family: "Helvetica", sans-serif;
-  font-size: 14px;
+  font-size: 80px;
   margin-bottom: 5px;
   user-select: none;
 }
@@ -60,4 +60,9 @@
 
 .RichEditor-activeButton {
   color: #5890ff;
+}
+
+.rdw-editor-wrapper {
+  display: flex;
+  
 }

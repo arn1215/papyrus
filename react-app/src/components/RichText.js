@@ -3,6 +3,7 @@ import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import styled from 'styled-components';
 import draftToHtml from 'draftjs-to-html';
+import './rich.css'
 // import BlockType from './controls/BlockType';
 
 const Wrapper = styled.div`
