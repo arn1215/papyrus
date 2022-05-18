@@ -8,7 +8,7 @@ class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(255), nullable=False)
-    content = db.Column(db.String(255), nullable=False)
+    content = db.Column(db.Text(), nullable=True)
     # make not nullable V
     notebookId = db.Column(db.Integer,db.ForeignKey('notebooks.id'), nullable=True)
     createdAt = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
