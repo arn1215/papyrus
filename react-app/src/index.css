@@ -18,7 +18,7 @@ body {
   margin: auto;
   padding: 0%;
   margin: 0;
-  background-color: #ffffff;
+  background-color: #fffbf5;
   font-family: 'Roboto', sans-serif;
   
 }
@@ -109,21 +109,18 @@ input {
 @keyframes anvil {
   0% {
     transform: scale(1) translateY(0px);
-    opacity: 0;
-    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+    opacity: 0; 
   }
   1% {
     transform: scale(0.96) translateY(10px);
     opacity: 0;
-    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
   }
   100% {
     transform: scale(1) translateY(0px);
     opacity: 1;
-    box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+
   }
 }
-
 
 ::-webkit-scrollbar {
   width: 18px;
@@ -163,12 +160,12 @@ input {
 }
 
 .form button:hover {
-  color: white;
+  color: rgb(245, 245, 245);
   background-color: #c885ff
 }
 
 .form-button:hover {
-  color: white;
+  color: rgb(245, 245, 245);
   background-color: #c885ff
 }
 

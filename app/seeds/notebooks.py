@@ -4,7 +4,7 @@ from app.models import db, NoteBook
 # Adds a demo user, you can add other users here if you want
 def seed_notebooks():
     demoNotebook = NoteBook(
-        id='2', title='marnies notebook', userId='2')
+        id='2', title='marnies ASCII notebook 🐨', userId='2')
 
 
     db.session.add(demoNotebook)
