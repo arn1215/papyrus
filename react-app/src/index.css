@@ -189,9 +189,13 @@ input {
 }
 
 .single-note-container {
-  
   display: flex;
   width: 88%;
   height: 100%;
   flex-wrap: wrap;
+}
+
+
+.notes {
+  margin-bottom: 50px ;
 }

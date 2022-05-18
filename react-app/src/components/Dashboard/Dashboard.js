@@ -86,7 +86,7 @@ const DashBoard = () => {
         }
         <div className='single-note-container'>
         {noteState?.map(note =>
-          <div className='' >
+          <div className='notes' >
             <div className='single-note' onClick={() => history.push(`/notes/${note.id}`)}> 
               <Note note={note}  />
             </div>

@@ -25,8 +25,8 @@
   overflow-y: scroll;
   overflow-x: hidden;
   margin-right: 5%;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
- 
+  box-shadow: 10px 6px 6px rgba(0, 0, 0, 0.404), 0 6px 6px rgba(0, 0, 0, 0.295);
+  height: 87.5%;
 }
 
 .nb-container {
