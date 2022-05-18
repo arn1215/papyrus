@@ -31,7 +31,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=255), nullable=False),
-    sa.Column('content', sa.String(length=255), nullable=False),
+    sa.Column('content',  sa.Text(), nullable=True),
     sa.Column('notebookId', sa.Integer(), nullable=True),
     sa.Column('createdAt', sa.DateTime(), nullable=False),
     sa.Column('updatedAt', sa.DateTime(), nullable=False),
