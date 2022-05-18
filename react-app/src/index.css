@@ -187,3 +187,11 @@ input {
   height: 92vh;
   min-height: 90vh;
 }
+
+.single-note-container {
+  
+  display: flex;
+  width: 88%;
+  height: 100%;
+  flex-wrap: wrap;
+}

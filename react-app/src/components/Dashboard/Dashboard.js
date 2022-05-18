@@ -83,12 +83,16 @@ const DashBoard = () => {
         </div>
         {!params.notebook_id && 
           <h2 style={{color: 'white', alignSelf: 'center', display: 'flex'}}>Click on one of your notebooks!</h2>
-        }   
+        }
+        <div className='single-note-container'>
         {noteState?.map(note =>
-          <div  onClick={() => history.push(`/notes/${note.id}`)}>
-            <Note note={note} />
+          <div className='' >
+            <div className='single-note' onClick={() => history.push(`/notes/${note.id}`)}> 
+              <Note note={note}  />
+            </div>
           </div>
           )}
+        </div>   
       </div>
       {params.notebook_id && 
         <>
