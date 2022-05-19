@@ -12,7 +12,7 @@ import SplashPage from './components/SplashPage/SplashPage';
 import DashBoard from './components/Dashboard/Dashboard';
 import NotebookBar from './components/NotebookBar/NotebookBar';
 import RichText from './components/RichText';
-import MyEditor from './components/RichText';
+
 
 
 function App() {

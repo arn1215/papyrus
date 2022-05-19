@@ -5,7 +5,8 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { editNote } from "../store/note";
 import { useParams } from "react-router-dom";
-
+import './rich.css'
+import Popup from "reactjs-popup";
 
 
 
@@ -31,17 +32,33 @@ const RichText = () => {
     console.log(e)
     setContent(e)
   }
-
+  
   return (
     <div id='container' >
-      <h1>{note?.title}</h1>
+      <div className="title">
+        <h3 style={{marginTop: '7%'}}>{note?.title}</h3>
+      </div>
       <ReactQuill
       style={{width: '65%', height: '100%'}}
       placeholder="Write a new note." 
       value={content}
       onChange={handleContent}
       />
-      <button style={{height: '100px'}} onClick={onClick}>save</button>
+      <Popup
+        trigger={open => (
+          <button  className="save" onClick={onClick}>save</button>
+        )}
+        arrowStyle
+        position="top center"
+        closeOnDocumentClick
+        closeOnEscape
+        
+        on={'click'}
+
+      >
+        <p>Saved!</p>
+      </Popup>
+    
     </div>
   )
 }
