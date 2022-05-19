@@ -50,11 +50,12 @@ const Note = ({ note }) => {
                   </div>
                 )}
                 position=" center"
+                modal
                 className="note_icon"
                 closeOnEscape
                 on={'click'}
               >
-                <h1>Are you sure you want to delete this note?</h1>
+                <h4>Are you sure you want to delete this note?</h4>
                 <button className="form-button" onClick={onDelete}>Yes</button>
               </Popup>
 
