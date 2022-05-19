@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
 
     <>
-      {user && notebookLocation && loginLocation &&
+      {user && notebookLocation && 
         <nav>
           <div className='nav-links'>
             <img style={{ width: '130px' }} className="animation" src={image}></img>

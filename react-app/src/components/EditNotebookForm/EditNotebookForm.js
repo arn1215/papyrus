@@ -71,7 +71,7 @@ const EditNotebookForm = ({id, notebook}) => {
               onSubmit={onSubmit}
               >
               <div className='login-form-group'>
-                <label>Title{id}</label>
+                <label>Title</label>
                 <input
                   type="text"
                   className="input"
