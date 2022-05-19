@@ -5,7 +5,7 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { editNote } from "../store/note";
 import { useParams } from "react-router-dom";
-
+import './rich.css'
 
 
 
@@ -34,14 +34,14 @@ const RichText = () => {
 
   return (
     <div id='container' >
-      <h1>{note?.title}</h1>
+      <h1 style={{marginTop: '7%'}}>{note?.title}</h1>
       <ReactQuill
       style={{width: '65%', height: '100%'}}
       placeholder="Write a new note." 
       value={content}
       onChange={handleContent}
       />
-      <button style={{height: '100px'}} onClick={onClick}>save</button>
+      <button  className="save" onClick={onClick}>save</button>
     </div>
   )
 }

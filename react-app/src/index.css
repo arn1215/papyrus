@@ -171,7 +171,7 @@ input {
 
 #container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin-top: 1%;
   -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
