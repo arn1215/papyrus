@@ -10,11 +10,12 @@ const NavBar = () => {
   const notebookLocation = window.location.href.includes('notebooks')
   const noteLocation = window.location.href.includes('notes')
   const slashLocation = window.location.href.includes('')
+  const loginLocation = window.location.href.includes('login')
   const location = notebookLocation || noteLocation || slashLocation
   return (
 
     <>
-      {user && notebookLocation &&
+      {user && notebookLocation && loginLocation &&
         <nav>
           <div className='nav-links'>
             <img style={{ width: '130px' }} className="animation" src={image}></img>
