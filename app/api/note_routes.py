@@ -7,7 +7,7 @@ from app.models import User, Note, NoteBook, Tag, db
 note_routes = Blueprint('notes', __name__)
 
 # get notes
-# (notebook id V)
+# (by notebook id V)
 @note_routes.route('/<int:nbid>')
 # @login_required
 def notes(nbid): 
@@ -16,14 +16,14 @@ def notes(nbid):
     return {'notes': [note.to_dict() for note in notes]}
 
 # get a single note
-@note_routes.route('/single/<int:noteId>')
+@note_routes.route('/byNoteId/<int:noteId>')
 # @login_required
-def note(notesId):
+def note(noteId):
     # data = request.get_json()
     # if data.userId 
-    notes = Note.query.filter_by(id = id).one()
+    note = Note.query.filter_by(id = noteId).one()
 
-    return {'notes': [note.to_dict() for note in notes]}
+    return note.to_dict()
 
 
 
