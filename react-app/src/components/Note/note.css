@@ -3,6 +3,7 @@
   flex-direction: column;
   padding: 10px;
   align-items: center; 
+  margin-top:40%;
 }
 
 
@@ -15,6 +16,7 @@
   justify-content: center;
   word-break: break-all;
   border: solid 1px red;
+
 }
 
 .note {
@@ -85,14 +87,20 @@
 }
 
 .nb-title {
-  margin-left: -120px;
-  margin-top: 20px;
-  z-index: 1;
+  
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  width: 150%;
+  flex-direction: column;
+  margin-left: 400% ;
+  margin-top: -70%;
+  justify-content: space-around;
+
 }
 
 .note-list {
   display: flex;
-
   flex-wrap: wrap;
   background-color: #2e2e2e;
   width: 60%;

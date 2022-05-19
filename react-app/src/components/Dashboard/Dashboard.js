@@ -77,27 +77,13 @@ const DashBoard = () => {
     <>
       <div className='note-list'>
         <div className='notebook-title'>
-        </div>
-        {!params.notebook_id && 
-          <h2 style={{color: 'white', alignSelf: 'center', display: 'flex'}}>Click on one of your notebooks!</h2>
-        }
-        <div className='single-note-container'>
-        {noteState?.map(note =>
-          <div className='notes' >
-            <div className='single-note' onClick={() => history.push(`/notes/${note.id}`)}> 
-              <Note note={note}  />
-            </div>
-          </div>
-          )}
-        </div>   
-      </div>
-      {params.notebook_id && 
-        <>
         <div className='nb-title animation'>
+          {params.notebook_id && 
+          <>
           <h2 style={{color: 'aliceblue'}}>{singleNotebook?.title}</h2>
           <Popup
-            trigger={open => (
-              <div className='note-create' onClick={toggleModal}>
+          trigger={open => (
+            <div className='note-create' onClick={toggleModal}>
               <FaPlusCircle />
             </div>
             )}
@@ -146,8 +132,24 @@ const DashBoard = () => {
               </form>
             </>
           </Popup>
+                  </>
+          }
         </div>
-        </>}
+        </div>
+        {!params.notebook_id && 
+          <h2 style={{color: 'white', alignSelf: 'center', display: 'flex'}}>Click on one of your notebooks!</h2>
+        }
+        <div className='single-note-container'>
+        {noteState?.map(note =>
+          <div className='notes' >
+            <div className='single-note' onClick={() => history.push(`/notes/${note.id}`)}> 
+              <Note note={note}  />
+            </div>
+          </div>
+          )}
+        </div>   
+      </div>
+
 </>
 )
 }
