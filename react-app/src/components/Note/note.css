@@ -2,12 +2,19 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  align-items: center;
-  
+  align-items: center; 
 }
 
+
+
+
 .note-container h4 {
-  color: rgb(255, 255, 255)
+  color: rgb(255, 255, 255);
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  word-break: break-all;
+  border: solid 1px red;
 }
 
 .note {
@@ -36,7 +43,7 @@
 .note:hover {
   width: 280px;
   height: 280px;
-  font-size: 88%;
+  font-size: 70%;
   cursor: pointer;
 }
 
@@ -48,19 +55,23 @@
   background-color: #57d6a1;
   width: 100%;
   height: 25px;
+  font-size: smaller;
   border-radius: 20px 20px 0px 0px;
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: space-around;
   transition: all 0.4s cubic-bezier(.25, .8, .25, 1);
+  word-break: break-all;
 }
 
 .x-icon {
   color: #2f98dd;
-  margin-right: 10px;
+  margin-left: 20px;
   margin-top: 3px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(.25, .8, .25, 1); 
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  font-size: 20px;
+
 }
 .x-icon:hover {
   color: #57d6a1;

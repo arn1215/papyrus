@@ -25,7 +25,9 @@ const Note = ({ note }) => {
       <div className='note-container'>
         <div className="note">
           <div className='note-header'>
+          <h1>{note.title.slice(0,15)}</h1>
             <div className='note-icons'>
+              
               <Popup
                 trigger={open => (
                   <div>
@@ -62,8 +64,8 @@ const Note = ({ note }) => {
             {parse(`${string}`)}
           </div>
         </div>
-        <h4>{note.title}</h4>
-        <p>{note.createdAt}</p>
+        
+  
       </div>
 
     </>

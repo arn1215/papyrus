@@ -8,7 +8,6 @@ nav {
   background-color: #493f3f73;
   height: 5vh;
   justify-content: center;
- 
 }
 nav  li button {
   list-style: none;
@@ -57,6 +56,7 @@ html {
   padding: 20px 20px;
   font-size: 8px; 
   -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+  
 }
 
 h2 {
@@ -64,14 +64,14 @@ h2 {
 }
 
 .popup-overlay {
-  background: #08080856;
+  background:  #83838373;
 }
 [data-popup='tooltip'].popup-overlay {
   background: transparent;
 }
 
 .popup-arrow {
-  color:  #ffffff00;
+  color:  #83838373
 }
 [role='tooltip'].popup-content {
   width: fit-content;
@@ -171,8 +171,9 @@ input {
 
 #container {
   display: flex;
-  justify-content: space-around;
-  margin-top: 1%;
+  justify-content: space-evenly;
+  background-color: #ebebeb;
+
   -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
 
@@ -181,11 +182,14 @@ input {
   background-color: #7fffd4;
   border-radius: 3px;
   border: none !important;
+  width: 100%;
+  margin-top: 3% ;
+
 } 
 
 .ql-editor {
-  height: 92vh;
-  min-height: 90vh;
+  width: 100%;
+  min-height: 86vh;
 }
 
 .single-note-container {
@@ -196,6 +200,43 @@ input {
 }
 
 
+.ql-container.ql-snow{
+  width: 100%;
+  margin-left: 0.00005%;
+}
+
 .notes {
   margin-bottom: 50px ;
 }
+
+.save {
+  border: none;
+  border-radius: 20px;
+  padding: 7px;
+  cursor: pointer;
+  color: black;
+  height: 60px;
+  width: 150px;
+  margin-top: 39%;
+  background-color: aquamarine;
+  font-weight: bold;
+  font-size: large;
+  transition: all 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+  box-shadow: 0 6px 6px rgba(29, 29, 29, 0.19), 0 6px 6px rgba(39, 39, 39, 0.23);
+}
+
+.save:hover {
+  color: rgb(245, 245, 245);
+  background-color: #c885ff
+}
+
+.quill {
+  width: 40% !important;
+}
+
+.title {
+  word-wrap: break-word;
+  width: 10%;
+  margin-top: 3%;
+}
+

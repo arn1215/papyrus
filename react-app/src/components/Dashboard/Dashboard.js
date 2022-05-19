@@ -75,9 +75,6 @@ const DashBoard = () => {
 
   return (
     <>
-      {/* <div style={{width: '1000px'}}>
-      <RichText /> 
-      </div> */}
       <div className='note-list'>
         <div className='notebook-title'>
         </div>
