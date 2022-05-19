@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import {image1} from './image1.jpg'
 
@@ -100,7 +100,8 @@ const SignUpForm = () => {
 
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='form-button' type='submit'>Sign Up</button>
+      <Link style={{display: 'block'}}  to='/login' type='submit'>Log In</Link>
     </form>
   );
 };

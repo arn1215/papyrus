@@ -19,9 +19,9 @@ const NavBar = () => {
         <nav>
           <div className='nav-links'>
             <img style={{ width: '130px' }} className="animation" src={image}></img>
-            <NavLink to='/' exact={true} activeClassName='active'>
+            {/* <NavLink to='/' exact={true} activeClassName='active'>
               splash
-            </NavLink>
+            </NavLink> */}
             <LogoutButton />
           </div>
         </nav>

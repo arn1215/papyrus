@@ -39,7 +39,7 @@ function App() {
           <div className='something'  >
             <SplashPage />
             <LoginForm />
-            <Link to="/sign-up" style={{ color: 'black' }}><p>Sign Up</p></Link>
+            <Link to="/sign-up" className="signup"style={{display: 'block'}}><p>Or Sign Up</p></Link>
           </div>
         </Route>
         <Route path='/sign-up' exact={true}>
