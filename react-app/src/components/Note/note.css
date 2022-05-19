@@ -11,16 +11,14 @@
 
 .note-header h1 {
   color: rgb(255, 255, 255);
-
   display: flex;
   justify-content: center;
-  
-  
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   
 }
+
 
 .note {
   background-color: rgb(250, 250, 250);

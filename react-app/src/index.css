@@ -13,6 +13,31 @@ nav  li button {
   list-style: none;
 
 }
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #493f3f73;
+  height: 5vh;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav-bar-two  {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #493f3f73;
+  height: 5vh;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.about a {
+  margin-right: 50px;
+}
+
 body {
   margin: auto;
   padding: 0%;
@@ -30,12 +55,17 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   
 }
 .nav-links  a {
   margin-left: 40px;
 }
 
+.links a {
+  padding-right: 50px;
+  
+}
 
 #root {
   height: 100vh;
@@ -54,9 +84,13 @@ html {
   border-radius: 10px;
   width: fit-content;
   padding: 20px 20px;
-  font-size: 30px; 
+  font-size: 20px; 
   -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
   
+}
+
+img {
+  -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
 
 h2 {
@@ -269,7 +303,7 @@ input {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 350px;
+  margin-top: 290px;
   background-color: #747474;
   width: 400px;
   margin-left: 80vh;

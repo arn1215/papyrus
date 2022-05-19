@@ -25,7 +25,7 @@ const DashBoard = () => {
   const singleNotebook = useSelector(state => state.notebooks?.notebook)
 
   const params = useParams()
-  
+
   const updateTitle = (e) => setTitle(e.target.value);
   const updateContent = (e) => setContent(e.target.value)
   const toggleModal = () => setOpen(!open)
@@ -37,14 +37,14 @@ const DashBoard = () => {
       content,
       notebook_id: params.notebook_id
     };
-  
+
     const newNote = await dispatch(createNote(note));
 
     if (newNote.errors?.content || newNote.errors?.title) {
       setContentErr(newNote.errors?.content)
       setErrors(newNote.errors?.title)
     } else {
-      
+
       setErrors([])
       setContentErr([])
       setContent("")
@@ -60,7 +60,7 @@ const DashBoard = () => {
 
 
   const onClick = (id) => {
-    
+
   }
 
   useEffect(() => {
@@ -77,79 +77,79 @@ const DashBoard = () => {
     <>
       <div className='note-list'>
         <div className='notebook-title'>
-        <div className='nb-title animation'>
+          <div className='nb-title animation'>
+          </div>
         </div>
-        </div>
-        {!params.notebook_id && 
-          <h2 style={{color: 'white', alignSelf: 'center', display: 'flex'}}>Click on one of your notebooks!</h2>
+        {!params.notebook_id &&
+          <h2 style={{ color: 'white', alignSelf: 'center', display: 'flex' }}>Click on one of your notebooks!</h2>
         }
         <div className='single-note-container'>
           <>
-          <h2 style={{color: 'aliceblue'}}>{singleNotebook?.title}</h2>
-          <Popup
-          trigger={open => (
-            <div className='note-create' onClick={toggleModal}>
-              <FaPlusCircle />
-            </div>
-            )}
-            open={open}
-            position=" center"
-            className="note_icon"
-            modal
-            closeOnEscape
-            on={'click'}
+            <h2 style={{ color: 'aliceblue' }}>{singleNotebook?.title}</h2>
+            <Popup
+              trigger={open => (
+                <div className='note-create' onClick={toggleModal}>
+                  <FaPlusCircle />
+                </div>
+              )}
+              open={open}
+              position=" center"
+              className="note_icon"
+              modal
+              closeOnEscape
+              on={'click'}
             >
-            <>
-              <form
-                className="login-form"
-                onSubmit={onSubmit}
+              <>
+                <form
+                  className="login-form"
+                  onSubmit={onSubmit}
                 >
-                <div className='login-form-group'>
-                  <label>Title</label>
-                  <input
-                    type="text"
-                    className="input"
-                    name='title'
-                    value={title}
-                    onChange={updateTitle}
+                  <div className='login-form-group'>
+                    <label>Title</label>
+                    <input
+                      type="text"
+                      className="input"
+                      name='title'
+                      value={title}
+                      onChange={updateTitle}
                     />
-                  {errors?.map(message => {
-                    return (<p className='server-form-error' key={message.title}>{message}</p>)
-                  })}
-                </div>
-                <div className='login-form-group'>
-                  <label>Content</label>
-                  <input
-                    type="text"
-                    className="input"
-                    name='content'
-                    value={content}
-                    onChange={updateContent}
+                    {errors?.map(message => {
+                      return (<p className='server-form-error' key={message.title}>{message}</p>)
+                    })}
+                  </div>
+                  <div className='login-form-group'>
+                    <label>Content</label>
+                    <input
+                      type="text"
+                      className="input"
+                      name='content'
+                      value={content}
+                      onChange={updateContent}
                     />
-                  {contentErr?.map(msg => {
-                    return (<p className='server-form-error' key={msg.content}>{msg}</p>)
-                  })}
+                    {contentErr?.map(msg => {
+                      return (<p className='server-form-error' key={msg.content}>{msg}</p>)
+                    })}
 
-                </div>
-                <div className='buttons-container'>
-                  <button className='form-button' onClick={onSubmit} type='submit'>Create</button>
-                </div>
-              </form>
-            </>
-          </Popup>
-                  </>
-        {noteState?.map(note =>
-          <div className='notes' >
-            <div className='single-note' onClick={() => history.push(`/notes/${note.id}`)}> 
-              <Note note={note}  />
+                  </div>
+                  <div className='buttons-container'>
+                    <button className='form-button' onClick={onSubmit} type='submit'>Create</button>
+                  </div>
+                </form>
+              </>
+            </Popup>
+          </>
+          {noteState?.map(note =>
+            <div className='notes' >
+              <div className='single-note' onClick={() => history.push(`/notes/${note.id}`)}>
+                <Note note={note} />
+              </div>
             </div>
-          </div>
           )}
-        </div>   
+        </div>
       </div>
 
-</>
-)
+    </>
+  )
 }
 
 export default DashBoard;

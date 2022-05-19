@@ -12,7 +12,7 @@ import SplashPage from './components/SplashPage/SplashPage';
 import DashBoard from './components/Dashboard/Dashboard';
 import NotebookBar from './components/NotebookBar/NotebookBar';
 import RichText from './components/RichText';
-
+import Nav2 from './components/nav2';
 
 
 function App() {
@@ -35,7 +35,9 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
+        
         <Route path='/login' exact={true}>
+          <Nav2 />
           <div className='something'  >
             <SplashPage />
             <LoginForm />
@@ -43,6 +45,7 @@ function App() {
           </div>
         </Route>
         <Route path='/sign-up' exact={true}>
+          <Nav2 />
           <div className='something'>
             <SignUpForm />
           </div>

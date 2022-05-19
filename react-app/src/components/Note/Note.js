@@ -25,9 +25,9 @@ const Note = ({ note }) => {
       <div className='note-container'>
         <div className="note">
           <div className='note-header'>
-          <h1>{note.title}</h1>
+            <h1>{note.title}</h1>
             <div className='note-icons'>
-              
+
               <Popup
                 trigger={open => (
                   <div>
@@ -57,15 +57,15 @@ const Note = ({ note }) => {
                 <h1>Are you sure you want to delete this note?</h1>
                 <button className="form-button" onClick={onDelete}>Yes</button>
               </Popup>
-              
+
             </div>
           </div>
           <div className='content' >
             {parse(`${string}`)}
           </div>
         </div>
-        
-  
+
+
       </div>
 
     </>

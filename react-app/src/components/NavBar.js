@@ -30,13 +30,12 @@ const NavBar = () => {
         <nav>
           <div className='nav-links'>
             <img style={{ width: '130px' }} className="animation" src={image}></img>
-            <NavLink to='/' exact={true} activeClassName='active'>
-              splash
-            </NavLink>
+            <div className='links'>  
             <NavLink to='/notebooks/' exact={true} activeClassName='active'>
               Home
             </NavLink>
             <LogoutButton />
+            </div>
           </div>
         </nav>
       }
