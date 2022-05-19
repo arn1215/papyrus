@@ -173,6 +173,9 @@ input {
   display: flex;
   justify-content: space-evenly;
   background-color: #ebebeb;
+  height: 95vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
@@ -184,12 +187,15 @@ input {
   border: none !important;
   width: 100%;
   margin-top: 3% ;
+  
 
 } 
 
 .ql-editor {
   width: 100%;
   min-height: 86vh;
+  height: 10px;
+  
 }
 
 .single-note-container {
@@ -203,6 +209,9 @@ input {
 .ql-container.ql-snow{
   width: 100%;
   margin-left: 0.00005%;
+  
+  height: 86vh;
+  box-shadow: 8px 6px 6px rgba(68, 68, 68, 0.164), 0 6px 6px rgba(61, 61, 61, 0.158);
 }
 
 .notes {

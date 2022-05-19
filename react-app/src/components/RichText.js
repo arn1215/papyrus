@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { editNote } from "../store/note";
 import { useParams } from "react-router-dom";
 import './rich.css'
-import Popup from "reactjs-popup";
 
 
 
@@ -32,7 +31,7 @@ const RichText = () => {
     console.log(e)
     setContent(e)
   }
-  
+
   return (
     <div id='container' >
       <div className="title">
@@ -44,21 +43,7 @@ const RichText = () => {
       value={content}
       onChange={handleContent}
       />
-      <Popup
-        trigger={open => (
-          <button  className="save" onClick={onClick}>save</button>
-        )}
-        arrowStyle
-        position="top center"
-        closeOnDocumentClick
-        closeOnEscape
-        
-        on={'click'}
-
-      >
-        <p>Saved!</p>
-      </Popup>
-    
+      <button  className="save" onClick={onClick}>save</button>
     </div>
   )
 }
