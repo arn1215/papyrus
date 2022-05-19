@@ -92,7 +92,7 @@ const DashBoard = () => {
                   <FaPlusCircle />
                 </div>
               )}
-              open={open}
+      
               position=" center"
               className="note_icon"
               modal
