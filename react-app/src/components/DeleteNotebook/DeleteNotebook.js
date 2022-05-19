@@ -39,7 +39,7 @@ const DeleteNotebook = ({id, notebook}) => {
     open={open}
     
     >
-    <h1>Deleting this notebook will remove all of its contents too. Delete forever?</h1>
+    <h4>Deleting this notebook will remove all of its contents too. Delete forever?</h4>
     <button className='form-button' id={notebook?.id} onClick={onClick}>Yes</button>
     <button style={{marginLeft: '20px'}} className='form-button' onClick={() => setOpen(!open)}>No</button>
     </Popup>

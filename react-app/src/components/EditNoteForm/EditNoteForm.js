@@ -44,7 +44,7 @@ const EditNoteForm = ({ note }) => {
   return (
     <div className='form'>
         <div className="form-title" >
-          <h1>Edit note</h1>
+          <h4>Edit note</h4>
         </div>
         <div className="note-form-input">
           <form

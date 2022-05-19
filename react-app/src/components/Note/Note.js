@@ -25,7 +25,7 @@ const Note = ({ note }) => {
       <div className='note-container'>
         <div className="note">
           <div className='note-header'>
-          <h1>{note.title.slice(0,15)}</h1>
+          <h1>{note.title}</h1>
             <div className='note-icons'>
               
               <Popup

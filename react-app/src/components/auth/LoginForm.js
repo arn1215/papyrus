@@ -19,6 +19,11 @@ const LoginForm = () => {
     }
   };
 
+  const onDemo = async (e) => {
+    e.preventDefault();
+    return await dispatch(login('marnie@aa.io', 'password'))
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -32,7 +37,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div classname='login-page' style={{backgroundImage: `url(./image1.jpg)`}}>
+    <div classname='login-page' >
       <form onSubmit={onLogin}>
         {/* <img src={image} alt="Girl in a jacket" width="500" height="600" /> */}
         <div>
@@ -59,7 +64,8 @@ const LoginForm = () => {
             value={password}
             onChange={updatePassword}
           />
-          <button type='submit'>Login</button>
+          <button className='form-button' type='submit'>Login</button>
+          <button className='form-button demo' onClick={onDemo}>Demo</button>
         </div>
       </form>
     </div>

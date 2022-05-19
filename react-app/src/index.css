@@ -76,7 +76,7 @@ h2 {
 [role='tooltip'].popup-content {
   width: fit-content;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
-  font-size: 40px;
+  font-size: 20px;
 }
 
 .iconbutton {
@@ -102,6 +102,7 @@ input {
   padding: 3px;
   border-radius: 5px;
   background-color: rgba(240, 248, 255, 0.651);
+  font-family: 'Roboto';
 }
 
 /* animation */
