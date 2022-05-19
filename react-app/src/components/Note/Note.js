@@ -55,7 +55,7 @@ const Note = ({ note }) => {
                 on={'click'}
               >
                 <h1>Are you sure you want to delete this note?</h1>
-                <button onClick={onDelete}>Yes</button>
+                <button className="form-button" onClick={onDelete}>Yes</button>
               </Popup>
               
             </div>
