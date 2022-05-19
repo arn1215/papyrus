@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import {image1} from './image1.jpg'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -14,29 +15,41 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data)
-        console.log(errors)
-      }
+
+    const data = await dispatch(signUp(username, email, password, repeatPassword));
+    if (data) {
+      setErrors(data)
+      console.log(errors)
     }
+
   };
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
+    if (errors) {
+      setErrors([])
+    }
   };
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
+    if (errors) {
+      setErrors([])
+    }
   };
 
   const updatePassword = (e) => {
-    setPassword(e.target.value);
+    setPassword(e.target.value)
+    if (errors) {
+      setErrors([])
+    }
   };
 
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
+    if (errors) {
+      setErrors([])
+    }
   };
 
   if (user) {
@@ -84,7 +97,7 @@ const SignUpForm = () => {
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
+
         ></input>
       </div>
       <button type='submit'>Sign Up</button>

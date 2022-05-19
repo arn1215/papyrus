@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import image from './image1.jpg' 
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -31,8 +32,9 @@ const LoginForm = () => {
   }
 
   return (
-    <div classname='login-page'>
+    <div classname='login-page' style={{backgroundImage: `url(./image1.jpg)`}}>
       <form onSubmit={onLogin}>
+        {/* <img src={image} alt="Girl in a jacket" width="500" height="600" /> */}
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
