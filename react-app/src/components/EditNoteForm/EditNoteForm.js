@@ -31,14 +31,7 @@ const EditNoteForm = ({ note }) => {
       setContentErr(updateNote.errors?.content) 
       
     }
-    // if (updateNote.errors?.content) {
-    //   return setContentErr(updateNote.errors?.content) 
-    // }
-    
-    // history.push(`/channels/${location.server_id}/${newChannel.id}`);
-  }
-  const backButton = () => {
-    history.goBack();
+
   }
 
   return (

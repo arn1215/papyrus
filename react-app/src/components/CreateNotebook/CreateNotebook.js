@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import  {createNotebook, getNotebook, getNotebooks} from '../../store/notebook'
 import { FaPlusCircle } from 'react-icons/fa';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { editNote, getNotes } from "../../store/note";
 
 const CreateNotebook = () => {
 
@@ -35,7 +36,7 @@ const CreateNotebook = () => {
       setErrors([])
       await dispatch(getNotebooks())
       await dispatch(getNotebook(newNotebook.id))
-
+      toggleModal()
 
       history.push(`/notebooks/${newNotebook.id}`);
     }
@@ -59,7 +60,7 @@ const CreateNotebook = () => {
               <FaPlusCircle />
             </div>
         <Popup
-          arrow={true}
+
           position=" center"
           className="note_icon"
           closeOnEscape

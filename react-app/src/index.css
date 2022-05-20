@@ -275,7 +275,7 @@ input {
   cursor: pointer;
   color: black;
   height: 60px;
-  width: 150px;
+  width: 100px;
   margin-top: 39%;
   background-color: aquamarine;
   font-weight: bold;
@@ -408,7 +408,9 @@ input {
   animation: AnimationName 13s ease infinite;
 }
 
-
+.red:hover {
+  background-color: rgb(255, 102, 102);
+}
 
 @-webkit-keyframes AnimationName {
   0% {

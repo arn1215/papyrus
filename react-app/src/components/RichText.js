@@ -3,9 +3,10 @@ import ReactQuill from "react-quill"
 import '../../node_modules/react-quill/dist/quill.snow.css';
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { editNote } from "../store/note";
+import { deleteNote, editNote } from "../store/note";
 import { useHistory, useParams } from "react-router-dom";
 import './rich.css'
+import { FaTrash } from "react-icons/fa";
 
 
 
@@ -42,6 +43,12 @@ const RichText = () => {
     }
   }
 
+  const onDelete = async(e) => {
+    await dispatch(deleteNote(params.id))
+    history.push('/notebooks/')
+  }
+
+
   useEffect(() => {
     if (!user) {
       history.push('/login')
@@ -67,6 +74,7 @@ const RichText = () => {
       <div className="buttons">
         <button  className="save" onClick={onTheme}>dark mode</button>
         <button  className="save" onClick={onClick}>save</button>
+        <button className="save red" onClick={onDelete}>delete</button>
       </div>
     </div>
   )
