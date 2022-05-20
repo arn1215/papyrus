@@ -37,11 +37,13 @@ function App() {
       <Switch>
         
         <Route path='/login' exact={true}>
-          <Nav2 />
-          <div className='something'  >
-            <SplashPage />
-            <LoginForm />
-            <Link to="/sign-up" className="signup"style={{display: 'block'}}><p>Or Sign Up</p></Link>
+          <div className='background'>
+
+            <Nav2 />
+            <div className='something'>
+              <LoginForm />
+              <Link to="/sign-up" className="signup"style={{display: 'block'}}><p>Or Sign Up</p></Link>
+            </div>
           </div>
         </Route>
         <Route path='/sign-up' exact={true}>
@@ -53,11 +55,12 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
+
           <NavBar />
           <SplashPage />
-        </ProtectedRoute>
-        <Route path='/notebooks/:notebook_id(\d{0,4})' exact={true}>
+        </Route>
+        <ProtectedRoute path='/notebooks/:notebook_id(\d{0,4})' exact={true}>
           <div className='main'>
             <NavBar />
             <div className='notebook-notes-container'>
@@ -65,13 +68,13 @@ function App() {
               <DashBoard />
             </div>
           </div>
-        </Route>
-        <Route path='/notes/:id(\d{0,4})' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/notes/:id(\d{0,4})' exact={true}>
           <div className='main'>
             <NavBar />
             <RichText />
           </div>
-        </Route>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

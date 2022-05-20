@@ -79,67 +79,67 @@ const DashBoard = () => {
 
   if (!window.location.href.endsWith('/notebooks/')) {
 
-      return (
-        <>
-        
+    return (
+      <>
+
         <div className='note-list'>
           <div className='notebook-title'>
             <div className='nb-title animation'>
             </div>
           </div>
-                        <h2 style={{ color: 'aliceblue', marginTop:'6px', marginRight:'30px' }}>{singleNotebook?.title}</h2>
-              <Popup
-                trigger={open => (
-                  <div className='note-create' onClick={toggleModal}>
-                    <FaPlusCircle />
-                  </div>
-                )}
-                
-                position=" center"
-                className="note_icon"
-                modal
-                closeOnEscape
-                style={{display: `${display}`}}
-                on={'click'}
-                >
-                <>
-                  <form
-                    className="login-form"
-                    onSubmit={onSubmit}
-                    >
-                    <div className='login-form-group'>
-                      <label>Title</label>
-                      <input
-                        type="text"
-                        className="input"
-                        name='title'
-                        value={title}
-                        onChange={updateTitle}
-                        />
-                      {errors?.map(message => {
-                        return (<p className='server-form-error' key={message.title}>{message}</p>)
-                      })}
-                    </div>
-                    <div className='login-form-group'>
-                      <label>Content</label>
-                      <input
-                        type="text"
-                        className="input"
-                        name='content'
-                        value={content}
-                        onChange={updateContent}
-                        />
-                      {contentErr?.map(msg => {
-                        return (<p className='server-form-error' key={msg.content}>{msg}</p>)
-                      })}
+          <h2 style={{ color: 'aliceblue', marginTop: '6px', marginRight: '30px' }}>{singleNotebook?.title}</h2>
+          <Popup
+            trigger={open => (
+              <div className='note-create' onClick={toggleModal}>
+                <FaPlusCircle />
+              </div>
+            )}
 
-                    </div>
-                    <div className='buttons-container'>
-                      <button className='form-button' onClick={onSubmit} type='submit'>Create</button>
-                    </div>
-                  </form>
-                </>
-              </Popup>
+            position=" center"
+            className="note_icon"
+            modal
+            closeOnEscape
+            style={{ display: `${display}` }}
+            on={'click'}
+          >
+            <>
+              <form
+                className="login-form"
+                onSubmit={onSubmit}
+              >
+                <div className='login-form-group'>
+                  <label>Title</label>
+                  <input
+                    type="text"
+                    className="input"
+                    name='title'
+                    value={title}
+                    onChange={updateTitle}
+                  />
+                  {errors?.map(message => {
+                    return (<p className='server-form-error' key={message.title}>{message}</p>)
+                  })}
+                </div>
+                <div className='login-form-group'>
+                  <label>Content</label>
+                  <input
+                    type="text"
+                    className="input"
+                    name='content'
+                    value={content}
+                    onChange={updateContent}
+                  />
+                  {contentErr?.map(msg => {
+                    return (<p className='server-form-error' key={msg.content}>{msg}</p>)
+                  })}
+
+                </div>
+                <div className='buttons-container'>
+                  <button className='form-button' onClick={onSubmit} type='submit'>Create</button>
+                </div>
+              </form>
+            </>
+          </Popup>
           <div className='single-note-container'>
             <>
 
@@ -160,7 +160,7 @@ const DashBoard = () => {
     return (
       <div className='demo-container'>
         <h1>Get started by creating or clicking on a notebook!</h1>
-        <img src={image} className="demo-image" style={{width: '1200px', height: '500px'}}></img>
+        <img src={image} className="demo-image" style={{ width: '1200px', height: '500px' }}></img>
       </div>
 
     )
