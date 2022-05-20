@@ -34,7 +34,7 @@ const EditNotebookForm = ({id, notebook}) => {
       setErrors([])
       await dispatch(getNotebooks())
       await dispatch(getNotebook(newNotebook.id))
-
+      toggleModal()
 
       history.push(`/notebooks/${newNotebook.id}`);
     }
