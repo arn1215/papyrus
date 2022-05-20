@@ -1,19 +1,22 @@
 
 import ReactQuill from "react-quill"
 import '../../node_modules/react-quill/dist/quill.snow.css';
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { editNote } from "../store/note";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import './rich.css'
+
 
 
 
 const RichText = () => {
   
   const dispatch = useDispatch()
+  const history = useHistory()
   const params = useParams()
   const note = useSelector(state => state.notes[params.id])
+  const user = useSelector(state => state.session.user);
   const [content, setContent] = useState(note?.content)
   const [color, setColor] = useState('#ebebeb')
   const [fontColor, setFontColor] = useState('darkslate')
@@ -38,6 +41,12 @@ const RichText = () => {
       setColor('rgb(71, 64, 61)')
     }
   }
+
+  useEffect(() => {
+    if (!user) {
+      history.push('/login')
+    }
+  }, [])
 
   const handleContent = e => {
     console.log(e)
