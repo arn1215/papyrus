@@ -87,9 +87,7 @@ const DashBoard = () => {
             <div className='nb-title animation'>
             </div>
           </div>
-          <div className='single-note-container'>
-            <>
-              <h2 style={{ color: 'aliceblue' }}>{singleNotebook?.title}</h2>
+                        <h2 style={{ color: 'aliceblue', marginTop:'6px', marginRight:'30px' }}>{singleNotebook?.title}</h2>
               <Popup
                 trigger={open => (
                   <div className='note-create' onClick={toggleModal}>
@@ -142,6 +140,9 @@ const DashBoard = () => {
                   </form>
                 </>
               </Popup>
+          <div className='single-note-container'>
+            <>
+
             </>
             {noteState?.map(note =>
               <div className='notes' >
