@@ -51,8 +51,8 @@ const DashBoard = () => {
       setContentErr([])
       setContent("")
       setTitle("")
-      toggleModal()
-
+      setOpen(false)
+      
     }
     // history.push(`/channels/${location.server_id}/${newChannel.id}`);
   }
@@ -88,17 +88,18 @@ const DashBoard = () => {
             </div>
           </div>
           <h2 style={{ color: 'aliceblue', marginTop: '6px', marginRight: '30px' }}>{singleNotebook?.title}</h2>
-          <Popup
-            trigger={open => (
-              <div className='note-create' onClick={toggleModal}>
+              <div className='note-create' onClick={() => setOpen(true)}>
                 <FaPlusCircle />
               </div>
-            )}
+          <Popup
+
 
             position=" center"
             className="note_icon"
             modal
+            open={open}
             closeOnEscape
+            onClose={() => setOpen(false)}
             style={{ display: `${display}` }}
             on={'click'}
           >

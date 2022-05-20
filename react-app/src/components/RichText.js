@@ -49,7 +49,7 @@ const RichText = () => {
   const onDelete = () => {
     dispatch(deleteNote(params.id))
     history.push('/notebooks/')
- 
+
   }
 
   useEffect(() => {

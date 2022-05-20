@@ -28,7 +28,7 @@ const Note = ({ note }) => {
             <h1>{note.title}</h1>
             <div className='note-icons'>
 
-              <Popup
+              {/* <Popup
                 trigger={open => (
                   <div>
                     <FaEdit className="x-icon" />
@@ -57,7 +57,7 @@ const Note = ({ note }) => {
               >
                 <h4>Are you sure you want to delete this note?</h4>
                 <button className="form-button" onClick={onDelete}>Yes</button>
-              </Popup>
+              </Popup> */}
 
             </div>
           </div>
