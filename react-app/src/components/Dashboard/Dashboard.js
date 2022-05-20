@@ -30,7 +30,7 @@ const DashBoard = () => {
 
   const updateTitle = (e) => setTitle(e.target.value);
   const updateContent = (e) => setContent(e.target.value)
-
+  const toggleModal = () => setOpen(!open)
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -40,9 +40,8 @@ const DashBoard = () => {
       notebook_id: params.notebook_id
     };
 
-
     const newNote = await dispatch(createNote(note));
-    
+
     if (newNote.errors?.content || newNote.errors?.title) {
       setContentErr(newNote.errors?.content)
       setErrors(newNote.errors?.title)
@@ -52,10 +51,7 @@ const DashBoard = () => {
       setContentErr([])
       setContent("")
       setTitle("")
-      setOpen(false)
-    
-    
-
+      toggleModal()
 
     }
     // history.push(`/channels/${location.server_id}/${newChannel.id}`);
@@ -92,15 +88,17 @@ const DashBoard = () => {
             </div>
           </div>
           <h2 style={{ color: 'aliceblue', marginTop: '6px', marginRight: '30px' }}>{singleNotebook?.title}</h2>
-              <div onClick={() => setOpen(true)} className='note-create' >
+          <Popup
+            trigger={open => (
+              <div className='note-create' onClick={toggleModal}>
                 <FaPlusCircle />
               </div>
-          <Popup
-            open={open}
+            )}
+
             position=" center"
             className="note_icon"
             modal
-
+            closeOnEscape
             style={{ display: `${display}` }}
             on={'click'}
           >
