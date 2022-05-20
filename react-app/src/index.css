@@ -87,16 +87,25 @@ html {
 }
 
 .popup-content {
-  background: #83838373;
+  background: linear-gradient(82deg, #5eedf5, #9c4ddb);
+  background-size: 200% 900%;
   color: rgb(255, 255, 255);
   font-family: Helvetica, sans-serif;
   margin: auto;
-  border-radius: 10px;
+  border-radius: 4px;
   width: fit-content;
   padding: 20px 20px;
   font-size: 20px;
   -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 
+}
+
+.red {
+  width: 20px;
+}
+
+.save .red:hover {
+  background-color: rgb(255, 82, 82) !important; 
 }
 
 img {
@@ -116,7 +125,7 @@ h2 {
 }
 
 .popup-arrow {
-  color: #83838373
+
 }
 
 [role='tooltip'].popup-content {

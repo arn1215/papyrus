@@ -17,7 +17,7 @@ const CreateNotebook = () => {
   const [open, setOpen] = useState(false)
 
   const updateTitle = (e) => setTitle(e.target.value);
-  const toggleModal = () => setOpen(!open)
+  
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -55,7 +55,7 @@ const CreateNotebook = () => {
         
     <>
       <div className='create'>
-            <div className='note-create' onClick={toggleModal}>
+            <div className='note-create' onClick={() => setOpen(true)}>
               <FaPlusCircle />
             </div>
         <Popup
@@ -63,6 +63,7 @@ const CreateNotebook = () => {
           position=" center"
           className="note_icon"
           closeOnEscape
+          onClose={() => setOpen(false)}
           on={'click'}
           open={open}
           >
