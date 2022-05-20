@@ -11,6 +11,7 @@ import { getNotebooks } from '../../store/notebook';
 import { useHistory, useParams } from 'react-router-dom';
 import NavBar from '../NavBar'
 import RichText from '../RichText';
+import image from './Animation.gif'
 
 const DashBoard = () => {
   const dispatch = useDispatch()
@@ -22,6 +23,7 @@ const DashBoard = () => {
   const [errors, setErrors] = useState([]);
   const [contentErr, setContentErr] = useState([])
   const [open, setOpen] = useState(false)
+  const [display, setDisplay] = useState('visible')
   const singleNotebook = useSelector(state => state.notebooks?.notebook)
 
   const params = useParams()
@@ -69,87 +71,99 @@ const DashBoard = () => {
     if (window.location.href.includes('/notebooks/')) {
       dispatch(clear_notes())
     }
+    if (!params.notebook_id) {
+      setDisplay('none')
+    }
     // dispatch(getNotebook(params.notebook_id))
   }, [dispatch, params])
 
+  if (!window.location.href.endsWith('/notebooks/')) {
 
-  return (
-    <>
-      <div className='note-list'>
-        <div className='notebook-title'>
-          <div className='nb-title animation'>
+      return (
+        <>
+        
+        <div className='note-list'>
+          <div className='notebook-title'>
+            <div className='nb-title animation'>
+            </div>
+          </div>
+          <div className='single-note-container'>
+            <>
+              <h2 style={{ color: 'aliceblue' }}>{singleNotebook?.title}</h2>
+              <Popup
+                trigger={open => (
+                  <div className='note-create' onClick={toggleModal}>
+                    <FaPlusCircle />
+                  </div>
+                )}
+                
+                position=" center"
+                className="note_icon"
+                modal
+                closeOnEscape
+                style={{display: `${display}`}}
+                on={'click'}
+                >
+                <>
+                  <form
+                    className="login-form"
+                    onSubmit={onSubmit}
+                    >
+                    <div className='login-form-group'>
+                      <label>Title</label>
+                      <input
+                        type="text"
+                        className="input"
+                        name='title'
+                        value={title}
+                        onChange={updateTitle}
+                        />
+                      {errors?.map(message => {
+                        return (<p className='server-form-error' key={message.title}>{message}</p>)
+                      })}
+                    </div>
+                    <div className='login-form-group'>
+                      <label>Content</label>
+                      <input
+                        type="text"
+                        className="input"
+                        name='content'
+                        value={content}
+                        onChange={updateContent}
+                        />
+                      {contentErr?.map(msg => {
+                        return (<p className='server-form-error' key={msg.content}>{msg}</p>)
+                      })}
+
+                    </div>
+                    <div className='buttons-container'>
+                      <button className='form-button' onClick={onSubmit} type='submit'>Create</button>
+                    </div>
+                  </form>
+                </>
+              </Popup>
+            </>
+            {noteState?.map(note =>
+              <div className='notes' >
+                <div className='single-note' onClick={() => history.push(`/notes/${note.id}`)}>
+                  <Note note={note} />
+                </div>
+              </div>
+            )}
           </div>
         </div>
-        {!params.notebook_id &&
-          <h2 style={{ color: 'white', alignSelf: 'center', display: 'flex' }}>Click on one of your notebooks!</h2>
-        }
-        <div className='single-note-container'>
-          <>
-            <h2 style={{ color: 'aliceblue' }}>{singleNotebook?.title}</h2>
-            <Popup
-              trigger={open => (
-                <div className='note-create' onClick={toggleModal}>
-                  <FaPlusCircle />
-                </div>
-              )}
-      
-              position=" center"
-              className="note_icon"
-              modal
-              closeOnEscape
-              on={'click'}
-            >
-              <>
-                <form
-                  className="login-form"
-                  onSubmit={onSubmit}
-                >
-                  <div className='login-form-group'>
-                    <label>Title</label>
-                    <input
-                      type="text"
-                      className="input"
-                      name='title'
-                      value={title}
-                      onChange={updateTitle}
-                    />
-                    {errors?.map(message => {
-                      return (<p className='server-form-error' key={message.title}>{message}</p>)
-                    })}
-                  </div>
-                  <div className='login-form-group'>
-                    <label>Content</label>
-                    <input
-                      type="text"
-                      className="input"
-                      name='content'
-                      value={content}
-                      onChange={updateContent}
-                    />
-                    {contentErr?.map(msg => {
-                      return (<p className='server-form-error' key={msg.content}>{msg}</p>)
-                    })}
 
-                  </div>
-                  <div className='buttons-container'>
-                    <button className='form-button' onClick={onSubmit} type='submit'>Create</button>
-                  </div>
-                </form>
-              </>
-            </Popup>
-          </>
-          {noteState?.map(note =>
-            <div className='notes' >
-              <div className='single-note' onClick={() => history.push(`/notes/${note.id}`)}>
-                <Note note={note} />
-              </div>
-            </div>
-          )}
-        </div>
+      </>
+    )
+  } else {
+    return (
+      <div className='demo-container'>
+        <h1>Get started by creating or clicking on a notebook!</h1>
+        <img src={image} className="demo-image" style={{width: '1200px', height: '500px'}}></img>
       </div>
 
-    </>
-  )
+    )
+  }
 }
 
 export default DashBoard;

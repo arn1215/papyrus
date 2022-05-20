@@ -42,7 +42,7 @@ body {
   margin: auto;
   padding: 0%;
   margin: 0;
-  background-color: #fffbf5;
+  background-color: #f8f8f8;
   font-family: 'Roboto', sans-serif;
   
 }
@@ -207,7 +207,7 @@ input {
 #container {
   display: flex;
   justify-content: space-evenly;
-  background-color: #ebebeb;
+  background-color: #ffc4c4;
   height: 95vh;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -352,4 +352,27 @@ input {
 .logout:hover {
   color: rgb(245, 245, 245);
   background-color: #c885ff
+}
+.demo-container {
+  display: flex;
+  flex-direction: column;
+  align-items:center ;
+  justify-content: center;
+  background-image: linear-gradient(to bottom right, #e8aaf5,  #a7ddf3);
+  color: aliceblue;
+  width: 70%;
+  height: 95%;
+  border-radius: 7px;
+  box-shadow: 10px 6px 6px rgba(0, 0, 0, 0.158), 0 6px 6px rgba(0, 0, 0, 0.144);
+}
+
+.demo-container h1 {
+  margin-bottom: 60px;
+}
+
+
+.demo-image {
+  
+  border-radius: 7px;
+  box-shadow: 10px 6px 6px rgba(0, 0, 0, 0.158), 0 6px 6px rgba(0, 0, 0, 0.144);
 }
