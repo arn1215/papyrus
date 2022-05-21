@@ -30,7 +30,9 @@ const NotebookBar = () => {
             <div className='icon iconbutton'>
               <EditNotebookForm id={notebook.id} notebook={notebook} />
             </div>
+            <div className='icon iconbutton'>
               <DeleteNotebook id={notebook.id}  notebook={notebook} />
+            </div>
             </div>
           </div>
           </Link>
