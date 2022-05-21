@@ -23,7 +23,7 @@ const NavBar = () => {
               splash
             </NavLink> */}
             <a className='' href="https://github.com/arn1215">Github</a>
-            <a href="https://www.linkedin.com/in/ali-naqvi-251910226/">Linked In</a>
+            <a href="https://www.linkedin.com/in/ali-naqvi-251910226/">LinkedIn</a>
             <LogoutButton />
           </div>
         </nav>

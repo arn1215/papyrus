@@ -210,6 +210,9 @@ input {
 
 }
 
+.form-button .splash {
+ width: 10px !important;
+}
 
 .form-button {
   width: 30%;
@@ -233,6 +236,10 @@ input {
 .form-button:hover {
   color: rgb(245, 245, 245);
   background-color: #c885ff
+}
+
+.forms {
+
 }
 
 #container {

@@ -1,10 +1,12 @@
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import image from '../Papyrus-logos_transparent.png'
 
 
 
 const SplashPage = () => {
+
+  const history = useHistory()
 
   return (
     <>
@@ -16,7 +18,12 @@ const SplashPage = () => {
               Everyone could use a little help getting and staying organized -- <br></br>
               at Papyrus we can help you do just that. Create notebooks on your dashboard and add notes to them.
             </h3>
-            <Link to='/login' className='form-button splash'>Get Started</Link>
+            <button
+              className='form-button'
+              onClick={() => {history.push('/login')}}
+            >
+              Get Started
+            </button>
           </div>
 
         </div>
