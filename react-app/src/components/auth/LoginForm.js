@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
-import image from './image1.jpg' 
+import image from './image1.jpg'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -64,8 +64,10 @@ const LoginForm = () => {
             value={password}
             onChange={updatePassword}
           />
-          <button className='form-button' type='submit'>Login</button>
-          <button className='form-button demo' onClick={onDemo}>Demo</button>
+          <div className="button-container" style={{display: 'flex'}}>
+            <button className='form-button demo' onClick={onDemo}>Demo</button>
+            <button className='form-button' type='submit'>Login</button>
+          </div>
         </div>
       </form>
     </div>

@@ -87,25 +87,17 @@ html {
 }
 
 .popup-content {
-  background: linear-gradient(82deg, #5eedf5, #9c4ddb);
-  background-size: 200% 900%;
+  
+  background: linear-gradient(20deg, #5eedf5,  #6ff5a7c7);
   color: rgb(255, 255, 255);
   font-family: Helvetica, sans-serif;
   margin: auto;
-  border-radius: 4px;
+  border-radius: 10px;
   width: fit-content;
-  padding: 20px 20px;
+  padding: 50px;
   font-size: 20px;
   -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 
-}
-
-.red {
-  width: 20px;
-}
-
-.save .red:hover {
-  background-color: rgb(255, 82, 82) !important; 
 }
 
 img {
@@ -125,7 +117,7 @@ h2 {
 }
 
 .popup-arrow {
-
+  color: #83838373
 }
 
 [role='tooltip'].popup-content {
@@ -144,6 +136,7 @@ a {
   text-decoration: none;
   color: rgba(240, 248, 255, 0.671);
   transition: all 0.8s cubic-bezier(.25, .8, .25, 1);
+  width: fit-content;
 }
 
 a:hover {
@@ -152,12 +145,16 @@ a:hover {
 
 
 
+
 input {
   border: none;
-  padding: 3px;
+  width: 100%;
   border-radius: 5px;
   background-color: rgba(240, 248, 255, 0.651);
-  font-family: 'Roboto';
+
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
 
 /* animation */
@@ -202,9 +199,14 @@ input {
   background-color: #858585;
 }
 
+.button-container {
+  justify-content: space-around;
+
+}
+
 
 .form-button {
-  margin-left: 40%;
+  width: 30%;
   border: none;
   border-radius: 20px;
   padding: 7px;
