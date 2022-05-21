@@ -39,6 +39,7 @@
   border-radius: 10px;
   width: 250px;
   overflow-x: hidden;
+  text-overflow: ellipsis;
   word-break: break-all;
   transition: all 0.3s;
 }

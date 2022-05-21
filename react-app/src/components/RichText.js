@@ -30,7 +30,7 @@ const RichText = () => {
       content,
       id: params.id
     }
-    console.log(updatedNote)
+
     await dispatch(editNote(updatedNote))
   }
 
@@ -59,7 +59,6 @@ const RichText = () => {
   }, [])
 
   const handleContent = e => {
-    console.log(e)
     setContent(e)
   }
 

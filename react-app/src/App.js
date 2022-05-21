@@ -42,7 +42,7 @@ function App() {
             <Nav2 />
             <div className='something'>
               <LoginForm />
-              <Link to="/sign-up" className="signup"style={{display: 'block'}}><p>Or Sign Up</p></Link>
+              <Link to="/sign-up" className="signup"style={{display: 'block', marginTop: '20px'}}><p>Or Sign Up</p></Link>
             </div>
           </div>
         </Route>

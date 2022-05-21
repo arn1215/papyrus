@@ -238,9 +238,7 @@ input {
   background-color: #c885ff
 }
 
-.forms {
 
-}
 
 #container {
   display: flex;
@@ -345,6 +343,7 @@ input {
   width: 100%;
   display: flex;
   justify-content: center;
+
 }
 
 
@@ -357,10 +356,12 @@ input {
   margin-top: 290px;
   background-color: #747474;
   width: 400px;
+  background: linear-gradient(20deg, #5eedf5,  #b06bffb4);
   margin-left: 80vh;
   border-radius: 8px;
-  padding: 20px;
+  padding: 50px 0px 30px;
   color: whitesmoke;
+  box-shadow: 10px 6px 6px rgba(58, 58, 58, 0.404), 0 6px 6px rgba(44, 44, 44, 0.295);
 
 }
 
