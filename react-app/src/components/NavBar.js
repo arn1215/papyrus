@@ -17,7 +17,7 @@ const NavBar = () => {
     <>
       {user && notebookLocation &&
         <nav>
-          <div className='nav-links'>
+          <div className='nav-links' style={{ width: '70%' }}>
             <img style={{ width: '130px' }} className="animation" src={image}></img>
             {/* <NavLink to='/' exact={true} activeClassName='active'>
               splash
@@ -37,7 +37,7 @@ const NavBar = () => {
                 Home
               </NavLink>
               <a className='' href="https://github.com/arn1215">Github</a>
-              <a href="https://www.linkedin.com/in/ali-naqvi-251910226/">Linked In</a>
+              <a href="https://www.linkedin.com/in/ali-naqvi-251910226/">LinkedIn</a>
               <LogoutButton />
             </div>
           </div>
