@@ -36,7 +36,7 @@ const CreateNotebook = () => {
       await dispatch(getNotebooks())
       await dispatch(getNotebook(newNotebook.id))
 
-
+      setOpen(false)
       history.push(`/notebooks/${newNotebook.id}`);
     }
   }
