@@ -23,14 +23,14 @@ const NotebookBar = () => {
       <CreateNotebook />
       {notebookState?.map(notebook =>
         <div key={notebook.id}>
-          <Link className='animation nb-container' onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`}>
+          <Link className='animation ' onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`}>
           <div className='animation nb-container' >
-            <p  onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`} >{notebook.title}</p>
+            <p  style={{marginRight:'20px'}}onClick={() => dispatch(getNotebook(notebook.id))}  className='link' to={`/notebooks/${notebook.id}`} >{notebook.title}</p>
             <div className='notebook-icons'>
             <div className='icon iconbutton'>
-              <DeleteNotebook id={notebook.id}  notebook={notebook} />
-            </div>
               <EditNotebookForm id={notebook.id} notebook={notebook} />
+            </div>
+              <DeleteNotebook id={notebook.id}  notebook={notebook} />
             </div>
           </div>
           </Link>

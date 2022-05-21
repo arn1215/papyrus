@@ -37,8 +37,9 @@
   background-color: rgba(75, 70, 70, 0.459);
   margin: 13px;
   border-radius: 10px;
-  width: 80%;
+  width: 250px;
   overflow-x: hidden;
+  word-break: break-all;
   transition: all 0.3s;
 }
 
