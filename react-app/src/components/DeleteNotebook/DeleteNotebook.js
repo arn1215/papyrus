@@ -11,7 +11,7 @@ import { useState } from "react";
 
 
 
-const DeleteNotebook = ({id, notebook}) => {
+const DeleteNotebook = ({ id, notebook }) => {
   const dispatch = useDispatch()
   const history = useHistory()
   const [open, setOpen] = useState(false)
@@ -24,25 +24,27 @@ const DeleteNotebook = ({id, notebook}) => {
     history.push('/notebooks/')
   }
 
-  
+
 
 
   return (
     <>
-    <i className="fa-solid fa-trash" onClick={() => setOpen(!open)}></i>
-    <Popup
-    position=" center"
-    className="note_icon"
-    closeOnEscape
-    modal
-    on={'click'}
-    open={open}
-    
-    >
-    <h4>Deleting this notebook will remove all of its contents too. Delete forever?</h4>
-    <button className='form-button' id={notebook?.id} onClick={onClick}>Yes</button>
-    <button style={{marginLeft: '20px'}} className='form-button' onClick={() => setOpen(!open)}>No</button>
-    </Popup>
+      <i className="fa-solid fa-trash" onClick={() => setOpen(!open)}></i>
+      <Popup
+        position=" center"
+        className="note_icon"
+        closeOnEscape
+        modal
+        on={'click'}
+        open={open}
+
+      >
+        <h4>Deleting this notebook will remove all of its contents too. Delete forever?</h4>
+        <div className="button-container" style={{ display: 'flex' }}>
+          <button className='form-button' id={notebook?.id} onClick={onClick}>Yes</button>
+          <button style={{ marginLeft: '20px' }} className='form-button' onClick={() => setOpen(!open)}>No</button>
+        </div>
+      </Popup>
     </>
 
   )

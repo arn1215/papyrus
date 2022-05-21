@@ -79,6 +79,12 @@ html {
   height: 100vh;
 }
 
+.popup-content note_icon-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -88,7 +94,7 @@ html {
 
 .popup-content {
   
-  background: linear-gradient(20deg, #5eedf5,  #6ff5a7c7);
+  background: linear-gradient(20deg, #5eedf5,  #b06bffb4);
   color: rgb(255, 255, 255);
   font-family: Helvetica, sans-serif;
   margin: auto;
@@ -313,6 +319,18 @@ input {
 .buttons {
   display: flex;
   flex-direction: column;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-channel-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-page {
