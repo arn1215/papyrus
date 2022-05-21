@@ -75,7 +75,7 @@ const RichText = () => {
       onChange={handleContent}
       />
       <div className="buttons">
-        <button  className="save" onClick={onTheme}>dark mode</button>
+        <button  className="save" onClick={onTheme}>toggle theme</button>
         <button  className="save" onClick={onClick}>save</button>
         <button className='save red' onClick={toggle}>delete</button>
         <Popup
