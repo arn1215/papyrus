@@ -39,10 +39,9 @@ const LoginForm = () => {
   return (
     <div classname='login-page forms' >
       <form onSubmit={onLogin}>
-        {/* <img src={image} alt="Girl in a jacket" width="500" height="600" /> */}
         <div>
           {errors.map((error, ind) => (
-            <div key={ind}></div>
+            <div key={ind} style={{margin: '20px'}}>{error}</div>
           ))}
         </div>
         <div>
