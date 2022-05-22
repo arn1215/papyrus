@@ -85,10 +85,10 @@ export const createNote = (note) => async dispatch => {
 }
 
 export const editNote = (note) => async dispatch => {
-  const {title, content} = note;
+  const {title, content, string} = note;
   const res = await fetch(`/api/notes/${note.id}`, {
     method: 'PATCH',
-    body: JSON.stringify({title, content}),
+    body: JSON.stringify({title, content, string}),
     headers: {'Content-Type': 'application/json'}
   })
 

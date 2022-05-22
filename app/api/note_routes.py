@@ -10,7 +10,7 @@ note_routes = Blueprint('notes', __name__)
 # get notes
 # (by notebook id V)
 @note_routes.route('/<int:nbid>')
-# @login_required
+@login_required
 def notes(nbid): 
     notes = Note.query.filter_by(notebookId = nbid).all()
 
@@ -18,7 +18,7 @@ def notes(nbid):
 
 # get a single note
 @note_routes.route('/byNoteId/<int:noteId>')
-# @login_required
+@login_required
 def note(noteId):
     # data = request.get_json()
     # if data.userId 
@@ -30,7 +30,7 @@ def note(noteId):
 
 # post notes
 @note_routes.route('/', methods=['POST'])
-# @login_required
+@login_required
 def create_note():
   form = NoteForm()
   data = request.get_json()
@@ -54,14 +54,15 @@ def create_note():
     return {"errors": form.errors}, 500
 
 @note_routes.route('/<int:id>', methods=['PATCH'])
-# @login_required
+@login_required
 def edit_note(id):
   form = EditForm()
   data = request.get_json()
+  print(data)
   form['csrf_token'].data = request.cookies['csrf_token']
-  if data['content'] == "": 
+  if data['string'] == "": 
     return {"errors": "Please enter a value." } , 500
-  if len(data['content']) < 3 : 
+  if len(data['string']) < 3 : 
     return {"errors": "Please enter  at least 3 characters" } , 500
   if form.validate_on_submit():
     note = Note.query.get(id)

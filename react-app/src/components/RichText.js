@@ -29,8 +29,9 @@ const RichText = () => {
     let string = content.replace(/<[^>]+>/g, '')
     const updatedNote = {
       title: note?.title,
-      content: string,
-      id: params.id
+      content: content,
+      id: params.id,
+      string
     }
     
     const data = await dispatch(editNote(updatedNote))
