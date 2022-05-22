@@ -3,7 +3,7 @@ import ReactQuill from "react-quill"
 import '../../node_modules/react-quill/dist/quill.snow.css';
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { deleteNote, editNote } from "../store/note";
+import { deleteNote, editNote, getNote } from "../store/note";
 import { useHistory, useParams } from "react-router-dom";
 import './rich.css'
 import parse from 'html-react-parser'
@@ -19,11 +19,15 @@ const RichText = () => {
   const params = useParams()
   const [errors, setErrors] = useState([]);
   const note = useSelector(state => state.notes[params.id])
+  const singleNote = useSelector(state => state.notes.note)
   const user = useSelector(state => state.session.user);
   const [content, setContent] = useState(note?.content)
   const [open, setOpen] = useState(false)
   const [color, setColor] = useState('#ebebeb')
+  const [shake, setShake] = useState('')
+  const [success, setSuccess] = useState("")
   const [fontColor, setFontColor] = useState('darkslate')
+  const [nb, setNb] = useState("")
   
   const onClick = async () => {
     let string = content.replace(/<[^>]+>/g, '')
@@ -36,8 +40,17 @@ const RichText = () => {
     
     const data = await dispatch(editNote(updatedNote))
     
-    if (data) {
+    if (data.errors) {
       setErrors(data.errors);
+      setShake('error')
+      setTimeout(() => setShake(''), 2000)
+      
+    } else {
+
+      setErrors([])
+      setSuccess('saved')
+      setTimeout(() => setSuccess('none'), 1200)
+
     }
   
   }
@@ -51,21 +64,30 @@ const RichText = () => {
       setColor('rgb(71, 64, 61)')
     }
   }
-
+  
   const toggle = () => { setOpen(!open) }
-
-  const onDelete = () => {
-    dispatch(deleteNote(params.id))
-    history.push('/notebooks/')
-
-  }
   
   useEffect(() => {
     if (!user) {
       history.push('/login')
     }
-  }, [])
+    
+    const func = async() => {
+      await dispatch(getNote(params.id))
+      await setNb(`${singleNote?.notebookId}`)
+      await console.log(`${nb}`)
+      
+    }
+    func()
 
+  }, [])
+  
+  
+    const onDelete = async () => {
+      await dispatch(deleteNote(params.id))
+      history.push(`/notebooks/${singleNote?.notebookId}`)
+  
+    }
   const handleContent = e => {
     setContent(e)
    
@@ -84,7 +106,8 @@ const RichText = () => {
       />
       <div className="buttons">
         <button className="save" onClick={onTheme}>toggle theme</button>
-        <button className="save" onClick={onClick}>save</button>
+        <button className={`save ${shake} ${success}`} onClick={onClick}>save</button>
+        
         {<div style={{marginTop: '20px', width:'150px'}}>{errors}</div>}
         <button className='save red' onClick={toggle}>delete</button>
         <Popup

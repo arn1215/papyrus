@@ -42,7 +42,7 @@ const LoginForm = () => {
         {/* <img src={image} alt="Girl in a jacket" width="500" height="600" /> */}
         <div>
           {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+            <div key={ind}></div>
           ))}
         </div>
         <div>
