@@ -161,7 +161,7 @@ const DashBoard = () => {
   } else {
     return (
       <div className='demo-container'>
-        <h1>Get started by creating or clicking on a notebook!</h1>
+        <h1>Get started by creating or clicking a notebook!</h1>
         <img src={image} className="demo-image" style={{ width: '1200px', height: '500px' }}></img>
       </div>
 
