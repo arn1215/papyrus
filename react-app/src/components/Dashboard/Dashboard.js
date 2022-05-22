@@ -2,7 +2,7 @@
 import Popup from 'reactjs-popup'
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { clear_notes, createNote, getNotes } from '../../store/note';
+import { clear_notes, createNote, getNote, getNotes } from '../../store/note';
 import { useSelector } from 'react-redux';
 import Note from '../Note/Note';
 import './Dashboard.css'
@@ -12,6 +12,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import NavBar from '../NavBar'
 import RichText from '../RichText';
 import image from './Animation.gif'
+
+
 
 const DashBoard = () => {
   const dispatch = useDispatch()
@@ -62,7 +64,8 @@ const DashBoard = () => {
 
 
   const onClick = (id) => {
-
+    dispatch(getNote(id))
+    history.push(`/notes/${id}`)
   }
 
   useEffect(() => {
@@ -145,7 +148,7 @@ const DashBoard = () => {
             </>
             {noteState?.map(note =>
               <div className='notes' >
-                <div className='single-note' onClick={() => history.push(`/notes/${note.id}`)}>
+                <div className='single-note' onClick={() => onClick(note.id)}>
                   <Note note={note} />
                 </div>
               </div>

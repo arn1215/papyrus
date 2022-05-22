@@ -21,7 +21,7 @@ const RichText = () => {
   const note = useSelector(state => state.notes[params.id])
   const singleNote = useSelector(state => state.notes.note)
   const user = useSelector(state => state.session.user);
-  const [content, setContent] = useState(singleNote?.content)
+  const [content, setContent] = useState(note.content)
   const [open, setOpen] = useState(false)
   const [color, setColor] = useState('#ebebeb')
   const [shake, setShake] = useState('')
@@ -49,7 +49,7 @@ const RichText = () => {
 
       setErrors([])
       setSuccess('saved')
-      dispatch(getNote(params.id))
+      
       setTimeout(() => setSuccess('none'), 1200)
 
     }

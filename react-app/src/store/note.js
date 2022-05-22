@@ -120,6 +120,12 @@ const NoteReducer = (state = initialState, action) => {
       newState.notes?.push(action.payload);
       newState[action.payload.id] = action.payload;
       return newState;
+
+    case UPDATE_NOTE: 
+      newState = { ...state };
+      newState.notes?.push(action.payload);
+      newState[action.payload.id] = action.payload;
+      return newState;  
       
       case CLEAR_NOTES:
         return {}
