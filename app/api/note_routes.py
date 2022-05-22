@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.forms.create_note_form import NoteForm
@@ -29,12 +30,14 @@ def note(noteId):
 
 # post notes
 @note_routes.route('/', methods=['POST'])
-@login_required
+# @login_required
 def create_note():
   form = NoteForm()
   data = request.get_json()
   print("\n\n\n",data)
   form['csrf_token'].data = request.cookies['csrf_token']
+  # if data['content'] == "": 
+  #   return {"errors": "Please enter a value." } , 500
   if form.validate_on_submit():
     note = Note(
       userId = current_user.id,
@@ -48,27 +51,28 @@ def create_note():
 
     return note.to_dict()
   else:
-    return {"errors": form.errors}
+    return {"errors": form.errors}, 500
 
 @note_routes.route('/<int:id>', methods=['PATCH'])
-@login_required
+# @login_required
 def edit_note(id):
   form = EditForm()
   data = request.get_json()
-  # form['csrf_token'].data = request.cookies['csrf_token']
-  # if form.validate_on_submit():
-  note = Note.query.get(id)
-  note.title = data['title']
-  print(note.content, "\n")
-  note.content = data['content']
-  
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if data['content'] == "": 
+    return {"errors": "Please enter a value." } , 500
+  if len(data['content']) < 3 : 
+    return {"errors": "Please enter  at least 3 characters" } , 500
+  if form.validate_on_submit():
+    note = Note.query.get(id)
+    note.content = data['content']
+    
 
-  db.session.commit()
+    db.session.commit()
 
-  return note.to_dict()
-  # else:
-  #   print( "failute \n")
-  #   return {"errors": form.errors}
+    return note.to_dict()
+  else:
+    return {"errors": form.errors}
 
 # delete notes
 @note_routes.route('/<int:id>', methods=['DELETE'])

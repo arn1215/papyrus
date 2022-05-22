@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { editNote, getNotes } from "../../store/note";
-
+import parse from 'html-react-parser'
 const EditNoteForm = ({ note }) => {
   const history = useHistory();
   const dispatch = useDispatch();
