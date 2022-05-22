@@ -601,14 +601,16 @@ input {
 
 
 .saved {
-  animation: save 1.82s cubic-bezier(.36, .07, .19, .97) both;
+  animation: save 1.92s cubic-bezier(.36, .07, .19, .97) forwards;
   transform: translate3d(0, 0, 0);
   perspective: 1000px;
+  transition: all 1s;
 }
 
 @keyframes save {
   10%, 90% {
     transform: translate3d(-8px, 0, 0);
+    background-color: aquamarine;
   }
 
   20%, 80% {
@@ -618,9 +620,11 @@ input {
 
   30%, 50%, 70% {
     transform: translate3d(-8px, 0, 0);
+    background-color: rgb(100, 255, 86);
   }
 
   40%, 60% {
     transform: translate3d(8px, 0, 0);
-  }
+    background-color: aquamarine;
+}
 }
