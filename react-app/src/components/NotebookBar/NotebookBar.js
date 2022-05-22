@@ -11,7 +11,7 @@ import './notebookBar.css'
 const NotebookBar = () => {
   const notebookState = useSelector(state => state.notebooks?.notebooks)
   const dispatch = useDispatch()
-
+  const user = useSelector(state => state.session.user)
   // const onRedirect = async(id) => {
   //   await dispatch(getNotebook(id))
   //   history.push(`/notebooks/${id}`)
@@ -19,7 +19,7 @@ const NotebookBar = () => {
 
   return (
     <div className='notebook-bar'>
-      <h3>Notebooks</h3>
+      <h4>{user.username}'s  Notebooks</h4>
       <CreateNotebook />
       {notebookState?.map(notebook =>
         <div key={notebook.id}>
