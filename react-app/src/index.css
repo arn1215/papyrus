@@ -424,7 +424,7 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to bottom right, #e8aaf5, #a7ddf3);
+  background-image: linear-gradient(to bottom right, #474747, #a7ddf3);
   color: aliceblue;
   width: 70%;
   height: 95%;
@@ -617,6 +617,11 @@ input {
 .backmsg {
   -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
+
+.errormsg {
+  -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+}
+
 
 @keyframes save {
   10%, 90% {
