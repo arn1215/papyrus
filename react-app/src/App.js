@@ -75,6 +75,9 @@ function App() {
             <RichText />
           </div>
         </ProtectedRoute>
+        <Route>
+          <p>page not found</p>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
