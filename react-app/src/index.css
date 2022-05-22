@@ -438,9 +438,13 @@ input {
 
 
 .demo-image {
-
+  
   border-radius: 7px;
   box-shadow: 10px 6px 6px rgba(0, 0, 0, 0.158), 0 6px 6px rgba(0, 0, 0, 0.144);
+}
+
+img.demo-image  {
+  width: 90% !important;
 }
 
 .splash-page {
