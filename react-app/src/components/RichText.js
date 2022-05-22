@@ -8,6 +8,7 @@ import { useHistory, useParams } from "react-router-dom";
 import './rich.css'
 import parse from 'html-react-parser'
 import Popup from "reactjs-popup";
+import { FaArrowAltCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 
 
 
@@ -25,9 +26,10 @@ const RichText = () => {
   const [open, setOpen] = useState(false)
   const [color, setColor] = useState('#ebebeb')
   const [shake, setShake] = useState('')
+  const [vis, setVis] = useState('none')
   const [success, setSuccess] = useState("")
   const [fontColor, setFontColor] = useState('darkslate')
-  const [nb, setNb] = useState("")
+  const [nb, setNb] = useState("hidden")
   
   const onClick = async () => {
     let string = content.replace(/<[^>]+>/g, '')
@@ -98,6 +100,10 @@ const RichText = () => {
     <div id='container' style={{ backgroundColor: `${color}`, color: `${fontColor}` }}>
       <div className="title">
         <h3 style={{ marginTop: '7%' }}>{note?.title}</h3>
+        <div className="backbutton" onMouseEnter={() => setVis("")} onMouseLeave={() => setVis('none')}>
+          <FaArrowCircleLeft className="icon x-icon" onClick={() => history.go(-1)}/>
+        </div>
+          <p className='backmsg' style={{display: `${vis}`}}>Go back to your notebook</p>
       </div>
       <ReactQuill
         style={{ width: '65%', height: '100%' }}

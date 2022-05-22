@@ -457,7 +457,14 @@ input {
   animation: AnimationName 13s ease infinite;
 }
 
-
+.backbutton {
+  display: flex;
+  align-items: center;
+  width: 230px;
+  margin-left: -40px;
+  justify-content: space-around;
+  margin-top: 300px;
+}
 
 @-webkit-keyframes AnimationName {
   0% {
@@ -605,6 +612,10 @@ input {
   transform: translate3d(0, 0, 0);
   perspective: 1000px;
   transition: all 1s;
+}
+
+.backmsg {
+  -webkit-animation: anvil 0.18s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
 
 @keyframes save {
