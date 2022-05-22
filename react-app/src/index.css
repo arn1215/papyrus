@@ -347,7 +347,9 @@ input {
 
 }
 
-
+.drawing {
+  size: 50px;
+}
 
 .something {
   display: flex;

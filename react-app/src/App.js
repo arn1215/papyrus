@@ -36,12 +36,8 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/draw'>
-          <Draw />
-        </Route>
         <Route path='/login' exact={true}>
           <div className='background'>
-
             <Nav2 />
             <div className='something'>
               <LoginForm />
@@ -59,7 +55,6 @@ function App() {
           <UsersList />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-
           <NavBar />
           <SplashPage />
         </Route>
