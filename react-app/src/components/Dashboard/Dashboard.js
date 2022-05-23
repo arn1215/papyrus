@@ -72,7 +72,10 @@ const DashBoard = () => {
   }
 
   useEffect(() => {
-    dispatch(getNotes(params.notebook_id))
+    if (params.notebook_id) {
+
+      dispatch(getNotes(params.notebook_id))
+    }
     dispatch(getNotebooks())
     if (window.location.href.includes('/notebooks/')) {
       dispatch(clear_notes())
