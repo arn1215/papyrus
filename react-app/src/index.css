@@ -15,6 +15,8 @@ nav li button {
 
 }
 
+
+
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -637,12 +639,12 @@ img.demo-image  {
 
   20%, 80% {
     transform: translate3d(8px, 0, 0);
-    background-color: rgb(100, 255, 86);
+    background-color: rgb(97, 255, 176);
   }
 
   30%, 50%, 70% {
     transform: translate3d(-8px, 0, 0);
-    background-color: rgb(100, 255, 86);
+    background-color: rgb(102, 255, 161);
   }
 
   40%, 60% {
@@ -657,4 +659,35 @@ img.demo-image  {
   justify-content: space-around;
   align-items: center;
 
+}
+
+.title
+
+.title-edit {
+  border: 2px solid aquamarine;
+  width: 300px;
+  margin-right: 28px;
+}
+
+.title-edit:focus {
+  border: 3px solid aquamarine;
+  outline: none !important;
+}
+
+.title-form {
+  display: flex;
+  align-content: center;
+  margin-left: -16%;
+}
+
+.title-form button{
+  border-radius: 7px;
+  margin-top: 9px !important;
+  font-size: large;
+  height: 40px;
+}
+
+
+.title-info-p:hover {
+  font-style: italic;
 }
