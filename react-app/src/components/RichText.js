@@ -132,7 +132,7 @@ const RichText = () => {
         
         {<div style={{marginTop: '20px', width:'150px'}} className='errormsg'>{errors}</div>}
         <button className='save red' onClick={toggle}>delete</button>
-        <button className='save' onClick={() => setCanvas(!canvas)}>draw</button>
+        <button className='save' onClick={() => setCanvas(!canvas)}>{canvas ? "write" : "draw"}</button>
         <Popup
           open={open}
           onClose={() => setOpen(false)}
