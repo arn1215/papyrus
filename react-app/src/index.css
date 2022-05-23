@@ -637,12 +637,12 @@ img.demo-image  {
 
   20%, 80% {
     transform: translate3d(8px, 0, 0);
-    background-color: rgb(100, 255, 86);
+    background-color: rgb(97, 255, 176);
   }
 
   30%, 50%, 70% {
     transform: translate3d(-8px, 0, 0);
-    background-color: rgb(100, 255, 86);
+    background-color: rgb(102, 255, 161);
   }
 
   40%, 60% {
@@ -652,5 +652,24 @@ img.demo-image  {
 }
 
 .title-edit {
-  border: 1px solid red;
+  border: 2px solid aquamarine;
+  width: 300px;
+  margin-right: 28px;
+}
+
+.title-edit:focus {
+  border: 3px solid aquamarine;
+  outline: none !important;
+}
+
+.title-form {
+  display: flex;
+  align-content: center;
+}
+
+.title-form button{
+  border-radius: 7px;
+  margin-top: 9px !important;
+  font-size: large;
+  height: 40px;
 }

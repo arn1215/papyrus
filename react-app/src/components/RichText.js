@@ -8,7 +8,7 @@ import { useHistory, useParams } from "react-router-dom";
 import './rich.css'
 import parse from 'html-react-parser'
 import Popup from "reactjs-popup";
-import { FaArrowAltCircleRight, FaArrowCircleLeft } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaArrowCircleLeft, FaRegSave } from "react-icons/fa";
 
 
 
@@ -143,7 +143,7 @@ const RichText = () => {
               <input className={`title-edit `} name="title" value={value} onChange={(e) => setValue(e.target.value)}></input>
 
             <button className={`form-button ${shake} ${success}`} onClick={onTitle} >
-              <FaArrowAltCircleRight />
+              <FaRegSave />
             </button>
             </form>
           </>
