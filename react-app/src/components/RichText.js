@@ -78,12 +78,14 @@ const RichText = () => {
     if (!user) {
       history.push('/login')
     }
+    if (note?.content.startsWith("<img")){
+      setCanvas(true)
+    }
     
     const func = async() => {
       await dispatch(getNote(params.id))
       await setNb(`${singleNote?.notebookId}`)
       await console.log(`${nb}`)
-      
     }
     func()
 

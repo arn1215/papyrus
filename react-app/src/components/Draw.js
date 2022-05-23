@@ -10,6 +10,7 @@ const Draw = ({ note }) => {
   const canvasRef = useRef(null)
   const dispatch = useDispatch()
   const [drawing, setDrawing] = useState();
+  const [shake, setShake] = useState('')
   // const current = canvasRef.current;
 
   const handleExport = async () => {
@@ -38,6 +39,7 @@ const Draw = ({ note }) => {
         canvasHeight={600}
         canvasWidth={900}
         hideGrid="true"
+        
         brushRadius={3}
         ref={canvasRef}
         immediateLoading={false}
@@ -49,9 +51,9 @@ const Draw = ({ note }) => {
         }}
 
       ></CanvasDraw>
-  
-      <FaSave style={{color:'black'}}  onClick={handleExport}/>
-        
+      
+      <FaSave className='animation form-button' style={{color:'black'}}  onClick={handleExport}/>
+
     </div>
 
 
