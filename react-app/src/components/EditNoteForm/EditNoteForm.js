@@ -3,10 +3,11 @@ import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { editNote, getNotes } from "../../store/note";
 import parse from 'html-react-parser'
+import Popup from "reactjs-popup";
 const EditNoteForm = ({ note }) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [title, setTitle] = useState(`${note.title}`);
+  const [title, setTitle] = useState(`${note?.title}`);
   const [content, setContent] = useState(`${note.content}`);
   const [errors, setErrors] = useState([]);
   const [contentErr, setContentErr] = useState([])
@@ -20,10 +21,11 @@ const EditNoteForm = ({ note }) => {
       title,
       content,
       id: note.id,
+      string: "123"
     };
     const updateNote = await dispatch(editNote(newNote));
     
-    dispatch(getNotes(params.notebook_id))
+    // dispatch(getNotes(params.notebook_id))
 
     
     if (updateNote.errors?.title || updateNote.errors?.content) {
@@ -42,9 +44,13 @@ const EditNoteForm = ({ note }) => {
   }
 
   return (
+    <Popup
+    trigger={<div style={{cursor: 'pointer'}}className="edit">Edit Title</div>}
+    >
+      
     <div className='form'>
         <div className="form-title" >
-          <h4>Edit note</h4>
+          <h4>Edit Title</h4>
         </div>
         <div className="note-form-input">
           <form
@@ -64,25 +70,14 @@ const EditNoteForm = ({ note }) => {
                 return (<p className='note-form-error' key={message.title}>{message}</p>)
               })}
             </div>
-            <div className='note-form-group'>
-              <label>Content</label>
-              <input
-                type="text"
-                className="input"
-                name='content'
-                value={content}
-                onChange={updateContent}
-              />
-              {contentErr?.map(msg => {
-                return (<p className='note-form-error' key={msg.content}>{msg}</p>)
-              })}
-            </div>
           </form>
         </div>
         <div className='buttons-container'>
           <button className='form-button' onClick={onSubmit} type='submit'>Save</button>
         </div>
     </div>
+    </Popup>
+    
   )
 }
 

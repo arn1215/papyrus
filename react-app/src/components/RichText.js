@@ -10,6 +10,7 @@ import './rich.css'
 import parse from 'html-react-parser'
 import Popup from "reactjs-popup";
 import { FaArrowAltCircleRight, FaArrowCircleLeft } from "react-icons/fa";
+import EditNoteForm from "./EditNoteForm/EditNoteForm";
 
 
 
@@ -105,6 +106,7 @@ const RichText = () => {
     <div id='container' style={{ backgroundColor: `${color}`, color: `${fontColor}` }}>
       <div className="title">
         <h3 style={{ marginTop: '7%' }}>{note?.title}</h3>
+        <EditNoteForm  note={note}/>
         <div className="backbutton" onMouseEnter={() => setVis("")} onMouseLeave={() => setVis('none')}>
           <FaArrowCircleLeft className="icon x-icon" onClick={() => history.go(-1)}/>
         </div>
@@ -141,8 +143,8 @@ const RichText = () => {
           <div className="button-container" style={{ display: 'flex', flexDirection: "column", alignItems: "center", height: '200px', width: '300px' }}>
             <p>Are you sure?</p>
             <div className="button-container">
-              <button className="logout yes" style={{margin: '20px'}} onClick={onDelete}>Yes</button>
               <button className="logout yes" style={{margin: '20px'}} onClick={() => setOpen(false)}>No</button>
+              <button className="logout yes" style={{margin: '20px'}} onClick={onDelete}>Yes</button>
             </div>
           </div>
         </Popup>
