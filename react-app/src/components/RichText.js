@@ -62,13 +62,14 @@ const RichText = () => {
   }
 
 
-  const onTitle = async () => {
-    let string = content.replace(/<[^>]+>/g, '')
+  const onTitle = async (e) => {
+    e.preventDefault()
+
     const updatedNote = {
       title: value,
       content: content,
       id: params.id,
-      string
+      string: "123"
     }
     console.log(updatedNote)
 
@@ -138,13 +139,13 @@ const RichText = () => {
         }
         {input &&
           <>
-            <form>
+            <form className="title-form" >
               <input className={`title-edit `} name="title" value={value} onChange={(e) => setValue(e.target.value)}></input>
 
-            </form>
-            <button className={`form-button ${shake} ${success}`} onClick={onTitle}>
+            <button className={`form-button ${shake} ${success}`} onClick={onTitle} >
               <FaArrowAltCircleRight />
             </button>
+            </form>
           </>
         }
         <div className="backbutton" onMouseEnter={() => setVis("")} onMouseLeave={() => setVis('none')}>
