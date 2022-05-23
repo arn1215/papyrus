@@ -133,8 +133,8 @@ const RichText = () => {
       <div className="title">
         {!input &&
           <>
-            <h3 style={{ marginTop: '7%' }}>{note?.title}</h3>
-            <p onClick={() => setInput(true)}>edit</p>
+            <h3 className="title-info" style={{ marginTop: '7%' , marginLeft: "65px"}}>{note?.title}</h3>
+            <p  className="title-info-p" style={{ marginTop: '7%' , marginLeft: "65px", cursor:'pointer'}} onClick={() => setInput(true)}>edit</p>
           </>
         }
         {input &&

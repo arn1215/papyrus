@@ -651,6 +651,9 @@ img.demo-image  {
 }
 }
 
+
+.title
+
 .title-edit {
   border: 2px solid aquamarine;
   width: 300px;
@@ -665,6 +668,7 @@ img.demo-image  {
 .title-form {
   display: flex;
   align-content: center;
+  margin-left: -16%;
 }
 
 .title-form button{
@@ -672,4 +676,9 @@ img.demo-image  {
   margin-top: 9px !important;
   font-size: large;
   height: 40px;
+}
+
+
+.title-info-p:hover {
+  font-style: italic;
 }
