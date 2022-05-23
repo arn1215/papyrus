@@ -32,6 +32,7 @@ const RichText = () => {
   const [fontColor, setFontColor] = useState('darkslate')
   const [nb, setNb] = useState("hidden")
   const [canvas, setCanvas] = useState(false)
+  const [img, setImg] = useState("")
 
   
   const onClick = async () => {
