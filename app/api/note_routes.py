@@ -60,14 +60,14 @@ def edit_note(id):
   data = request.get_json()
   print(data)
   form['csrf_token'].data = request.cookies['csrf_token']
-  if data['string'] == "": 
+  if data['string'] == "" or len(data['title']) < 1: 
     return {"errors": "Please enter a value." } , 500
-  if len(data['string']) < 3 : 
+  if len(data['string']) < 3 or len(data['title']) < 3 : 
     return {"errors": "Please enter  at least 3 characters" } , 500
   if form.validate_on_submit():
     note = Note.query.get(id)
     note.content = data['content']
-    
+    note.title = data['title']
 
     db.session.commit()
 
