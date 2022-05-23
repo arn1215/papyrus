@@ -123,7 +123,10 @@ const RichText = () => {
       }
       <div className="buttons">
         <button className="save" onClick={onTheme}>toggle theme</button>
+        {!canvas &&
         <button className={`save ${shake} ${success}`} onClick={onClick}>save</button>
+        
+        }
         
         {<div style={{marginTop: '20px', width:'150px'}} className='errormsg'>{errors}</div>}
         <button className='save red' onClick={toggle}>delete</button>

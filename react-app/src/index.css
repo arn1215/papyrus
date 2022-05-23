@@ -650,3 +650,11 @@ img.demo-image  {
     background-color: aquamarine;
 }
 }
+
+.canvas-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}

@@ -2,6 +2,7 @@ import CanvasDraw from "react-canvas-draw";
 import { useRef, useState } from 'react'
 import { useDispatch } from "react-redux";
 import { createNote, editNote, getNote } from "../store/note";
+import { FaSave } from "react-icons/fa";
 
 
 const Draw = ({ note }) => {
@@ -30,7 +31,7 @@ const Draw = ({ note }) => {
 
 
   return (
-    <>
+    <div className="canvas-container">
 
       <CanvasDraw
         brushColor="#300"
@@ -39,26 +40,19 @@ const Draw = ({ note }) => {
         hideGrid="true"
         brushRadius={3}
         ref={canvasRef}
-
-        // onChange={handleChange}
-
-
+        immediateLoading={false}
         style={{
           borderRadius: '8px',
+          marginTop:'8%',
           boxShadow:
             "0 13px 27px -5px rgba(50, 50, 93, 0.25),    0 8px 16px -8px rgba(0, 0, 0, 0.3)"
         }}
 
       ></CanvasDraw>
-          <button
-            type="button"
-            className="save "
-            onClick={handleExport}
-          >
-            Save Drawing
-          </button>
-
-    </>
+  
+      <FaSave style={{color:'black'}}  onClick={handleExport}/>
+        
+    </div>
 
 
   )
