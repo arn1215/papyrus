@@ -58,8 +58,11 @@ const DashBoard = () => {
     }
     // history.push(`/channels/${location.server_id}/${newChannel.id}`);
   }
-  const backButton = () => {
-    // history.goBack();
+
+  const onClose = () => {
+    setErrors([])
+    setOpen(false)
+    setContentErr([])
   }
 
 
@@ -100,7 +103,7 @@ const DashBoard = () => {
             modal
             open={open}
             closeOnEscape
-            onClose={() => setOpen(false)}
+            onClose={onClose}
             style={{ display: `${display}` }}
             on={'click'}
           >
