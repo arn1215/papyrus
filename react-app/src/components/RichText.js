@@ -4,10 +4,14 @@ import '../../node_modules/react-quill/dist/quill.snow.css';
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { deleteNote, editNote, getNote } from "../store/note";
+import Draw from "./Draw";
 import { useHistory, useParams } from "react-router-dom";
 import './rich.css'
 import Popup from "reactjs-popup";
 import { FaArrowCircleLeft, FaRegSave } from "react-icons/fa";
+
+import EditNoteForm from "./EditNoteForm/EditNoteForm";
+
 
 
 
@@ -29,6 +33,10 @@ const RichText = () => {
   const [success, setSuccess] = useState("")
   const [fontColor, setFontColor] = useState('darkslate')
   const [nb, setNb] = useState("hidden")
+  const [canvas, setCanvas] = useState(false)
+  const [img, setImg] = useState("")
+
+  
   const [input, setInput] = useState(false)
   const [value, setValue] = useState(note.title)
 
@@ -107,13 +115,21 @@ const RichText = () => {
     if (!user) {
       history.push('/login')
     }
+    if (note?.content.startsWith("<img")){
+      setCanvas(true)
+    }
+    
+    const func = async() => {
+      await dispatch(getNote(params.id))
+      await setNb(`${singleNote?.notebookId}`)
+      await console.log(`${nb}`)
 
     const func = async () => {
       await dispatch(getNote(params.id))
       await setNb(`${singleNote?.notebookId}`)
     }
     func()
-
+  }
   }, [])
 
 
@@ -151,18 +167,27 @@ const RichText = () => {
         </div>
         <p className='backmsg' style={{ display: `${vis}` }}>Go back to your notebook</p>
       </div>
+      {canvas &&
+        <Draw  note={note}/>
+        
+      }
+      {!canvas && 
+      
       <ReactQuill
-        style={{ width: '65%', height: '100%' }}
-        placeholder="Write a new note."
-        value={content}
-        onChange={handleContent}
+      style={{ width: '65%', height: '100%' }}
+      placeholder="Write a new note."
+      value={content}
+      onChange={handleContent}
       />
+      }
       <div className="buttons">
         <button className="save" onClick={onTheme}>toggle theme</button>
-        <button className={`save ${shake} ${success}`} onClick={onClick}>save</button>
+        {!canvas &&
+        <button className={`save ${shake} ${success}`} onClick={onClick}>save</button>}
 
         {<div style={{ marginTop: '20px', width: '150px' }} className='errormsg'>{errors}</div>}
         <button className='save red' onClick={toggle}>delete</button>
+        <button className='save' onClick={() => setCanvas(!canvas)}>{canvas ? "write" : "draw"}</button>
         <Popup
           open={open}
           onClose={() => setOpen(false)}

@@ -13,6 +13,7 @@ import DashBoard from './components/Dashboard/Dashboard';
 import NotebookBar from './components/NotebookBar/NotebookBar';
 import RichText from './components/RichText';
 import Nav2 from './components/nav2';
+import Draw from './components/Draw';
 
 
 function App() {
@@ -35,14 +36,12 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        
         <Route path='/login' exact={true}>
           <div className='background'>
-
             <Nav2 />
             <div className='something'>
               <LoginForm />
-              <Link to="/sign-up" className="signup"style={{display: 'block', marginTop: '20px'}}><p>Or Sign Up</p></Link>
+              <Link to="/sign-up" className="signup" style={{ display: 'block', marginTop: '20px' }}><p>Or Sign Up</p></Link>
             </div>
           </div>
         </Route>
@@ -56,7 +55,6 @@ function App() {
           <UsersList />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-
           <NavBar />
           <SplashPage />
         </Route>
@@ -75,9 +73,7 @@ function App() {
             <RichText />
           </div>
         </ProtectedRoute>
-        <Route>
-          <p>page not found</p>
-        </Route>
+
       </Switch>
     </BrowserRouter>
   );

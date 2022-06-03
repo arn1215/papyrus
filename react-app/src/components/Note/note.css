@@ -20,6 +20,10 @@
 }
 
 
+.note img {
+  width: 100%;
+}
+
 .note {
   background-color: rgb(250, 250, 250);
   width: 200px;

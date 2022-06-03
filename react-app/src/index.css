@@ -352,7 +352,9 @@ input {
 
 }
 
-
+.drawing {
+  size: 50px;
+}
 
 .something {
   display: flex;
@@ -654,6 +656,13 @@ img.demo-image  {
 }
 }
 
+.canvas-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
 
 .title
 
