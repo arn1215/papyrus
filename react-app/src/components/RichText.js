@@ -6,9 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteNote, editNote, getNote } from "../store/note";
 import { useHistory, useParams } from "react-router-dom";
 import './rich.css'
-import parse from 'html-react-parser'
 import Popup from "reactjs-popup";
-import { FaArrowAltCircleRight, FaArrowCircleLeft, FaRegSave } from "react-icons/fa";
+import { FaArrowCircleLeft, FaRegSave } from "react-icons/fa";
 
 
 
@@ -38,6 +37,7 @@ const RichText = () => {
     const updatedNote = {
       title: note?.title,
       content: content,
+      // note.id
       id: params.id,
       string
     }
@@ -111,8 +111,6 @@ const RichText = () => {
     const func = async () => {
       await dispatch(getNote(params.id))
       await setNb(`${singleNote?.notebookId}`)
-    
-
     }
     func()
 
@@ -169,7 +167,6 @@ const RichText = () => {
           open={open}
           onClose={() => setOpen(false)}
         >
-
           <div className="button-container" style={{ display: 'flex', flexDirection: "column", alignItems: "center", height: '200px', width: '300px' }}>
             <p>Are you sure?</p>
             <div className="button-container">
