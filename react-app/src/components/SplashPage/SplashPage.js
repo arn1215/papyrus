@@ -19,7 +19,7 @@ const SplashPage = () => {
               at Papyrus we can help you do just that. Create notebooks on your dashboard and add notes to them.
             </h3>
             <button
-              className='form-button'
+              className='form-button start'
               onClick={() => {history.push('/login')}}
             >
               Get Started

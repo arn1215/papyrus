@@ -37,8 +37,8 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path='/login' exact={true}>
-          <div className='background'>
-            <Nav2 />
+          <Nav2 />
+          <div className='form-container'>
             <div className='something'>
               <LoginForm />
               <Link to="/sign-up" className="signup" style={{ display: 'block', marginTop: '20px' }}><p>Or Sign Up</p></Link>
@@ -47,8 +47,10 @@ function App() {
         </Route>
         <Route path='/sign-up' exact={true}>
           <Nav2 />
-          <div className='something'>
-            <SignUpForm />
+          <div className='form-container'>
+            <div className='something'>
+              <SignUpForm />
+            </div>
           </div>
         </Route>
         <ProtectedRoute path='/users' exact={true} >

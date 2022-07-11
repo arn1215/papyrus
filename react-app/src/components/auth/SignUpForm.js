@@ -100,8 +100,10 @@ const SignUpForm = () => {
 
         ></input>
       </div>
-      <button className='form-button' type='submit'>Sign Up</button>
+      <div className='buttons'>
+      <button className='form-button' style={{marginBottom: "20px"}} type='submit'>Sign Up</button>
       <Link style={{display: 'block'}}  to='/login' type='submit'>Log In</Link>
+      </div>
     </form>
   );
 };

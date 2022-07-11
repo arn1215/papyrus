@@ -16,10 +16,6 @@ nav li button {
 
 }
 
-.background {
-  display: flex;
-  align-items: flex-end;
-}
 
 .nav-bar {
   display: flex;
@@ -359,21 +355,36 @@ input {
   size: 50px;
 }
 
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95%;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
 .something {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 100px;
+  height: 400px;
   width: 400px;
   background: linear-gradient(20deg, #dfdfdf, #d4d4d4);
-  margin-left: 720px;
+
   border-radius: 8px;
   padding: 50px 20px 30px;
   color: rgb(20, 20, 20);
   box-shadow: 10px 6px 6px rgba(58, 58, 58, 0.404), 0 6px 6px rgba(44, 44, 44, 0.295);
 
 }
+
+
+
 
 .something input {
   background-color: #8a8a8a69;
