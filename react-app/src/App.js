@@ -73,6 +73,9 @@ function App() {
             <RichText />
           </div>
         </ProtectedRoute>
+        <Route >
+          <p>404 not found</p>
+        </Route>
 
       </Switch>
     </BrowserRouter>

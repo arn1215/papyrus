@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import image from '../components/Papyrus-logos_transparent.png'
 import { useSelector } from 'react-redux';
+
+
 const NavBar = () => {
 
   const user = useSelector(state => state.session.user)
@@ -38,6 +40,7 @@ const NavBar = () => {
               </NavLink>
               <a className='' href="https://github.com/arn1215">Github</a>
               <a href="https://www.linkedin.com/in/ali-naqvi-251910226/">LinkedIn</a>
+            
               <LogoutButton />
             </div>
           </div>

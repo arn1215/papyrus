@@ -16,7 +16,10 @@ nav li button {
 
 }
 
-
+.background {
+  display: flex;
+  align-items: flex-end;
+}
 
 .nav-bar {
   display: flex;
@@ -361,10 +364,10 @@ input {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 290px;
+  margin-top: 100px;
   width: 400px;
   background: linear-gradient(20deg, #dfdfdf, #d4d4d4);
-  margin-left: 80vh;
+  margin-left: 720px;
   border-radius: 8px;
   padding: 50px 20px 30px;
   color: rgb(20, 20, 20);
@@ -551,8 +554,8 @@ img.demo-image  {
   width: 500px;
   border-radius: 9px;
   margin-top: 10px;
-
-
+ 
+  background-size: 370px;
 }
 
 .splash {
