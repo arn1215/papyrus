@@ -6,7 +6,7 @@ import BoardList from './BoardList';
 
 function BoardPage() {
   const [parent, setParent] = useState(null);
-  const draggable = (
+  const Draggable = (item) => (
     <BoardItem id="draggable" >
       <div style={{ cursor: 'pointer' }} className="nb-container">
         Go ahead, drag me.\\\\\\\\\\
@@ -14,26 +14,27 @@ function BoardPage() {
     </BoardItem>
   );
 
+
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <div style={{ display: "flex", width: '100%', height: '100%', justifyContent: 'space-around' }}>
         <Board id="todo" title="todo">
-          {parent === "todo" ? draggable : null}
+          {parent === "todo" ? <Draggable /> : null}
           <BoardList id="todoList" title={"To Do"} >
-            {!parent ? draggable : null}
-            {parent === "todoList" ? draggable : null}
+            {!parent ? <Draggable /> : null}
+            {parent === "todoList" ? <Draggable /> : null}
           </BoardList>
         </Board>
         <Board id="prog" title="prog">
-          {parent === "prog" ? draggable : null}
+          {parent === "prog" ? <Draggable /> : null}
           <BoardList id="progList" title={"In Progress"} >
-            {parent === "progList" ? draggable : null}
+            {parent === "progList" ? <Draggable /> : null}
           </BoardList>
         </Board>
         <Board id="done" title="done">
-          {parent === "done" ? draggable : null}
+          {parent === "done" ? <Draggable /> : null}
           <BoardList id="doneList" title={"Done"} >
-            {parent === "doneList" ? draggable : null}
+            {parent === "doneList" ? <Draggable /> : null}
           </BoardList>
         </Board>
       </div>

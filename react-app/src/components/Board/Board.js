@@ -10,7 +10,7 @@ const Board = (props) => {
 
   return (
     <div ref={setNodeRef} style={{ width: '100%', zIndex: 1, opacity: isOver ? .8 : 1, transition: 'all', transitionDuration: '200ms' }}>
-      {props.title}
+
       <div ref={animationParent}>
         {props.children}
 
