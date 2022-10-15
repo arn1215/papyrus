@@ -14,6 +14,8 @@ import NotebookBar from './components/NotebookBar/NotebookBar';
 import RichText from './components/RichText';
 import Nav2 from './components/nav2';
 import Draw from './components/Draw';
+import BoardList from './components/Board/BoardList';
+import BoardPage from './components/Board/BoardPage';
 
 
 function App() {
@@ -55,6 +57,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
+        </ProtectedRoute>
+        <ProtectedRoute path='/todo' exact={true} >
+          <BoardPage />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <NavBar />
