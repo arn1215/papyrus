@@ -36,7 +36,7 @@ const RichText = () => {
   const [canvas, setCanvas] = useState(false)
   const [img, setImg] = useState("")
 
-  
+
   const [input, setInput] = useState(false)
   const [value, setValue] = useState(note.title)
 
@@ -87,7 +87,7 @@ const RichText = () => {
       setErrors(data.errors);
       setShake('error')
       setTimeout(() => setShake(''), 2000)
-      
+
 
     } else {
 
@@ -115,21 +115,21 @@ const RichText = () => {
     if (!user) {
       history.push('/login')
     }
-    if (note?.content.startsWith("<img")){
+    if (note?.content.startsWith("<img")) {
       setCanvas(true)
     }
-    
-    const func = async() => {
-      await dispatch(getNote(params.id))
-      await setNb(`${singleNote?.notebookId}`)
-      await console.log(`${nb}`)
 
     const func = async () => {
       await dispatch(getNote(params.id))
       await setNb(`${singleNote?.notebookId}`)
+      await console.log(`${nb}`)
+
+      const func = async () => {
+        await dispatch(getNote(params.id))
+        await setNb(`${singleNote?.notebookId}`)
+      }
+      func()
     }
-    func()
-  }
   }, [])
 
 
@@ -147,8 +147,8 @@ const RichText = () => {
       <div className="title">
         {!input &&
           <>
-            <h3 className="title-info" style={{ marginTop: '7%' , marginLeft: "65px"}}>{note?.title}</h3>
-            <p  className="title-info-p" style={{ marginTop: '7%' , marginLeft: "65px", cursor:'pointer'}} onClick={() => setInput(true)}>edit</p>
+            <h3 className="title-info" style={{ marginTop: '7%', marginLeft: "65px" }}>{note?.title}</h3>
+            <p className="title-info-p" style={{ marginTop: '7%', marginLeft: "65px", cursor: 'pointer' }} onClick={() => setInput(true)}>edit</p>
           </>
         }
         {input &&
@@ -156,9 +156,9 @@ const RichText = () => {
             <form className="title-form" >
               <input className={`title-edit `} name="title" value={value} onChange={(e) => setValue(e.target.value)}></input>
 
-            <button className={`form-button ${shake} ${success}`} onClick={onTitle} >
-              <FaRegSave />
-            </button>
+              <button className={`form-button ${shake} ${success}`} onClick={onTitle} >
+                <FaRegSave />
+              </button>
             </form>
           </>
         }
@@ -168,22 +168,22 @@ const RichText = () => {
         <p className='backmsg' style={{ display: `${vis}` }}>Go back to your notebook</p>
       </div>
       {canvas &&
-        <Draw  note={note}/>
-        
+        <Draw note={note} />
+
       }
-      {!canvas && 
-      
-      <ReactQuill
-      style={{ width: '65%', height: '100%' }}
-      placeholder="Write a new note."
-      value={content}
-      onChange={handleContent}
-      />
+      {!canvas &&
+
+        <ReactQuill
+          style={{ width: '65%', height: '100%' }}
+          placeholder="Write a new note."
+          value={content}
+          onChange={handleContent}
+        />
       }
       <div className="buttons">
         <button className="save" onClick={onTheme}>toggle theme</button>
         {!canvas &&
-        <button className={`save ${shake} ${success}`} onClick={onClick}>save</button>}
+          <button className={`save ${shake} ${success}`} onClick={onClick}>save</button>}
 
         {<div style={{ marginTop: '20px', width: '150px' }} className='errormsg'>{errors}</div>}
         <button className='save red' onClick={toggle}>delete</button>
