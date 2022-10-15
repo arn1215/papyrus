@@ -14,7 +14,7 @@ import NotebookBar from './components/NotebookBar/NotebookBar';
 import RichText from './components/RichText';
 import Nav2 from './components/nav2';
 import Draw from './components/Draw';
-import BoardList from './components/Board/BoardList';
+import BoardList from './components/Board/Board';
 import BoardPage from './components/Board/BoardPage';
 
 

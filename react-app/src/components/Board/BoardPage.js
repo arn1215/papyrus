@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { DndContext } from '@dnd-kit/core';
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 import BoardItem from './BoardItem';
+import Board from './Board';
 import BoardList from './BoardList';
 
 function BoardPage() {
   const [parent, setParent] = useState(null);
-  const [animationParent] = useAutoAnimate()
   const draggable = (
     <BoardItem id="draggable" >
-      <div className='nb-container' style={{ cursor: 'pointer' }}>
+      <div style={{ cursor: 'pointer' }} className="nb-container">
         Go ahead, drag me.\\\\\\\\\\
       </div>
     </BoardItem>
@@ -17,17 +16,26 @@ function BoardPage() {
 
   return (
     <DndContext onDragEnd={handleDragEnd}>
-      <div style={{ display: "flex", width: '100%', height: '100%', justifyContent: 'space-around' }} ref={animationParent}>
-        <BoardList id="todo" title="todo">
-          {!parent ? draggable : null}
+      <div style={{ display: "flex", width: '100%', height: '100%', justifyContent: 'space-around' }}>
+        <Board id="todo" title="todo">
           {parent === "todo" ? draggable : null}
-        </BoardList>
-        <BoardList id="progress" title="in progress">
-          {parent === "progress" ? draggable : null}
-        </BoardList>
-        <BoardList id="done" title="done">
+          <BoardList id="todoList" title={"To Do"} >
+            {!parent ? draggable : null}
+            {parent === "todoList" ? draggable : null}
+          </BoardList>
+        </Board>
+        <Board id="prog" title="prog">
+          {parent === "prog" ? draggable : null}
+          <BoardList id="progList" title={"In Progress"} >
+            {parent === "progList" ? draggable : null}
+          </BoardList>
+        </Board>
+        <Board id="done" title="done">
           {parent === "done" ? draggable : null}
-        </BoardList>
+          <BoardList id="doneList" title={"Done"} >
+            {parent === "doneList" ? draggable : null}
+          </BoardList>
+        </Board>
       </div>
 
 
