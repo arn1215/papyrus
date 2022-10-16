@@ -16,7 +16,7 @@ import Nav2 from './components/nav2';
 import Draw from './components/Draw';
 import BoardList from './components/Board/Board';
 import BoardPage from './components/Board/BoardPage';
-
+import Main from './components/Kanban/main';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -59,7 +59,7 @@ function App() {
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/todo' exact={true} >
-          <BoardPage />
+          <Main />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <NavBar />
