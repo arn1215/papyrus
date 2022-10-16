@@ -48,6 +48,27 @@ def upgrade():
     sa.ForeignKeyConstraint(['noteId'], ['notes.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('boards',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('userId', sa.Integer(), nullable=False),
+    sa.Column('title', sa.String(length=255), nullable=False),
+    sa.Column('createdAt', sa.DateTime(), nullable=False),
+    sa.Column('updatedAt', sa.DateTime(), nullable=False),
+    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('cards',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('userId', sa.Integer(), nullable=False),
+    sa.Column('title', sa.String(length=255), nullable=True),
+    sa.Column('content',  sa.Text(), nullable=False),
+    sa.Column('boardId', sa.Integer(), nullable=False),
+    sa.Column('createdAt', sa.DateTime(), nullable=False),
+    sa.Column('updatedAt', sa.DateTime(), nullable=False),
+    sa.ForeignKeyConstraint(['boardId'], ['boards.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
+    
     # ### end Alembic commands ###
 
 
@@ -56,4 +77,6 @@ def downgrade():
     op.drop_table('Tags')
     op.drop_table('notes')
     op.drop_table('notebooks')
+    op.drop_table('boards')
+    op.drop_table('cards')
     # ### end Alembic commands ###
