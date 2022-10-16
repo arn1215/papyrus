@@ -11,6 +11,7 @@ const containerStyle = {
 
   padding: 10,
   margin: 10,
+  maxHeight: "50%",
   flex: 1
 };
 
@@ -28,6 +29,7 @@ export default function Container(props) {
       strategy={verticalListSortingStrategy}
     >
       <div ref={setNodeRef} style={containerStyle} className="notebook-bar">
+        {props.title}
         {items.map((id) => (
           <SortableItem key={id} id={id} />
         ))}

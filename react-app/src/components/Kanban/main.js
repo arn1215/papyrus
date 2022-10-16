@@ -49,10 +49,10 @@ const defaultAnnouncements = {
 
 export default function Main() {
   const [items, setItems] = useState({
-    root: ["1", "2", "3"],
+    root: ["1laksdjfl;asdjf;laksdjf;lkasdfsdfsfd", "2", "3"],
     container1: ["4", "5", "6"],
     container2: ["7", "8", "9"],
-    container3: []
+
   });
   const [activeId, setActiveId] = useState();
 
@@ -73,10 +73,10 @@ export default function Main() {
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
-        <Container id="root" items={items.root} />
-        <Container id="container1" items={items.container1} />
-        <Container id="container2" items={items.container2} />
-        <Container id="container3" items={items.container3} />
+        <Container title={"To do"} id="root" items={items.root} />
+        <Container title={"In Progress"} id="container1" items={items.container1} />
+        <Container title={"Done"} id="container2" items={items.container2} />
+
         <DragOverlay>{activeId ? <Item id={activeId} /> : null}</DragOverlay>
       </DndContext>
     </div>

@@ -8,7 +8,7 @@ function BoardPage() {
   return (
     <DndContext>
       <SortableContext items={items}>
-        <div>hi</div>
+
       </SortableContext>
     </DndContext>
   );
