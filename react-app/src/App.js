@@ -58,7 +58,7 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path='/todo' exact={true} >
+        <ProtectedRoute path='/boards/:board_id(\d{0,4})' exact={true}>
           <Main />
         </ProtectedRoute>
         <Route path='/' exact={true} >

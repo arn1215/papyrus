@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import NoteReducer from './note';
+import BoardReducer from './board';
 import NotebookReducer from './notebook';
 import session from './session'
 
@@ -10,7 +11,8 @@ import storage from 'redux-persist/lib/storage'
 const rootReducer = combineReducers({
   session,
   notes: NoteReducer,
-  notebooks: NotebookReducer
+  notebooks: NotebookReducer,
+  boards: BoardReducer
 });
 
 const persistConfig = {
@@ -37,4 +39,4 @@ const persistor = persistStore(store)
 
 
 export default store;
-export {persistor}
+export { persistor }

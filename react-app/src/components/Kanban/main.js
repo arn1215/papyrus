@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   DndContext,
   DragOverlay,
@@ -9,9 +9,12 @@ import {
   useSensors
 } from "@dnd-kit/core";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
-
+import { useSelector, useDispatch } from 'react-redux'
 import Container from "./container";
 import { Item } from "./sortable_item";
+import { getboard } from "../../store/board";
+
+
 
 const wrapperStyle = {
   display: "flex",
@@ -48,8 +51,9 @@ const defaultAnnouncements = {
 };
 
 export default function Main() {
+  const board = useSelector(state => state.boards)
   const [items, setItems] = useState({
-    root: ["1laksdjfl;asdjf;laksdjf;lkasdfsdfsfd", "2", "3"],
+    root: [board.board.cards[0].content, "2", "3"],
     container1: ["4", "5", "6"],
     container2: ["7", "8", "9"],
 
@@ -62,6 +66,12 @@ export default function Main() {
       coordinateGetter: sortableKeyboardCoordinates
     })
   );
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getboard(2))
+  }, [])
 
   return (
     <div style={wrapperStyle}>

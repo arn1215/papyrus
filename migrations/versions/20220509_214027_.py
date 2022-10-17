@@ -5,6 +5,7 @@ Revises: ffdc0a98111c
 Create Date: 2022-05-09 21:40:27.822005
 
 """
+from email.policy import default
 from alembic import op
 import sqlalchemy as sa
 
@@ -65,6 +66,7 @@ def upgrade():
     sa.Column('boardId', sa.Integer(), nullable=False),
     sa.Column('createdAt', sa.DateTime(), nullable=False),
     sa.Column('updatedAt', sa.DateTime(), nullable=False),
+    sa.Column('parent', sa.Integer(), nullable=False, default=1),
     sa.ForeignKeyConstraint(['boardId'], ['boards.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
