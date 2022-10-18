@@ -52,10 +52,28 @@ const defaultAnnouncements = {
 
 export default function Main() {
   const board = useSelector(state => state.boards)
+
+  const rootItems = []
+  const cont1 = []
+  const cont2 = []
+
+  useEffect(() => {
+    dispatch(getboard(2))
+    board.board?.cards?.forEach(card => {
+      if (card.parent === 1) {
+        rootItems.push(card.content)
+      } else if (card.parent === 2) {
+        cont1.push(card.content)
+      } else if (card.parent === 3) {
+        cont2.push(card.content)
+      }
+
+    })
+  }, [])
   const [items, setItems] = useState({
-    root: [board.board.cards[0].content, "2", "3"],
-    container1: ["4", "5", "6"],
-    container2: ["7", "8", "9"],
+    root: rootItems,
+    container1: cont1,
+    container2: cont2,
 
   });
   const [activeId, setActiveId] = useState();
@@ -68,10 +86,6 @@ export default function Main() {
   );
 
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getboard(2))
-  }, [])
 
   return (
     <div style={wrapperStyle}>
@@ -165,6 +179,8 @@ export default function Main() {
     const { active, over } = event;
     const { id } = active;
     const { id: overId } = over;
+
+
 
     const activeContainer = findContainer(id);
     const overContainer = findContainer(overId);

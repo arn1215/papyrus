@@ -22,6 +22,8 @@ export default function Container(props) {
     id
   });
 
+
+
   return (
     <SortableContext
       id={id}
@@ -30,6 +32,7 @@ export default function Container(props) {
     >
       <div ref={setNodeRef} style={containerStyle} className="notebook-bar">
         {props.title}
+        <button>create new</button>
         {items.map((id) => (
           <SortableItem key={id} id={id} />
         ))}

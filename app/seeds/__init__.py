@@ -1,6 +1,6 @@
 from flask.cli import AppGroup
 
-from app.seeds.boards import seed_boards, undo_boards
+from .boards import seed_boards, undo_boards
 from .users import seed_users, undo_users
 from .notes import seed_notes, undo_notes
 from .notebooks import seed_notebooks, undo_notebooks
